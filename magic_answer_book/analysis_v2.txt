@@ -1,0 +1,12 @@
+﻿Analyzing magic_answer_book...                                  
+
+warning - The value of the local variable 'locale' isn't used - lib\screens\home_screen.dart:145:11 - unused_local_variable
+   info - Use 'const' with the constructor to improve performance - lib\screens\intro_screen.dart:189:33 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance - lib\screens\intro_screen.dart:191:42 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance - lib\screens\result_screen.dart:181:38 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance - lib\screens\saved_screen.dart:248:28 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance - lib\screens\saved_screen.dart:282:24 - prefer_const_constructors
+   info - The private field _retryCount could be 'final' - lib\services\ads_service.dart:7:7 - prefer_final_fields
+warning - The value of the field '_retryCount' isn't used - lib\services\ads_service.dart:7:7 - unused_field
+   info - Statements in an if should be enclosed in a block - lib\theme\app_theme.dart:98:13 - curly_braces_in_flow_control_structures
+

@@ -1,0 +1,44 @@
+> Task :gradle:compileJava NO-SOURCE
+> Task :gradle:compileGroovy UP-TO-DATE
+> Task :gradle:pluginDescriptors UP-TO-DATE
+> Task :gradle:processResources UP-TO-DATE
+> Task :gradle:classes UP-TO-DATE
+> Task :gradle:jar UP-TO-DATE
+
+> Configure project :share_plus
+One or more plugins require a higher Android NDK version.
+Fix this issue by adding the following to C:\Users\qkrtj\magic\magic_answer_book\android\app\build.gradle:
+android {
+  ndkVersion "25.1.8937393"
+  ...
+}
+
+
+> Task :app:preBuild UP-TO-DATE
+> Task :app:preDebugBuild UP-TO-DATE
+> Task :app:mergeDebugNativeDebugMetadata NO-SOURCE
+> Task :app:checkKotlinGradlePluginConfigurationErrors
+
+> Task :app:compileFlutterBuildDebug
+lib/theme/app_theme.dart:60:18: Error: Method not found: 'CardThemeData'.
+      cardTheme: CardThemeData(
+                 ^^^^^^^^^^^^^
+Target kernel_snapshot failed: Exception
+
+
+> Task :app:compileFlutterBuildDebug FAILED
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':app:compileFlutterBuildDebug'.
+> Process 'command 'C:\src\flutter\bin\flutter.bat'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 10s
+6 actionable tasks: 2 executed, 4 up-to-date

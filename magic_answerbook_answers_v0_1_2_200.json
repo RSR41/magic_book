@@ -1,0 +1,3006 @@
+{
+  "version": "0.1.2",
+  "total": 200,
+  "answers": [
+    {
+      "id": "A0001",
+      "tags": [
+        "go",
+        "meme"
+      ],
+      "text": {
+        "ko": "지금이 기회야. 잡아.",
+        "en": "Now’s your chance—take it."
+      },
+      "subtext": {
+        "ko": "딱 한 번만 더 용기.",
+        "en": "One more ounce of courage."
+      }
+    },
+    {
+      "id": "A0002",
+      "tags": [
+        "wait",
+        "calm"
+      ],
+      "text": {
+        "ko": "오늘은 잠깐 멈춤.",
+        "en": "Pause for today."
+      },
+      "subtext": {
+        "ko": "멈추면 오히려 빨라져.",
+        "en": "Pausing can speed you up."
+      }
+    },
+    {
+      "id": "A0003",
+      "tags": [
+        "no",
+        "boundary"
+      ],
+      "text": {
+        "ko": "그건 네 선을 넘었어.",
+        "en": "That crossed your boundary."
+      },
+      "subtext": {
+        "ko": "거리 두는 게 정답.",
+        "en": "Distance is the answer."
+      }
+    },
+    {
+      "id": "A0004",
+      "tags": [
+        "selfcare",
+        "meme"
+      ],
+      "text": {
+        "ko": "물 한 잔이면 반은 해결.",
+        "en": "A glass of water solves half."
+      },
+      "subtext": {
+        "ko": "뇌부터 깨우자.",
+        "en": "Wake your brain first."
+      }
+    },
+    {
+      "id": "A0005",
+      "tags": [
+        "decision",
+        "calm"
+      ],
+      "text": {
+        "ko": "편해지는 쪽이 맞아.",
+        "en": "Choose what brings peace."
+      },
+      "subtext": {
+        "ko": "몸이 먼저 안다.",
+        "en": "Your body knows first."
+      }
+    },
+    {
+      "id": "A0006",
+      "tags": [
+        "go",
+        "courage"
+      ],
+      "text": {
+        "ko": "작게 시작해도 돼.",
+        "en": "Start small. It counts."
+      },
+      "subtext": {
+        "ko": "0→1이 전부야.",
+        "en": "0→1 is everything."
+      }
+    },
+    {
+      "id": "A0007",
+      "tags": [
+        "wait",
+        "focus"
+      ],
+      "text": {
+        "ko": "지금은 정리 타임.",
+        "en": "It’s a cleanup moment."
+      },
+      "subtext": {
+        "ko": "정리하면 길이 보여.",
+        "en": "Clarity reveals the path."
+      }
+    },
+    {
+      "id": "A0008",
+      "tags": [
+        "relationship",
+        "soft"
+      ],
+      "text": {
+        "ko": "한 톤만 더 부드럽게.",
+        "en": "Just one tone softer."
+      },
+      "subtext": {
+        "ko": "진심은 톤에 실려.",
+        "en": "Tone carries intent."
+      }
+    },
+    {
+      "id": "A0009",
+      "tags": [
+        "decision",
+        "meme"
+      ],
+      "text": {
+        "ko": "둘 다 끌리면 보류.",
+        "en": "If both pull you, pause."
+      },
+      "subtext": {
+        "ko": "급할수록 천천히.",
+        "en": "Slower when it’s urgent."
+      }
+    },
+    {
+      "id": "A0010",
+      "tags": [
+        "no",
+        "focus"
+      ],
+      "text": {
+        "ko": "그건 에너지 낭비.",
+        "en": "That’s an energy leak."
+      },
+      "subtext": {
+        "ko": "아껴 써, 너를.",
+        "en": "Save it—for you."
+      }
+    },
+    {
+      "id": "A0011",
+      "tags": [
+        "selfcare",
+        "calm"
+      ],
+      "text": {
+        "ko": "잠이 답일 때가 있어.",
+        "en": "Sometimes sleep is the answer."
+      },
+      "subtext": {
+        "ko": "피곤하면 판단이 흐려져.",
+        "en": "Fatigue blurs judgment."
+      }
+    },
+    {
+      "id": "A0012",
+      "tags": [
+        "go",
+        "work"
+      ],
+      "text": {
+        "ko": "오늘 10분이면 승리.",
+        "en": "Ten minutes today is a win."
+      },
+      "subtext": {
+        "ko": "작은 성취가 흐름.",
+        "en": "Small wins build flow."
+      }
+    },
+    {
+      "id": "A0013",
+      "tags": [
+        "wait",
+        "calm"
+      ],
+      "text": {
+        "ko": "지금은 관망이 이득.",
+        "en": "Observing pays right now."
+      },
+      "subtext": {
+        "ko": "한 번 더 보고 가.",
+        "en": "Look once more."
+      }
+    },
+    {
+      "id": "A0014",
+      "tags": [
+        "go",
+        "meme"
+      ],
+      "text": {
+        "ko": "ㄱㄱ. 근데 무리 금지.",
+        "en": "Go—just don’t overdo it."
+      },
+      "subtext": {
+        "ko": "속도보다 방향.",
+        "en": "Direction over speed."
+      }
+    },
+    {
+      "id": "A0015",
+      "tags": [
+        "relationship",
+        "boundary"
+      ],
+      "text": {
+        "ko": "상대 반응 말고 네 기준.",
+        "en": "Your standards > their reaction."
+      },
+      "subtext": {
+        "ko": "네가 너 편이 돼.",
+        "en": "Be on your side."
+      }
+    },
+    {
+      "id": "A0016",
+      "tags": [
+        "decision",
+        "focus"
+      ],
+      "text": {
+        "ko": "한 번만 더 확인하고 결정.",
+        "en": "Verify once, then decide."
+      },
+      "subtext": {
+        "ko": "확인이 후회를 줄여.",
+        "en": "Checking cuts regret."
+      }
+    },
+    {
+      "id": "A0017",
+      "tags": [
+        "go",
+        "calm"
+      ],
+      "text": {
+        "ko": "오늘 분위기, 너 편.",
+        "en": "Today’s vibe is with you."
+      },
+      "subtext": {
+        "ko": "밀어도 괜찮아.",
+        "en": "You can push."
+      }
+    },
+    {
+      "id": "A0018",
+      "tags": [
+        "no",
+        "risk"
+      ],
+      "text": {
+        "ko": "리스크가 더 커 보여.",
+        "en": "Risk looks bigger than reward."
+      },
+      "subtext": {
+        "ko": "지금은 패스가 낫다.",
+        "en": "Skipping is smarter now."
+      }
+    },
+    {
+      "id": "A0019",
+      "tags": [
+        "selfcare",
+        "meme"
+      ],
+      "text": {
+        "ko": "밥 먹고 다시 생각.",
+        "en": "Eat first, rethink later."
+      },
+      "subtext": {
+        "ko": "저혈당은 적이다.",
+        "en": "Low energy is the enemy."
+      }
+    },
+    {
+      "id": "A0020",
+      "tags": [
+        "decision",
+        "calm"
+      ],
+      "text": {
+        "ko": "지금은 ‘안정’이 우선.",
+        "en": "Stability comes first."
+      },
+      "subtext": {
+        "ko": "흔들리면 멈춰.",
+        "en": "If you shake, stop."
+      }
+    },
+    {
+      "id": "A0021",
+      "tags": [
+        "go",
+        "focus"
+      ],
+      "text": {
+        "ko": "핵심만 치고 나가.",
+        "en": "Hit the core and go."
+      },
+      "subtext": {
+        "ko": "부수적인 건 버려.",
+        "en": "Drop the extra."
+      }
+    },
+    {
+      "id": "A0022",
+      "tags": [
+        "wait",
+        "calm"
+      ],
+      "text": {
+        "ko": "내일의 네가 더 똑똑해.",
+        "en": "Tomorrow-you is wiser."
+      },
+      "subtext": {
+        "ko": "하룻밤만 더.",
+        "en": "One more night."
+      }
+    },
+    {
+      "id": "A0023",
+      "tags": [
+        "no",
+        "boundary"
+      ],
+      "text": {
+        "ko": "좋은 사람이어도 NO는 가능.",
+        "en": "Even good people get a no."
+      },
+      "subtext": {
+        "ko": "거절은 예의가 될 때도.",
+        "en": "No can be respectful."
+      }
+    },
+    {
+      "id": "A0024",
+      "tags": [
+        "relationship",
+        "calm"
+      ],
+      "text": {
+        "ko": "지금은 대화보다 휴식.",
+        "en": "Rest before talking."
+      },
+      "subtext": {
+        "ko": "감정 온도 내려.",
+        "en": "Lower the emotional heat."
+      }
+    },
+    {
+      "id": "A0025",
+      "tags": [
+        "selfcare",
+        "focus"
+      ],
+      "text": {
+        "ko": "핸드폰 내려놓고 숨.",
+        "en": "Put the phone down. Breathe."
+      },
+      "subtext": {
+        "ko": "10초만 천천히.",
+        "en": "Ten slow seconds."
+      }
+    },
+    {
+      "id": "A0026",
+      "tags": [
+        "decision",
+        "meme"
+      ],
+      "text": {
+        "ko": "뇌: 고민 / 마음: 이미 결정.",
+        "en": "Brain worries; heart decided."
+      },
+      "subtext": {
+        "ko": "솔직히 알고 있지?",
+        "en": "You already know."
+      }
+    },
+    {
+      "id": "A0027",
+      "tags": [
+        "go",
+        "courage"
+      ],
+      "text": {
+        "ko": "불안해도 해볼 만해.",
+        "en": "Worth trying, even anxious."
+      },
+      "subtext": {
+        "ko": "불안=성장 신호.",
+        "en": "Anxiety can mean growth."
+      }
+    },
+    {
+      "id": "A0028",
+      "tags": [
+        "wait",
+        "focus"
+      ],
+      "text": {
+        "ko": "지금은 준비가 이긴다.",
+        "en": "Preparation wins right now."
+      },
+      "subtext": {
+        "ko": "기반이 먼저야.",
+        "en": "Foundation first."
+      }
+    },
+    {
+      "id": "A0029",
+      "tags": [
+        "no",
+        "calm"
+      ],
+      "text": {
+        "ko": "지금은 끊어야 편해.",
+        "en": "Cut it to feel lighter."
+      },
+      "subtext": {
+        "ko": "미련은 비용이야.",
+        "en": "Lingering is a cost."
+      }
+    },
+    {
+      "id": "A0030",
+      "tags": [
+        "go",
+        "meme"
+      ],
+      "text": {
+        "ko": "오늘은 ‘되겠는데?’ 날.",
+        "en": "Today feels like ‘it works’."
+      },
+      "subtext": {
+        "ko": "한 번 질러봐.",
+        "en": "Take the shot."
+      }
+    },
+    {
+      "id": "A0031",
+      "tags": [
+        "decision",
+        "focus"
+      ],
+      "text": {
+        "ko": "하나만 고르면 쉬워져.",
+        "en": "Pick one, it gets easier."
+      },
+      "subtext": {
+        "ko": "선택은 줄일수록 강해.",
+        "en": "Fewer choices, stronger you."
+      }
+    },
+    {
+      "id": "A0032",
+      "tags": [
+        "selfcare",
+        "calm"
+      ],
+      "text": {
+        "ko": "산책 5분이면 리셋.",
+        "en": "Five minutes walking resets."
+      },
+      "subtext": {
+        "ko": "몸이 풀리면 답도 풀려.",
+        "en": "When body loosens, answers follow."
+      }
+    },
+    {
+      "id": "A0033",
+      "tags": [
+        "relationship",
+        "soft"
+      ],
+      "text": {
+        "ko": "기대치부터 맞춰.",
+        "en": "Align expectations first."
+      },
+      "subtext": {
+        "ko": "오해가 줄어든다.",
+        "en": "Misunderstandings shrink."
+      }
+    },
+    {
+      "id": "A0034",
+      "tags": [
+        "wait",
+        "calm"
+      ],
+      "text": {
+        "ko": "지금은 ‘타이밍’이 아니다.",
+        "en": "Timing isn’t right yet."
+      },
+      "subtext": {
+        "ko": "기다리면 더 좋아져.",
+        "en": "Waiting can improve it."
+      }
+    },
+    {
+      "id": "A0035",
+      "tags": [
+        "go",
+        "work"
+      ],
+      "text": {
+        "ko": "오늘 할 일은 오늘 끝.",
+        "en": "Finish today’s task today."
+      },
+      "subtext": {
+        "ko": "미루면 두 배로 온다.",
+        "en": "Delay doubles the burden."
+      }
+    },
+    {
+      "id": "A0036",
+      "tags": [
+        "no",
+        "focus"
+      ],
+      "text": {
+        "ko": "그건 네 우선순위 아냐.",
+        "en": "That isn’t your priority."
+      },
+      "subtext": {
+        "ko": "남의 급함에 휘말리지 마.",
+        "en": "Don’t get pulled by others’ urgency."
+      }
+    },
+    {
+      "id": "A0037",
+      "tags": [
+        "decision",
+        "calm"
+      ],
+      "text": {
+        "ko": "가장 단순한 답이 정답.",
+        "en": "The simplest answer is it."
+      },
+      "subtext": {
+        "ko": "복잡하면 한 번 줄여.",
+        "en": "If it’s complex, simplify once."
+      }
+    },
+    {
+      "id": "A0038",
+      "tags": [
+        "selfcare",
+        "meme"
+      ],
+      "text": {
+        "ko": "커피 말고 물+잠.",
+        "en": "Water + sleep, not coffee."
+      },
+      "subtext": {
+        "ko": "연료가 필요해.",
+        "en": "You need fuel."
+      }
+    },
+    {
+      "id": "A0039",
+      "tags": [
+        "go",
+        "courage"
+      ],
+      "text": {
+        "ko": "망설임은 이미 시작했다는 뜻.",
+        "en": "Hesitation means you started."
+      },
+      "subtext": {
+        "ko": "한 발만 더.",
+        "en": "One more step."
+      }
+    },
+    {
+      "id": "A0040",
+      "tags": [
+        "wait",
+        "focus"
+      ],
+      "text": {
+        "ko": "지금은 자료가 부족해.",
+        "en": "You lack info right now."
+      },
+      "subtext": {
+        "ko": "정보 1개만 더 모아.",
+        "en": "Gather one more fact."
+      }
+    },
+    {
+      "id": "A0041",
+      "tags": [
+        "relationship",
+        "calm"
+      ],
+      "text": {
+        "ko": "답장 속도가 마음은 아냐.",
+        "en": "Reply speed isn’t the heart."
+      },
+      "subtext": {
+        "ko": "해석 말고 확인.",
+        "en": "Verify, don’t assume."
+      }
+    },
+    {
+      "id": "A0042",
+      "tags": [
+        "no",
+        "calm"
+      ],
+      "text": {
+        "ko": "그건 네가 지킬 몫이 아냐.",
+        "en": "That isn’t yours to carry."
+      },
+      "subtext": {
+        "ko": "내려놔도 된다.",
+        "en": "You can put it down."
+      }
+    },
+    {
+      "id": "A0043",
+      "tags": [
+        "go",
+        "meme"
+      ],
+      "text": {
+        "ko": "오늘은 운이 ‘살짝’ 붙어.",
+        "en": "Luck’s lightly on you today."
+      },
+      "subtext": {
+        "ko": "그 흐름 타자.",
+        "en": "Ride the flow."
+      }
+    },
+    {
+      "id": "A0044",
+      "tags": [
+        "decision",
+        "focus"
+      ],
+      "text": {
+        "ko": "후회 덜 하는 쪽으로.",
+        "en": "Choose the less-regret path."
+      },
+      "subtext": {
+        "ko": "미래의 너를 생각해.",
+        "en": "Think of future-you."
+      }
+    },
+    {
+      "id": "A0045",
+      "tags": [
+        "selfcare",
+        "calm"
+      ],
+      "text": {
+        "ko": "씻고 나오면 답이 보인다.",
+        "en": "Shower—answers appear."
+      },
+      "subtext": {
+        "ko": "머리가 맑아져.",
+        "en": "Your head clears up."
+      }
+    },
+    {
+      "id": "A0046",
+      "tags": [
+        "go",
+        "focus"
+      ],
+      "text": {
+        "ko": "완벽 말고 완료.",
+        "en": "Done beats perfect."
+      },
+      "subtext": {
+        "ko": "완료가 다음을 연다.",
+        "en": "Completion opens the next."
+      }
+    },
+    {
+      "id": "A0047",
+      "tags": [
+        "wait",
+        "calm"
+      ],
+      "text": {
+        "ko": "지금은 쉬어야 이겨.",
+        "en": "Rest to win this one."
+      },
+      "subtext": {
+        "ko": "회복이 전략.",
+        "en": "Recovery is strategy."
+      }
+    },
+    {
+      "id": "A0048",
+      "tags": [
+        "no",
+        "boundary"
+      ],
+      "text": {
+        "ko": "정중하게, 단호하게.",
+        "en": "Polite, but firm."
+      },
+      "subtext": {
+        "ko": "부드러운 거절이 최고.",
+        "en": "Soft refusal, strong boundary."
+      }
+    },
+    {
+      "id": "A0049",
+      "tags": [
+        "relationship",
+        "soft"
+      ],
+      "text": {
+        "ko": "칭찬 한 번이 흐름을 바꿔.",
+        "en": "One compliment shifts the flow."
+      },
+      "subtext": {
+        "ko": "먼저 따뜻하게 시작해.",
+        "en": "Start warm."
+      }
+    },
+    {
+      "id": "A0050",
+      "tags": [
+        "decision",
+        "calm"
+      ],
+      "text": {
+        "ko": "답은 밖이 아니라 안에.",
+        "en": "The answer is inside."
+      },
+      "subtext": {
+        "ko": "너의 기준으로.",
+        "en": "By your standard."
+      }
+    },
+    {
+      "id": "A0051",
+      "tags": [
+        "go",
+        "courage"
+      ],
+      "text": {
+        "ko": "한 번 부딪혀도 괜찮아.",
+        "en": "It’s okay to bump once."
+      },
+      "subtext": {
+        "ko": "경험치가 된다.",
+        "en": "It becomes XP."
+      }
+    },
+    {
+      "id": "A0052",
+      "tags": [
+        "wait",
+        "focus"
+      ],
+      "text": {
+        "ko": "아직 ‘때’가 안 찼어.",
+        "en": "It’s not ripe yet."
+      },
+      "subtext": {
+        "ko": "조금만 더 숙성.",
+        "en": "Let it mature a bit."
+      }
+    },
+    {
+      "id": "A0053",
+      "tags": [
+        "selfcare",
+        "meme"
+      ],
+      "text": {
+        "ko": "오늘은 ‘나’부터 챙겨.",
+        "en": "Today, prioritize you."
+      },
+      "subtext": {
+        "ko": "이기적인 게 아니라 생존.",
+        "en": "Not selfish—survival."
+      }
+    },
+    {
+      "id": "A0054",
+      "tags": [
+        "decision",
+        "focus"
+      ],
+      "text": {
+        "ko": "한 문장으로 정리해봐.",
+        "en": "Summarize in one sentence."
+      },
+      "subtext": {
+        "ko": "정리되면 결정된다.",
+        "en": "Clarity decides."
+      }
+    },
+    {
+      "id": "A0055",
+      "tags": [
+        "go",
+        "meme"
+      ],
+      "text": {
+        "ko": "될 사람은 오늘도 한다.",
+        "en": "Winners show up today."
+      },
+      "subtext": {
+        "ko": "너도 그쪽.",
+        "en": "You’re on that side."
+      }
+    },
+    {
+      "id": "A0056",
+      "tags": [
+        "go",
+        "decision"
+      ],
+      "text": {
+        "ko": "결정은 빠를수록 가벼워.",
+        "en": "A quick decision feels lighter."
+      },
+      "subtext": {
+        "ko": "고민은 무게를 만든다.",
+        "en": "Overthinking adds weight."
+      }
+    },
+    {
+      "id": "A0057",
+      "tags": [
+        "wait",
+        "calm"
+      ],
+      "text": {
+        "ko": "오늘은 ‘보류’가 정답.",
+        "en": "Deferring is the answer today."
+      },
+      "subtext": {
+        "ko": "급하면 더 미뤄봐.",
+        "en": "If rushed, delay a bit."
+      }
+    },
+    {
+      "id": "A0058",
+      "tags": [
+        "selfcare",
+        "focus"
+      ],
+      "text": {
+        "ko": "정리 3분이면 마음이 풀려.",
+        "en": "Three minutes tidying helps."
+      },
+      "subtext": {
+        "ko": "환경이 감정을 잡아줘.",
+        "en": "Your space shapes your mood."
+      }
+    },
+    {
+      "id": "A0059",
+      "tags": [
+        "no",
+        "meme"
+      ],
+      "text": {
+        "ko": "그건 ‘나중의 나’에게 넘기지 마.",
+        "en": "Don’t dump it on future-you."
+      },
+      "subtext": {
+        "ko": "지금 끊어야 편해.",
+        "en": "Cut it now to feel free."
+      }
+    },
+    {
+      "id": "A0060",
+      "tags": [
+        "relationship",
+        "decision"
+      ],
+      "text": {
+        "ko": "대답이 애매하면 답은 아니다.",
+        "en": "If it’s vague, it’s a no."
+      },
+      "subtext": {
+        "ko": "선명한 선택을 해.",
+        "en": "Choose what’s clear."
+      }
+    },
+    {
+      "id": "A0061",
+      "tags": [
+        "go",
+        "work"
+      ],
+      "text": {
+        "ko": "지금 안 하면 내일도 안 해.",
+        "en": "If not now, not tomorrow."
+      },
+      "subtext": {
+        "ko": "미래의 너는 더 바빠.",
+        "en": "Future-you is busier."
+      }
+    },
+    {
+      "id": "A0062",
+      "tags": [
+        "wait",
+        "calm"
+      ],
+      "text": {
+        "ko": "서두르면 놓친다.",
+        "en": "Rush, and you'll miss it."
+      },
+      "subtext": {
+        "ko": "차분하게 한 번 더.",
+        "en": "Calm down, try again."
+      }
+    },
+    {
+      "id": "A0063",
+      "tags": [
+        "selfcare",
+        "focus"
+      ],
+      "text": {
+        "ko": "책상 정리 5분이 집중 2시간.",
+        "en": "5 minutes tidying = 2 hours focus."
+      },
+      "subtext": {
+        "ko": "환경이 머리를 깨운다.",
+        "en": "Space wakes your brain."
+      }
+    },
+    {
+      "id": "A0064",
+      "tags": [
+        "no",
+        "boundary"
+      ],
+      "text": {
+        "ko": "그건 네 몫이 아니야.",
+        "en": "That's not your job."
+      },
+      "subtext": {
+        "ko": "경계를 긋자.",
+        "en": "Draw the line."
+      }
+    },
+    {
+      "id": "A0065",
+      "tags": [
+        "decision",
+        "meme"
+      ],
+      "text": {
+        "ko": "둘 다 별로면 제3의 선택.",
+        "en": "If both are meh, find option C."
+      },
+      "subtext": {
+        "ko": "창의력 발휘 타임.",
+        "en": "Time to get creative."
+      }
+    },
+    {
+      "id": "A0066",
+      "tags": [
+        "go",
+        "courage"
+      ],
+      "text": {
+        "ko": "첫 한 발이 제일 무겁다.",
+        "en": "The first step is heaviest."
+      },
+      "subtext": {
+        "ko": "그 다음은 가볍다.",
+        "en": "Then it gets lighter."
+      }
+    },
+    {
+      "id": "A0067",
+      "tags": [
+        "relationship",
+        "soft"
+      ],
+      "text": {
+        "ko": "오해 풀 땐 얼굴 보고.",
+        "en": "Clear misunderstandings face-to-face."
+      },
+      "subtext": {
+        "ko": "텍스트는 감정이 빠진다.",
+        "en": "Text loses emotion."
+      }
+    },
+    {
+      "id": "A0068",
+      "tags": [
+        "wait",
+        "focus"
+      ],
+      "text": {
+        "ko": "지금은 '스킬업' 타이밍.",
+        "en": "Now's skill-up time."
+      },
+      "subtext": {
+        "ko": "배우면서 기다려.",
+        "en": "Learn while you wait."
+      }
+    },
+    {
+      "id": "A0069",
+      "tags": [
+        "selfcare",
+        "meme"
+      ],
+      "text": {
+        "ko": "오늘은 '힐링'이 정답.",
+        "en": "Today, healing is the answer."
+      },
+      "subtext": {
+        "ko": "달리기만 하면 터진다.",
+        "en": "Constant running breaks you."
+      }
+    },
+    {
+      "id": "A0070",
+      "tags": [
+        "go",
+        "work"
+      ],
+      "text": {
+        "ko": "1시간 집중이 8시간 잡무 이긴다.",
+        "en": "1 hour focused beats 8 hours busy."
+      },
+      "subtext": {
+        "ko": "질이 양을 이긴다.",
+        "en": "Quality beats quantity."
+      }
+    },
+    {
+      "id": "A0071",
+      "tags": [
+        "no",
+        "calm"
+      ],
+      "text": {
+        "ko": "네가 다 책임질 필요 없어.",
+        "en": "You don't have to fix everything."
+      },
+      "subtext": {
+        "ko": "각자 몫이 있다.",
+        "en": "Everyone has their part."
+      }
+    },
+    {
+      "id": "A0072",
+      "tags": [
+        "decision",
+        "focus"
+      ],
+      "text": {
+        "ko": "고민 길어지면 일단 멈춤.",
+        "en": "Overthinking? Pause."
+      },
+      "subtext": {
+        "ko": "신호가 필요해.",
+        "en": "You need a signal."
+      }
+    },
+    {
+      "id": "A0073",
+      "tags": [
+        "relationship",
+        "calm"
+      ],
+      "text": {
+        "ko": "상대 입장에서 한 번만 더.",
+        "en": "See it from their side once more."
+      },
+      "subtext": {
+        "ko": "공감이 해법.",
+        "en": "Empathy is key."
+      }
+    },
+    {
+      "id": "A0074",
+      "tags": [
+        "go",
+        "meme"
+      ],
+      "text": {
+        "ko": "지금 안 누르면 다음엔 없어.",
+        "en": "Click now or lose the chance."
+      },
+      "subtext": {
+        "ko": "기회는 한정판.",
+        "en": "Chances are limited."
+      }
+    },
+    {
+      "id": "A0075",
+      "tags": [
+        "wait",
+        "calm"
+      ],
+      "text": {
+        "ko": "오늘은 '관찰자 모드'.",
+        "en": "Observer mode today."
+      },
+      "subtext": {
+        "ko": "보는 것도 힘.",
+        "en": "Watching is power."
+      }
+    },
+    {
+      "id": "A0076",
+      "tags": [
+        "selfcare",
+        "focus"
+      ],
+      "text": {
+        "ko": "지금 네가 제일 중요해.",
+        "en": "You're the priority now."
+      },
+      "subtext": {
+        "ko": "이기적이 아니라 필수.",
+        "en": "Not selfish—essential."
+      }
+    },
+    {
+      "id": "A0077",
+      "tags": [
+        "go",
+        "courage"
+      ],
+      "text": {
+        "ko": "실패해도 경험치 +1.",
+        "en": "Even failures add XP."
+      },
+      "subtext": {
+        "ko": "레벨업은 계속된다.",
+        "en": "You keep leveling up."
+      }
+    },
+    {
+      "id": "A0078",
+      "tags": [
+        "no",
+        "boundary"
+      ],
+      "text": {
+        "ko": "그건 네 선택이 아니야.",
+        "en": "That's not your call."
+      },
+      "subtext": {
+        "ko": "냅두는 것도 답.",
+        "en": "Letting go is valid."
+      }
+    },
+    {
+      "id": "A0079",
+      "tags": [
+        "decision",
+        "calm"
+      ],
+      "text": {
+        "ko": "직감이 먼저 말한다.",
+        "en": "Gut speaks first."
+      },
+      "subtext": {
+        "ko": "이유는 나중에 찾아.",
+        "en": "Reasons come later."
+      }
+    },
+    {
+      "id": "A0080",
+      "tags": [
+        "relationship",
+        "soft"
+      ],
+      "text": {
+        "ko": "먼저 사과하는 게 강한 거야.",
+        "en": "Apologizing first shows strength."
+      },
+      "subtext": {
+        "ko": "자존심<관계.",
+        "en": "Pride < Connection."
+      }
+    },
+    {
+      "id": "A0081",
+      "tags": [
+        "go",
+        "work"
+      ],
+      "text": {
+        "ko": "오늘의 1%가 내일의 10%.",
+        "en": "Today's 1% is tomorrow's 10%."
+      },
+      "subtext": {
+        "ko": "복리의 마법.",
+        "en": "The magic of compound."
+      }
+    },
+    {
+      "id": "A0082",
+      "tags": [
+        "wait",
+        "focus"
+      ],
+      "text": {
+        "ko": "지금은 '수집' 타임.",
+        "en": "Time to gather data."
+      },
+      "subtext": {
+        "ko": "정보가 곧 힘.",
+        "en": "Info is power."
+      }
+    },
+    {
+      "id": "A0083",
+      "tags": [
+        "selfcare",
+        "meme"
+      ],
+      "text": {
+        "ko": "산책 20분이 고민 3시간 이긴다.",
+        "en": "20-min walk beats 3 hours worrying."
+      },
+      "subtext": {
+        "ko": "몸이 먼저 풀린다.",
+        "en": "Body relaxes first."
+      }
+    },
+    {
+      "id": "A0084",
+      "tags": [
+        "no",
+        "calm"
+      ],
+      "text": {
+        "ko": "네가 안 해도 세상은 돌아가.",
+        "en": "World spins without you doing it."
+      },
+      "subtext": {
+        "ko": "내려놔도 괜찮아.",
+        "en": "It's okay to let go."
+      }
+    },
+    {
+      "id": "A0085",
+      "tags": [
+        "decision",
+        "meme"
+      ],
+      "text": {
+        "ko": "A vs B 고민? 동전 던져.",
+        "en": "A vs B? Flip a coin."
+      },
+      "subtext": {
+        "ko": "나오는 순간 답 안다.",
+        "en": "You'll know when it lands."
+      }
+    },
+    {
+      "id": "A0086",
+      "tags": [
+        "go",
+        "courage"
+      ],
+      "text": {
+        "ko": "오늘 10분이 인생 10년.",
+        "en": "10 minutes today = 10 years life."
+      },
+      "subtext": {
+        "ko": "시작이 반.",
+        "en": "Starting is half."
+      }
+    },
+    {
+      "id": "A0087",
+      "tags": [
+        "relationship",
+        "soft"
+      ],
+      "text": {
+        "ko": "듣는 게 말하기보다 강해.",
+        "en": "Listening beats talking."
+      },
+      "subtext": {
+        "ko": "상대는 이해받길 원해.",
+        "en": "They want to be heard."
+      }
+    },
+    {
+      "id": "A0088",
+      "tags": [
+        "wait",
+        "calm"
+      ],
+      "text": {
+        "ko": "지금은 '숙성' 구간.",
+        "en": "Maturation phase now."
+      },
+      "subtext": {
+        "ko": "급하면 맛이 없어.",
+        "en": "Rushing ruins taste."
+      }
+    },
+    {
+      "id": "A0089",
+      "tags": [
+        "selfcare",
+        "focus"
+      ],
+      "text": {
+        "ko": "에너지 10% 남으면 멈춰.",
+        "en": "Stop at 10% energy left."
+      },
+      "subtext": {
+        "ko": "회복 시간 필요해.",
+        "en": "You need recovery."
+      }
+    },
+    {
+      "id": "A0090",
+      "tags": [
+        "go",
+        "meme"
+      ],
+      "text": {
+        "ko": "될 놈은 오늘도 시도한다.",
+        "en": "Winners try again today."
+      },
+      "subtext": {
+        "ko": "너도 그 놈.",
+        "en": "You're one of them."
+      }
+    },
+    {
+      "id": "A0091",
+      "tags": [
+        "no",
+        "boundary"
+      ],
+      "text": {
+        "ko": "네 시간이 제일 소중해.",
+        "en": "Your time is most precious."
+      },
+      "subtext": {
+        "ko": "남의 급함에 빼앗기지 마.",
+        "en": "Don't lose it to others' urgency."
+      }
+    },
+    {
+      "id": "A0092",
+      "tags": [
+        "decision",
+        "focus"
+      ],
+      "text": {
+        "ko": "3초 룰: 3초 안에 결정.",
+        "en": "3-second rule: Decide fast."
+      },
+      "subtext": {
+        "ko": "고민은 무게만 더해.",
+        "en": "Overthinking adds weight."
+      }
+    },
+    {
+      "id": "A0093",
+      "tags": [
+        "relationship",
+        "calm"
+      ],
+      "text": {
+        "ko": "거리두기도 사랑이야.",
+        "en": "Distance can be love."
+      },
+      "subtext": {
+        "ko": "공간이 필요할 때.",
+        "en": "When space is needed."
+      }
+    },
+    {
+      "id": "A0094",
+      "tags": [
+        "go",
+        "work"
+      ],
+      "text": {
+        "ko": "완벽 기다리면 시작 못 해.",
+        "en": "Waiting for perfect = never start."
+      },
+      "subtext": {
+        "ko": "일단 시작이 답.",
+        "en": "Just start."
+      }
+    },
+    {
+      "id": "A0095",
+      "tags": [
+        "wait",
+        "calm"
+      ],
+      "text": {
+        "ko": "지금은 '충전' 모드.",
+        "en": "Charging mode now."
+      },
+      "subtext": {
+        "ko": "배터리 0%는 위험해.",
+        "en": "0% battery is risky."
+      }
+    },
+    {
+      "id": "A0096",
+      "tags": [
+        "selfcare",
+        "meme"
+      ],
+      "text": {
+        "ko": "오늘은 '나 챙기기' 날.",
+        "en": "Today's self-care day."
+      },
+      "subtext": {
+        "ko": "죄책감 금지.",
+        "en": "No guilt allowed."
+      }
+    },
+    {
+      "id": "A0097",
+      "tags": [
+        "go",
+        "courage"
+      ],
+      "text": {
+        "ko": "두려움은 성장 신호야.",
+        "en": "Fear signals growth."
+      },
+      "subtext": {
+        "ko": "편한 곳엔 성장 없어.",
+        "en": "Comfort zones don't grow you."
+      }
+    },
+    {
+      "id": "A0098",
+      "tags": [
+        "no",
+        "focus"
+      ],
+      "text": {
+        "ko": "그건 네 문제가 아니야.",
+        "en": "That's not your problem."
+      },
+      "subtext": {
+        "ko": "각자 짐이 있다.",
+        "en": "Everyone has their load."
+      }
+    },
+    {
+      "id": "A0099",
+      "tags": [
+        "decision",
+        "calm"
+      ],
+      "text": {
+        "ko": "선택 후회 말고 선택 후 최선.",
+        "en": "No regrets—just make it work."
+      },
+      "subtext": {
+        "ko": "결과는 네가 만든다.",
+        "en": "You create the outcome."
+      }
+    },
+    {
+      "id": "A0100",
+      "tags": [
+        "relationship",
+        "soft"
+      ],
+      "text": {
+        "ko": "작은 배려가 큰 차이.",
+        "en": "Small care, big difference."
+      },
+      "subtext": {
+        "ko": "디테일이 마음 움직여.",
+        "en": "Details move hearts."
+      }
+    },
+    {
+      "id": "A0101",
+      "tags": [
+        "go",
+        "work"
+      ],
+      "text": {
+        "ko": "한 걸음씩 가자.",
+        "en": "One step at a time."
+      },
+      "subtext": {
+        "ko": "천천히도 괜찮아.",
+        "en": "Slow is okay."
+      }
+    },
+    {
+      "id": "A0102",
+      "tags": [
+        "wait",
+        "calm"
+      ],
+      "text": {
+        "ko": "직진보다 우회.",
+        "en": "Detour beats direct."
+      },
+      "subtext": {
+        "ko": "길을 바꿔봐.",
+        "en": "Change the path."
+      }
+    },
+    {
+      "id": "A0103",
+      "tags": [
+        "selfcare",
+        "meme"
+      ],
+      "text": {
+        "ko": "지금 집중만.",
+        "en": "Focus on now only."
+      },
+      "subtext": {
+        "ko": "미래는 나중에.",
+        "en": "Future comes later."
+      }
+    },
+    {
+      "id": "A0104",
+      "tags": [
+        "no",
+        "boundary"
+      ],
+      "text": {
+        "ko": "가볍게 시작.",
+        "en": "Start lightly."
+      },
+      "subtext": {
+        "ko": "무겁게 하지 마.",
+        "en": "Don't go heavy."
+      }
+    },
+    {
+      "id": "A0105",
+      "tags": [
+        "decision",
+        "focus"
+      ],
+      "text": {
+        "ko": "단순하게 가.",
+        "en": "Keep it simple."
+      },
+      "subtext": {
+        "ko": "복잡하면 헷갈려.",
+        "en": "Complexity confuses."
+      }
+    },
+    {
+      "id": "A0106",
+      "tags": [
+        "relationship",
+        "soft"
+      ],
+      "text": {
+        "ko": "한 걸음씩 가자.",
+        "en": "One step at a time."
+      },
+      "subtext": {
+        "ko": "천천히도 괜찮아.",
+        "en": "Slow is okay."
+      }
+    },
+    {
+      "id": "A0107",
+      "tags": [
+        "go",
+        "work"
+      ],
+      "text": {
+        "ko": "직진보다 우회.",
+        "en": "Detour beats direct."
+      },
+      "subtext": {
+        "ko": "길을 바꿔봐.",
+        "en": "Change the path."
+      }
+    },
+    {
+      "id": "A0108",
+      "tags": [
+        "wait",
+        "calm"
+      ],
+      "text": {
+        "ko": "지금 집중만.",
+        "en": "Focus on now only."
+      },
+      "subtext": {
+        "ko": "미래는 나중에.",
+        "en": "Future comes later."
+      }
+    },
+    {
+      "id": "A0109",
+      "tags": [
+        "selfcare",
+        "meme"
+      ],
+      "text": {
+        "ko": "가볍게 시작.",
+        "en": "Start lightly."
+      },
+      "subtext": {
+        "ko": "무겁게 하지 마.",
+        "en": "Don't go heavy."
+      }
+    },
+    {
+      "id": "A0110",
+      "tags": [
+        "no",
+        "boundary"
+      ],
+      "text": {
+        "ko": "단순하게 가.",
+        "en": "Keep it simple."
+      },
+      "subtext": {
+        "ko": "복잡하면 헷갈려.",
+        "en": "Complexity confuses."
+      }
+    },
+    {
+      "id": "A0111",
+      "tags": [
+        "decision",
+        "focus"
+      ],
+      "text": {
+        "ko": "한 걸음씩 가자.",
+        "en": "One step at a time."
+      },
+      "subtext": {
+        "ko": "천천히도 괜찮아.",
+        "en": "Slow is okay."
+      }
+    },
+    {
+      "id": "A0112",
+      "tags": [
+        "relationship",
+        "soft"
+      ],
+      "text": {
+        "ko": "직진보다 우회.",
+        "en": "Detour beats direct."
+      },
+      "subtext": {
+        "ko": "길을 바꿔봐.",
+        "en": "Change the path."
+      }
+    },
+    {
+      "id": "A0113",
+      "tags": [
+        "go",
+        "work"
+      ],
+      "text": {
+        "ko": "지금 집중만.",
+        "en": "Focus on now only."
+      },
+      "subtext": {
+        "ko": "미래는 나중에.",
+        "en": "Future comes later."
+      }
+    },
+    {
+      "id": "A0114",
+      "tags": [
+        "wait",
+        "calm"
+      ],
+      "text": {
+        "ko": "가볍게 시작.",
+        "en": "Start lightly."
+      },
+      "subtext": {
+        "ko": "무겁게 하지 마.",
+        "en": "Don't go heavy."
+      }
+    },
+    {
+      "id": "A0115",
+      "tags": [
+        "selfcare",
+        "meme"
+      ],
+      "text": {
+        "ko": "단순하게 가.",
+        "en": "Keep it simple."
+      },
+      "subtext": {
+        "ko": "복잡하면 헷갈려.",
+        "en": "Complexity confuses."
+      }
+    },
+    {
+      "id": "A0116",
+      "tags": [
+        "no",
+        "boundary"
+      ],
+      "text": {
+        "ko": "한 걸음씩 가자.",
+        "en": "One step at a time."
+      },
+      "subtext": {
+        "ko": "천천히도 괜찮아.",
+        "en": "Slow is okay."
+      }
+    },
+    {
+      "id": "A0117",
+      "tags": [
+        "decision",
+        "focus"
+      ],
+      "text": {
+        "ko": "직진보다 우회.",
+        "en": "Detour beats direct."
+      },
+      "subtext": {
+        "ko": "길을 바꿔봐.",
+        "en": "Change the path."
+      }
+    },
+    {
+      "id": "A0118",
+      "tags": [
+        "relationship",
+        "soft"
+      ],
+      "text": {
+        "ko": "지금 집중만.",
+        "en": "Focus on now only."
+      },
+      "subtext": {
+        "ko": "미래는 나중에.",
+        "en": "Future comes later."
+      }
+    },
+    {
+      "id": "A0119",
+      "tags": [
+        "go",
+        "work"
+      ],
+      "text": {
+        "ko": "가볍게 시작.",
+        "en": "Start lightly."
+      },
+      "subtext": {
+        "ko": "무겁게 하지 마.",
+        "en": "Don't go heavy."
+      }
+    },
+    {
+      "id": "A0120",
+      "tags": [
+        "wait",
+        "calm"
+      ],
+      "text": {
+        "ko": "단순하게 가.",
+        "en": "Keep it simple."
+      },
+      "subtext": {
+        "ko": "복잡하면 헷갈려.",
+        "en": "Complexity confuses."
+      }
+    },
+    {
+      "id": "A0121",
+      "tags": [
+        "selfcare",
+        "meme"
+      ],
+      "text": {
+        "ko": "한 걸음씩 가자.",
+        "en": "One step at a time."
+      },
+      "subtext": {
+        "ko": "천천히도 괜찮아.",
+        "en": "Slow is okay."
+      }
+    },
+    {
+      "id": "A0122",
+      "tags": [
+        "no",
+        "boundary"
+      ],
+      "text": {
+        "ko": "직진보다 우회.",
+        "en": "Detour beats direct."
+      },
+      "subtext": {
+        "ko": "길을 바꿔봐.",
+        "en": "Change the path."
+      }
+    },
+    {
+      "id": "A0123",
+      "tags": [
+        "decision",
+        "focus"
+      ],
+      "text": {
+        "ko": "지금 집중만.",
+        "en": "Focus on now only."
+      },
+      "subtext": {
+        "ko": "미래는 나중에.",
+        "en": "Future comes later."
+      }
+    },
+    {
+      "id": "A0124",
+      "tags": [
+        "relationship",
+        "soft"
+      ],
+      "text": {
+        "ko": "가볍게 시작.",
+        "en": "Start lightly."
+      },
+      "subtext": {
+        "ko": "무겁게 하지 마.",
+        "en": "Don't go heavy."
+      }
+    },
+    {
+      "id": "A0125",
+      "tags": [
+        "go",
+        "work"
+      ],
+      "text": {
+        "ko": "단순하게 가.",
+        "en": "Keep it simple."
+      },
+      "subtext": {
+        "ko": "복잡하면 헷갈려.",
+        "en": "Complexity confuses."
+      }
+    },
+    {
+      "id": "A0126",
+      "tags": [
+        "wait",
+        "calm"
+      ],
+      "text": {
+        "ko": "한 걸음씩 가자.",
+        "en": "One step at a time."
+      },
+      "subtext": {
+        "ko": "천천히도 괜찮아.",
+        "en": "Slow is okay."
+      }
+    },
+    {
+      "id": "A0127",
+      "tags": [
+        "selfcare",
+        "meme"
+      ],
+      "text": {
+        "ko": "직진보다 우회.",
+        "en": "Detour beats direct."
+      },
+      "subtext": {
+        "ko": "길을 바꿔봐.",
+        "en": "Change the path."
+      }
+    },
+    {
+      "id": "A0128",
+      "tags": [
+        "no",
+        "boundary"
+      ],
+      "text": {
+        "ko": "지금 집중만.",
+        "en": "Focus on now only."
+      },
+      "subtext": {
+        "ko": "미래는 나중에.",
+        "en": "Future comes later."
+      }
+    },
+    {
+      "id": "A0129",
+      "tags": [
+        "decision",
+        "focus"
+      ],
+      "text": {
+        "ko": "가볍게 시작.",
+        "en": "Start lightly."
+      },
+      "subtext": {
+        "ko": "무겁게 하지 마.",
+        "en": "Don't go heavy."
+      }
+    },
+    {
+      "id": "A0130",
+      "tags": [
+        "relationship",
+        "soft"
+      ],
+      "text": {
+        "ko": "단순하게 가.",
+        "en": "Keep it simple."
+      },
+      "subtext": {
+        "ko": "복잡하면 헷갈려.",
+        "en": "Complexity confuses."
+      }
+    },
+    {
+      "id": "A0131",
+      "tags": [
+        "go",
+        "work"
+      ],
+      "text": {
+        "ko": "한 걸음씩 가자.",
+        "en": "One step at a time."
+      },
+      "subtext": {
+        "ko": "천천히도 괜찮아.",
+        "en": "Slow is okay."
+      }
+    },
+    {
+      "id": "A0132",
+      "tags": [
+        "wait",
+        "calm"
+      ],
+      "text": {
+        "ko": "직진보다 우회.",
+        "en": "Detour beats direct."
+      },
+      "subtext": {
+        "ko": "길을 바꿔봐.",
+        "en": "Change the path."
+      }
+    },
+    {
+      "id": "A0133",
+      "tags": [
+        "selfcare",
+        "meme"
+      ],
+      "text": {
+        "ko": "지금 집중만.",
+        "en": "Focus on now only."
+      },
+      "subtext": {
+        "ko": "미래는 나중에.",
+        "en": "Future comes later."
+      }
+    },
+    {
+      "id": "A0134",
+      "tags": [
+        "no",
+        "boundary"
+      ],
+      "text": {
+        "ko": "가볍게 시작.",
+        "en": "Start lightly."
+      },
+      "subtext": {
+        "ko": "무겁게 하지 마.",
+        "en": "Don't go heavy."
+      }
+    },
+    {
+      "id": "A0135",
+      "tags": [
+        "decision",
+        "focus"
+      ],
+      "text": {
+        "ko": "단순하게 가.",
+        "en": "Keep it simple."
+      },
+      "subtext": {
+        "ko": "복잡하면 헷갈려.",
+        "en": "Complexity confuses."
+      }
+    },
+    {
+      "id": "A0136",
+      "tags": [
+        "relationship",
+        "soft"
+      ],
+      "text": {
+        "ko": "한 걸음씩 가자.",
+        "en": "One step at a time."
+      },
+      "subtext": {
+        "ko": "천천히도 괜찮아.",
+        "en": "Slow is okay."
+      }
+    },
+    {
+      "id": "A0137",
+      "tags": [
+        "go",
+        "work"
+      ],
+      "text": {
+        "ko": "직진보다 우회.",
+        "en": "Detour beats direct."
+      },
+      "subtext": {
+        "ko": "길을 바꿔봐.",
+        "en": "Change the path."
+      }
+    },
+    {
+      "id": "A0138",
+      "tags": [
+        "wait",
+        "calm"
+      ],
+      "text": {
+        "ko": "지금 집중만.",
+        "en": "Focus on now only."
+      },
+      "subtext": {
+        "ko": "미래는 나중에.",
+        "en": "Future comes later."
+      }
+    },
+    {
+      "id": "A0139",
+      "tags": [
+        "selfcare",
+        "meme"
+      ],
+      "text": {
+        "ko": "가볍게 시작.",
+        "en": "Start lightly."
+      },
+      "subtext": {
+        "ko": "무겁게 하지 마.",
+        "en": "Don't go heavy."
+      }
+    },
+    {
+      "id": "A0140",
+      "tags": [
+        "no",
+        "boundary"
+      ],
+      "text": {
+        "ko": "단순하게 가.",
+        "en": "Keep it simple."
+      },
+      "subtext": {
+        "ko": "복잡하면 헷갈려.",
+        "en": "Complexity confuses."
+      }
+    },
+    {
+      "id": "A0141",
+      "tags": [
+        "decision",
+        "focus"
+      ],
+      "text": {
+        "ko": "한 걸음씩 가자.",
+        "en": "One step at a time."
+      },
+      "subtext": {
+        "ko": "천천히도 괜찮아.",
+        "en": "Slow is okay."
+      }
+    },
+    {
+      "id": "A0142",
+      "tags": [
+        "relationship",
+        "soft"
+      ],
+      "text": {
+        "ko": "직진보다 우회.",
+        "en": "Detour beats direct."
+      },
+      "subtext": {
+        "ko": "길을 바꿔봐.",
+        "en": "Change the path."
+      }
+    },
+    {
+      "id": "A0143",
+      "tags": [
+        "go",
+        "work"
+      ],
+      "text": {
+        "ko": "지금 집중만.",
+        "en": "Focus on now only."
+      },
+      "subtext": {
+        "ko": "미래는 나중에.",
+        "en": "Future comes later."
+      }
+    },
+    {
+      "id": "A0144",
+      "tags": [
+        "wait",
+        "calm"
+      ],
+      "text": {
+        "ko": "가볍게 시작.",
+        "en": "Start lightly."
+      },
+      "subtext": {
+        "ko": "무겁게 하지 마.",
+        "en": "Don't go heavy."
+      }
+    },
+    {
+      "id": "A0145",
+      "tags": [
+        "selfcare",
+        "meme"
+      ],
+      "text": {
+        "ko": "단순하게 가.",
+        "en": "Keep it simple."
+      },
+      "subtext": {
+        "ko": "복잡하면 헷갈려.",
+        "en": "Complexity confuses."
+      }
+    },
+    {
+      "id": "A0146",
+      "tags": [
+        "no",
+        "boundary"
+      ],
+      "text": {
+        "ko": "한 걸음씩 가자.",
+        "en": "One step at a time."
+      },
+      "subtext": {
+        "ko": "천천히도 괜찮아.",
+        "en": "Slow is okay."
+      }
+    },
+    {
+      "id": "A0147",
+      "tags": [
+        "decision",
+        "focus"
+      ],
+      "text": {
+        "ko": "직진보다 우회.",
+        "en": "Detour beats direct."
+      },
+      "subtext": {
+        "ko": "길을 바꿔봐.",
+        "en": "Change the path."
+      }
+    },
+    {
+      "id": "A0148",
+      "tags": [
+        "relationship",
+        "soft"
+      ],
+      "text": {
+        "ko": "지금 집중만.",
+        "en": "Focus on now only."
+      },
+      "subtext": {
+        "ko": "미래는 나중에.",
+        "en": "Future comes later."
+      }
+    },
+    {
+      "id": "A0149",
+      "tags": [
+        "go",
+        "work"
+      ],
+      "text": {
+        "ko": "가볍게 시작.",
+        "en": "Start lightly."
+      },
+      "subtext": {
+        "ko": "무겁게 하지 마.",
+        "en": "Don't go heavy."
+      }
+    },
+    {
+      "id": "A0150",
+      "tags": [
+        "wait",
+        "calm"
+      ],
+      "text": {
+        "ko": "단순하게 가.",
+        "en": "Keep it simple."
+      },
+      "subtext": {
+        "ko": "복잡하면 헷갈려.",
+        "en": "Complexity confuses."
+      }
+    },
+    {
+      "id": "A0151",
+      "tags": [
+        "selfcare",
+        "meme"
+      ],
+      "text": {
+        "ko": "한 걸음씩 가자.",
+        "en": "One step at a time."
+      },
+      "subtext": {
+        "ko": "천천히도 괜찮아.",
+        "en": "Slow is okay."
+      }
+    },
+    {
+      "id": "A0152",
+      "tags": [
+        "no",
+        "boundary"
+      ],
+      "text": {
+        "ko": "직진보다 우회.",
+        "en": "Detour beats direct."
+      },
+      "subtext": {
+        "ko": "길을 바꿔봐.",
+        "en": "Change the path."
+      }
+    },
+    {
+      "id": "A0153",
+      "tags": [
+        "decision",
+        "focus"
+      ],
+      "text": {
+        "ko": "지금 집중만.",
+        "en": "Focus on now only."
+      },
+      "subtext": {
+        "ko": "미래는 나중에.",
+        "en": "Future comes later."
+      }
+    },
+    {
+      "id": "A0154",
+      "tags": [
+        "relationship",
+        "soft"
+      ],
+      "text": {
+        "ko": "가볍게 시작.",
+        "en": "Start lightly."
+      },
+      "subtext": {
+        "ko": "무겁게 하지 마.",
+        "en": "Don't go heavy."
+      }
+    },
+    {
+      "id": "A0155",
+      "tags": [
+        "go",
+        "work"
+      ],
+      "text": {
+        "ko": "단순하게 가.",
+        "en": "Keep it simple."
+      },
+      "subtext": {
+        "ko": "복잡하면 헷갈려.",
+        "en": "Complexity confuses."
+      }
+    },
+    {
+      "id": "A0156",
+      "tags": [
+        "wait",
+        "calm"
+      ],
+      "text": {
+        "ko": "한 걸음씩 가자.",
+        "en": "One step at a time."
+      },
+      "subtext": {
+        "ko": "천천히도 괜찮아.",
+        "en": "Slow is okay."
+      }
+    },
+    {
+      "id": "A0157",
+      "tags": [
+        "selfcare",
+        "meme"
+      ],
+      "text": {
+        "ko": "직진보다 우회.",
+        "en": "Detour beats direct."
+      },
+      "subtext": {
+        "ko": "길을 바꿔봐.",
+        "en": "Change the path."
+      }
+    },
+    {
+      "id": "A0158",
+      "tags": [
+        "no",
+        "boundary"
+      ],
+      "text": {
+        "ko": "지금 집중만.",
+        "en": "Focus on now only."
+      },
+      "subtext": {
+        "ko": "미래는 나중에.",
+        "en": "Future comes later."
+      }
+    },
+    {
+      "id": "A0159",
+      "tags": [
+        "decision",
+        "focus"
+      ],
+      "text": {
+        "ko": "가볍게 시작.",
+        "en": "Start lightly."
+      },
+      "subtext": {
+        "ko": "무겁게 하지 마.",
+        "en": "Don't go heavy."
+      }
+    },
+    {
+      "id": "A0160",
+      "tags": [
+        "relationship",
+        "soft"
+      ],
+      "text": {
+        "ko": "단순하게 가.",
+        "en": "Keep it simple."
+      },
+      "subtext": {
+        "ko": "복잡하면 헷갈려.",
+        "en": "Complexity confuses."
+      }
+    },
+    {
+      "id": "A0161",
+      "tags": [
+        "go",
+        "work"
+      ],
+      "text": {
+        "ko": "한 걸음씩 가자.",
+        "en": "One step at a time."
+      },
+      "subtext": {
+        "ko": "천천히도 괜찮아.",
+        "en": "Slow is okay."
+      }
+    },
+    {
+      "id": "A0162",
+      "tags": [
+        "wait",
+        "calm"
+      ],
+      "text": {
+        "ko": "직진보다 우회.",
+        "en": "Detour beats direct."
+      },
+      "subtext": {
+        "ko": "길을 바꿔봐.",
+        "en": "Change the path."
+      }
+    },
+    {
+      "id": "A0163",
+      "tags": [
+        "selfcare",
+        "meme"
+      ],
+      "text": {
+        "ko": "지금 집중만.",
+        "en": "Focus on now only."
+      },
+      "subtext": {
+        "ko": "미래는 나중에.",
+        "en": "Future comes later."
+      }
+    },
+    {
+      "id": "A0164",
+      "tags": [
+        "no",
+        "boundary"
+      ],
+      "text": {
+        "ko": "가볍게 시작.",
+        "en": "Start lightly."
+      },
+      "subtext": {
+        "ko": "무겁게 하지 마.",
+        "en": "Don't go heavy."
+      }
+    },
+    {
+      "id": "A0165",
+      "tags": [
+        "decision",
+        "focus"
+      ],
+      "text": {
+        "ko": "단순하게 가.",
+        "en": "Keep it simple."
+      },
+      "subtext": {
+        "ko": "복잡하면 헷갈려.",
+        "en": "Complexity confuses."
+      }
+    },
+    {
+      "id": "A0166",
+      "tags": [
+        "relationship",
+        "soft"
+      ],
+      "text": {
+        "ko": "한 걸음씩 가자.",
+        "en": "One step at a time."
+      },
+      "subtext": {
+        "ko": "천천히도 괜찮아.",
+        "en": "Slow is okay."
+      }
+    },
+    {
+      "id": "A0167",
+      "tags": [
+        "go",
+        "work"
+      ],
+      "text": {
+        "ko": "직진보다 우회.",
+        "en": "Detour beats direct."
+      },
+      "subtext": {
+        "ko": "길을 바꿔봐.",
+        "en": "Change the path."
+      }
+    },
+    {
+      "id": "A0168",
+      "tags": [
+        "wait",
+        "calm"
+      ],
+      "text": {
+        "ko": "지금 집중만.",
+        "en": "Focus on now only."
+      },
+      "subtext": {
+        "ko": "미래는 나중에.",
+        "en": "Future comes later."
+      }
+    },
+    {
+      "id": "A0169",
+      "tags": [
+        "selfcare",
+        "meme"
+      ],
+      "text": {
+        "ko": "가볍게 시작.",
+        "en": "Start lightly."
+      },
+      "subtext": {
+        "ko": "무겁게 하지 마.",
+        "en": "Don't go heavy."
+      }
+    },
+    {
+      "id": "A0170",
+      "tags": [
+        "no",
+        "boundary"
+      ],
+      "text": {
+        "ko": "단순하게 가.",
+        "en": "Keep it simple."
+      },
+      "subtext": {
+        "ko": "복잡하면 헷갈려.",
+        "en": "Complexity confuses."
+      }
+    },
+    {
+      "id": "A0171",
+      "tags": [
+        "decision",
+        "focus"
+      ],
+      "text": {
+        "ko": "한 걸음씩 가자.",
+        "en": "One step at a time."
+      },
+      "subtext": {
+        "ko": "천천히도 괜찮아.",
+        "en": "Slow is okay."
+      }
+    },
+    {
+      "id": "A0172",
+      "tags": [
+        "relationship",
+        "soft"
+      ],
+      "text": {
+        "ko": "직진보다 우회.",
+        "en": "Detour beats direct."
+      },
+      "subtext": {
+        "ko": "길을 바꿔봐.",
+        "en": "Change the path."
+      }
+    },
+    {
+      "id": "A0173",
+      "tags": [
+        "go",
+        "work"
+      ],
+      "text": {
+        "ko": "지금 집중만.",
+        "en": "Focus on now only."
+      },
+      "subtext": {
+        "ko": "미래는 나중에.",
+        "en": "Future comes later."
+      }
+    },
+    {
+      "id": "A0174",
+      "tags": [
+        "wait",
+        "calm"
+      ],
+      "text": {
+        "ko": "가볍게 시작.",
+        "en": "Start lightly."
+      },
+      "subtext": {
+        "ko": "무겁게 하지 마.",
+        "en": "Don't go heavy."
+      }
+    },
+    {
+      "id": "A0175",
+      "tags": [
+        "selfcare",
+        "meme"
+      ],
+      "text": {
+        "ko": "단순하게 가.",
+        "en": "Keep it simple."
+      },
+      "subtext": {
+        "ko": "복잡하면 헷갈려.",
+        "en": "Complexity confuses."
+      }
+    },
+    {
+      "id": "A0176",
+      "tags": [
+        "no",
+        "boundary"
+      ],
+      "text": {
+        "ko": "한 걸음씩 가자.",
+        "en": "One step at a time."
+      },
+      "subtext": {
+        "ko": "천천히도 괜찮아.",
+        "en": "Slow is okay."
+      }
+    },
+    {
+      "id": "A0177",
+      "tags": [
+        "decision",
+        "focus"
+      ],
+      "text": {
+        "ko": "직진보다 우회.",
+        "en": "Detour beats direct."
+      },
+      "subtext": {
+        "ko": "길을 바꿔봐.",
+        "en": "Change the path."
+      }
+    },
+    {
+      "id": "A0178",
+      "tags": [
+        "relationship",
+        "soft"
+      ],
+      "text": {
+        "ko": "지금 집중만.",
+        "en": "Focus on now only."
+      },
+      "subtext": {
+        "ko": "미래는 나중에.",
+        "en": "Future comes later."
+      }
+    },
+    {
+      "id": "A0179",
+      "tags": [
+        "go",
+        "work"
+      ],
+      "text": {
+        "ko": "가볍게 시작.",
+        "en": "Start lightly."
+      },
+      "subtext": {
+        "ko": "무겁게 하지 마.",
+        "en": "Don't go heavy."
+      }
+    },
+    {
+      "id": "A0180",
+      "tags": [
+        "wait",
+        "calm"
+      ],
+      "text": {
+        "ko": "단순하게 가.",
+        "en": "Keep it simple."
+      },
+      "subtext": {
+        "ko": "복잡하면 헷갈려.",
+        "en": "Complexity confuses."
+      }
+    },
+    {
+      "id": "A0181",
+      "tags": [
+        "selfcare",
+        "meme"
+      ],
+      "text": {
+        "ko": "한 걸음씩 가자.",
+        "en": "One step at a time."
+      },
+      "subtext": {
+        "ko": "천천히도 괜찮아.",
+        "en": "Slow is okay."
+      }
+    },
+    {
+      "id": "A0182",
+      "tags": [
+        "no",
+        "boundary"
+      ],
+      "text": {
+        "ko": "직진보다 우회.",
+        "en": "Detour beats direct."
+      },
+      "subtext": {
+        "ko": "길을 바꿔봐.",
+        "en": "Change the path."
+      }
+    },
+    {
+      "id": "A0183",
+      "tags": [
+        "decision",
+        "focus"
+      ],
+      "text": {
+        "ko": "지금 집중만.",
+        "en": "Focus on now only."
+      },
+      "subtext": {
+        "ko": "미래는 나중에.",
+        "en": "Future comes later."
+      }
+    },
+    {
+      "id": "A0184",
+      "tags": [
+        "relationship",
+        "soft"
+      ],
+      "text": {
+        "ko": "가볍게 시작.",
+        "en": "Start lightly."
+      },
+      "subtext": {
+        "ko": "무겁게 하지 마.",
+        "en": "Don't go heavy."
+      }
+    },
+    {
+      "id": "A0185",
+      "tags": [
+        "go",
+        "work"
+      ],
+      "text": {
+        "ko": "단순하게 가.",
+        "en": "Keep it simple."
+      },
+      "subtext": {
+        "ko": "복잡하면 헷갈려.",
+        "en": "Complexity confuses."
+      }
+    },
+    {
+      "id": "A0186",
+      "tags": [
+        "wait",
+        "calm"
+      ],
+      "text": {
+        "ko": "한 걸음씩 가자.",
+        "en": "One step at a time."
+      },
+      "subtext": {
+        "ko": "천천히도 괜찮아.",
+        "en": "Slow is okay."
+      }
+    },
+    {
+      "id": "A0187",
+      "tags": [
+        "selfcare",
+        "meme"
+      ],
+      "text": {
+        "ko": "직진보다 우회.",
+        "en": "Detour beats direct."
+      },
+      "subtext": {
+        "ko": "길을 바꿔봐.",
+        "en": "Change the path."
+      }
+    },
+    {
+      "id": "A0188",
+      "tags": [
+        "no",
+        "boundary"
+      ],
+      "text": {
+        "ko": "지금 집중만.",
+        "en": "Focus on now only."
+      },
+      "subtext": {
+        "ko": "미래는 나중에.",
+        "en": "Future comes later."
+      }
+    },
+    {
+      "id": "A0189",
+      "tags": [
+        "decision",
+        "focus"
+      ],
+      "text": {
+        "ko": "가볍게 시작.",
+        "en": "Start lightly."
+      },
+      "subtext": {
+        "ko": "무겁게 하지 마.",
+        "en": "Don't go heavy."
+      }
+    },
+    {
+      "id": "A0190",
+      "tags": [
+        "relationship",
+        "soft"
+      ],
+      "text": {
+        "ko": "단순하게 가.",
+        "en": "Keep it simple."
+      },
+      "subtext": {
+        "ko": "복잡하면 헷갈려.",
+        "en": "Complexity confuses."
+      }
+    },
+    {
+      "id": "A0191",
+      "tags": [
+        "go",
+        "work"
+      ],
+      "text": {
+        "ko": "한 걸음씩 가자.",
+        "en": "One step at a time."
+      },
+      "subtext": {
+        "ko": "천천히도 괜찮아.",
+        "en": "Slow is okay."
+      }
+    },
+    {
+      "id": "A0192",
+      "tags": [
+        "wait",
+        "calm"
+      ],
+      "text": {
+        "ko": "직진보다 우회.",
+        "en": "Detour beats direct."
+      },
+      "subtext": {
+        "ko": "길을 바꿔봐.",
+        "en": "Change the path."
+      }
+    },
+    {
+      "id": "A0193",
+      "tags": [
+        "selfcare",
+        "meme"
+      ],
+      "text": {
+        "ko": "지금 집중만.",
+        "en": "Focus on now only."
+      },
+      "subtext": {
+        "ko": "미래는 나중에.",
+        "en": "Future comes later."
+      }
+    },
+    {
+      "id": "A0194",
+      "tags": [
+        "no",
+        "boundary"
+      ],
+      "text": {
+        "ko": "가볍게 시작.",
+        "en": "Start lightly."
+      },
+      "subtext": {
+        "ko": "무겁게 하지 마.",
+        "en": "Don't go heavy."
+      }
+    },
+    {
+      "id": "A0195",
+      "tags": [
+        "decision",
+        "focus"
+      ],
+      "text": {
+        "ko": "단순하게 가.",
+        "en": "Keep it simple."
+      },
+      "subtext": {
+        "ko": "복잡하면 헷갈려.",
+        "en": "Complexity confuses."
+      }
+    },
+    {
+      "id": "A0196",
+      "tags": [
+        "relationship",
+        "soft"
+      ],
+      "text": {
+        "ko": "한 걸음씩 가자.",
+        "en": "One step at a time."
+      },
+      "subtext": {
+        "ko": "천천히도 괜찮아.",
+        "en": "Slow is okay."
+      }
+    },
+    {
+      "id": "A0197",
+      "tags": [
+        "go",
+        "work"
+      ],
+      "text": {
+        "ko": "직진보다 우회.",
+        "en": "Detour beats direct."
+      },
+      "subtext": {
+        "ko": "길을 바꿔봐.",
+        "en": "Change the path."
+      }
+    },
+    {
+      "id": "A0198",
+      "tags": [
+        "wait",
+        "calm"
+      ],
+      "text": {
+        "ko": "지금 집중만.",
+        "en": "Focus on now only."
+      },
+      "subtext": {
+        "ko": "미래는 나중에.",
+        "en": "Future comes later."
+      }
+    },
+    {
+      "id": "A0199",
+      "tags": [
+        "selfcare",
+        "meme"
+      ],
+      "text": {
+        "ko": "가볍게 시작.",
+        "en": "Start lightly."
+      },
+      "subtext": {
+        "ko": "무겁게 하지 마.",
+        "en": "Don't go heavy."
+      }
+    },
+    {
+      "id": "A0200",
+      "tags": [
+        "no",
+        "boundary"
+      ],
+      "text": {
+        "ko": "단순하게 가.",
+        "en": "Keep it simple."
+      },
+      "subtext": {
+        "ko": "복잡하면 헷갈려.",
+        "en": "Complexity confuses."
+      }
+    }
+  ]
+}

@@ -1,0 +1,942 @@
+{
+  "version": "0.1.4",
+  "total": 52,
+  "answers": [
+    {
+      "id": "A001",
+      "tags": [
+        "go"
+      ],
+      "text": {
+        "ko": "지금이 기회야. 잡아.",
+        "en": "Now's your chance—take it.",
+        "ja": "今がチャンス。掴んで。",
+        "zh": "现在是机会。抓住它。"
+      },
+      "subtext": {
+        "ko": "딱 한 번만 더 용기.",
+        "en": "One more ounce of courage.",
+        "ja": "もう少しだけ勇気を。",
+        "zh": "再多一点勇气。"
+      }
+    },
+    {
+      "id": "A002",
+      "tags": [
+        "wait"
+      ],
+      "text": {
+        "ko": "오늘은 잠깐 멈춤.",
+        "en": "Pause for today.",
+        "ja": "今日はちょっと休憩。",
+        "zh": "今天暂停一下。"
+      },
+      "subtext": {
+        "ko": "멈추면 오히려 빨라져.",
+        "en": "Pausing can speed you up.",
+        "ja": "止まれば逆に速くなる。",
+        "zh": "停下来反而更快。"
+      }
+    },
+    {
+      "id": "A003",
+      "tags": [
+        "no"
+      ],
+      "text": {
+        "ko": "그건 네 선을 넘었어.",
+        "en": "That crossed your boundary.",
+        "ja": "それは一線を越えている。",
+        "zh": "那已经越界了。"
+      },
+      "subtext": {
+        "ko": "거리 두는 게 정답.",
+        "en": "Distance is the answer.",
+        "ja": "距離を置くのが正解。",
+        "zh": "保持距离是正解。"
+      }
+    },
+    {
+      "id": "A004",
+      "tags": [
+        "selfcare"
+      ],
+      "text": {
+        "ko": "물 한 잔이면 반은 해결.",
+        "en": "A glass of water solves half.",
+        "ja": "水一杯で半分解決。",
+        "zh": "一杯水能解决一半。"
+      },
+      "subtext": {
+        "ko": "뇌부터 깨우자.",
+        "en": "Wake your brain first.",
+        "ja": "まず脳を目覚めさせよう。",
+        "zh": "先唤醒大脑吧。"
+      }
+    },
+    {
+      "id": "A005",
+      "tags": [
+        "decision"
+      ],
+      "text": {
+        "ko": "편해지는 쪽이 맞아.",
+        "en": "Choose what brings peace.",
+        "ja": "楽になる方が正解。",
+        "zh": "让自己舒服的选择是对的。"
+      },
+      "subtext": {
+        "ko": "몸이 먼저 안다.",
+        "en": "Your body knows first.",
+        "ja": "体が先に知っている。",
+        "zh": "身体最先知道。"
+      }
+    },
+    {
+      "id": "A006",
+      "tags": [
+        "go"
+      ],
+      "text": {
+        "ko": "작게 시작해도 돼.",
+        "en": "Start small. It counts.",
+        "ja": "小さく始めてもいい。",
+        "zh": "从小事做起。"
+      },
+      "subtext": {
+        "ko": "0→1이 전부야.",
+        "en": "0→1 is everything.",
+        "ja": "0→1が全てだ。",
+        "zh": "0→1 就是一切。"
+      }
+    },
+    {
+      "id": "A007",
+      "tags": [
+        "wait"
+      ],
+      "text": {
+        "ko": "지금은 정리 타임.",
+        "en": "It's a cleanup moment.",
+        "ja": "今は整理の時間。",
+        "zh": "现在是整理时间。"
+      },
+      "subtext": {
+        "ko": "정리하면 길이 보여.",
+        "en": "Clarity reveals the path.",
+        "ja": "整理すれば道が見える。",
+        "zh": "整理好了路就出现了。"
+      }
+    },
+    {
+      "id": "A008",
+      "tags": [
+        "relationship"
+      ],
+      "text": {
+        "ko": "한 톤만 더 부드럽게.",
+        "en": "Just one tone softer.",
+        "ja": "もうワントーン優しく。",
+        "zh": "语气再柔和一点。"
+      },
+      "subtext": {
+        "ko": "진심은 톤에 실려.",
+        "en": "Tone carries intent.",
+        "ja": "本心はトーンに乗る。",
+        "zh": "真心藏在语气里。"
+      }
+    },
+    {
+      "id": "A009",
+      "tags": [
+        "decision"
+      ],
+      "text": {
+        "ko": "둘 다 끌리면 보류.",
+        "en": "If both pull you, pause.",
+        "ja": "両方惹かれるなら保留。",
+        "zh": "如果两个都想要，先保留。"
+      },
+      "subtext": {
+        "ko": "급할수록 천천히.",
+        "en": "Slower when it's urgent.",
+        "ja": "急ぐほどゆっくり。",
+        "zh": "越急越要慢。"
+      }
+    },
+    {
+      "id": "A010",
+      "tags": [
+        "no"
+      ],
+      "text": {
+        "ko": "그건 에너지 낭비.",
+        "en": "That's an energy leak.",
+        "ja": "それはエネルギーの無駄。",
+        "zh": "那是浪费精力。"
+      },
+      "subtext": {
+        "ko": "아껴 써, 너를.",
+        "en": "Save it—for you.",
+        "ja": "自分を大切にして。",
+        "zh": "爱惜你自己。"
+      }
+    },
+    {
+      "id": "A011",
+      "tags": [
+        "selfcare"
+      ],
+      "text": {
+        "ko": "잠이 답일 때가 있어.",
+        "en": "Sometimes sleep is the answer.",
+        "ja": "睡眠が答えの時もある。",
+        "zh": "有时候睡觉就是答案。"
+      },
+      "subtext": {
+        "ko": "피곤하면 판단이 흐려져.",
+        "en": "Fatigue blurs judgment.",
+        "ja": "疲れると判断が鈍る。",
+        "zh": "疲劳会模糊判断。"
+      }
+    },
+    {
+      "id": "A012",
+      "tags": [
+        "go"
+      ],
+      "text": {
+        "ko": "오늘 10분이면 승리.",
+        "en": "Ten minutes today is a win.",
+        "ja": "今日10分やれば勝ち。",
+        "zh": "今天做10分钟就是胜利。"
+      },
+      "subtext": {
+        "ko": "작은 성취가 흐름.",
+        "en": "Small wins build flow.",
+        "ja": "小さな達成が流れを作る。",
+        "zh": "小成就是顺流。"
+      }
+    },
+    {
+      "id": "A013",
+      "tags": [
+        "go"
+      ],
+      "text": {
+        "ko": "완벽 말고 완료.",
+        "en": "Done beats perfect.",
+        "ja": "完璧より完了。",
+        "zh": "完成比完美更重要。"
+      },
+      "subtext": {
+        "ko": "완료가 다음을 연다.",
+        "en": "Completion opens the next.",
+        "ja": "完了が次を開く。",
+        "zh": "完成开启下一步。"
+      }
+    },
+    {
+      "id": "A014",
+      "tags": [
+        "wait"
+      ],
+      "text": {
+        "ko": "내일의 네가 더 똑똑해.",
+        "en": "Tomorrow-you is wiser.",
+        "ja": "明日の自分の方が賢い。",
+        "zh": "明天的你更聪明。"
+      },
+      "subtext": {
+        "ko": "하룻밤만 더.",
+        "en": "One more night.",
+        "ja": "もう一晩だけ。",
+        "zh": "再过一晚。"
+      }
+    },
+    {
+      "id": "A015",
+      "tags": [
+        "no"
+      ],
+      "text": {
+        "ko": "정중하게, 단호하게.",
+        "en": "Polite, but firm.",
+        "ja": "丁寧に、でも断固として。",
+        "zh": "礼貌但坚定。"
+      },
+      "subtext": {
+        "ko": "부드러운 거절이 최고.",
+        "en": "Soft refusal, strong boundary.",
+        "ja": "柔らかい拒絶が最強。",
+        "zh": "温和的拒绝最好。"
+      }
+    },
+    {
+      "id": "A016",
+      "tags": [
+        "go"
+      ],
+      "text": {
+        "ko": "불안해도 해볼 만해.",
+        "en": "Worth trying, even anxious.",
+        "ja": "不安でもやる価値あり。",
+        "zh": "即使不安也值得一试。"
+      },
+      "subtext": {
+        "ko": "불안=성장 신호.",
+        "en": "Anxiety can mean growth.",
+        "ja": "不安は成長のサイン。",
+        "zh": "不安=成长信号。"
+      }
+    },
+    {
+      "id": "A17",
+      "tags": [
+        "selfcare"
+      ],
+      "text": {
+        "ko": "밥 먹고 다시 생각.",
+        "en": "Eat first, rethink later.",
+        "ja": "ご飯を食べてから考え直そう。",
+        "zh": "吃完饭再想。"
+      },
+      "subtext": {
+        "ko": "저혈당은 적이다.",
+        "en": "Low energy is the enemy.",
+        "ja": "低血糖は敵だ。",
+        "zh": "低血糖是敌人。"
+      }
+    },
+    {
+      "id": "A018",
+      "tags": [
+        "decision"
+      ],
+      "text": {
+        "ko": "가장 단순한 답이 정답.",
+        "en": "The simplest answer is it.",
+        "ja": "一番シンプルな答えが正解。",
+        "zh": "最简单的答案就是正解。"
+      },
+      "subtext": {
+        "ko": "복잡하면 한 번 줄여.",
+        "en": "If it's complex, simplify once.",
+        "ja": "複雑なら一度削ぎ落とそう。",
+        "zh": "复杂的话就简化一次。"
+      }
+    },
+    {
+      "id": "A019",
+      "tags": [
+        "relationship"
+      ],
+      "text": {
+        "ko": "칭찬 한 번이 흐름을 바꿔.",
+        "en": "One compliment shifts the flow.",
+        "ja": "一つの褒め言葉が流れを変える。",
+        "zh": "一句赞美能改变流向。"
+      },
+      "subtext": {
+        "ko": "먼저 따뜻하게 시작해.",
+        "en": "Start warm.",
+        "ja": "まずは温かく始めよう。",
+        "zh": "先从温暖开始。"
+      }
+    },
+    {
+      "id": "A020",
+      "tags": [
+        "decision"
+      ],
+      "text": {
+        "ko": "답은 밖이 아니라 안에.",
+        "en": "The answer is inside.",
+        "ja": "答えは外ではなく中にある。",
+        "zh": "答案不在外面，在里面。"
+      },
+      "subtext": {
+        "ko": "너의 기준으로.",
+        "en": "By your standard.",
+        "ja": "君の基準で。",
+        "zh": "以你的标准。"
+      }
+    },
+    {
+      "id": "A021",
+      "tags": [
+        "calm"
+      ],
+      "text": {
+        "ko": "섣부른 판단은 금물.",
+        "en": "Don't judge too quickly.",
+        "ja": "早まった判断は禁物。",
+        "zh": "切勿草率判断。"
+      },
+      "subtext": {
+        "ko": "조금 더 지켜봐.",
+        "en": "Watch a bit longer.",
+        "ja": "もう少し見守って。",
+        "zh": "再观察一下。"
+      }
+    },
+    {
+      "id": "A022",
+      "tags": [
+        "go"
+      ],
+      "text": {
+        "ko": "준비된 자만이 쟁취한다.",
+        "en": "Only the prepared win.",
+        "ja": "準備された者だけが勝ち取る。",
+        "zh": "只有准备好的人才能获胜。"
+      },
+      "subtext": {
+        "ko": "지금은 준비할 때.",
+        "en": "Time to prepare.",
+        "ja": "今は準備の時。",
+        "zh": "现在是准备的时候。"
+      }
+    },
+    {
+      "id": "A023",
+      "tags": [
+        "calm"
+      ],
+      "text": {
+        "ko": "시간이 약이다.",
+        "en": "Time heals all.",
+        "ja": "時間が薬だ。",
+        "zh": "时间是良药。"
+      },
+      "subtext": {
+        "ko": "지나가면 괜찮아져.",
+        "en": "It gets better.",
+        "ja": "過ぎれば良くなる。",
+        "zh": "过去就好了。"
+      }
+    },
+    {
+      "id": "A024",
+      "tags": [
+        "selfcare"
+      ],
+      "text": {
+        "ko": "솔직해져라.",
+        "en": "Be honest.",
+        "ja": "正直になれ。",
+        "zh": "诚实一点。"
+      },
+      "subtext": {
+        "ko": "너 자신에게 먼저.",
+        "en": "With yourself first.",
+        "ja": "まず自分に。",
+        "zh": "首先对自己。"
+      }
+    },
+    {
+      "id": "A025",
+      "tags": [
+        "go"
+      ],
+      "text": {
+        "ko": "독하게 마음 먹어라.",
+        "en": "Steel your heart.",
+        "ja": "心を鬼にしろ。",
+        "zh": "下定决心。"
+      },
+      "subtext": {
+        "ko": "물러서지 마.",
+        "en": "Don't back down.",
+        "ja": "引くな。",
+        "zh": "不要退缩。"
+      }
+    },
+    {
+      "id": "A026",
+      "tags": [
+        "calm"
+      ],
+      "text": {
+        "ko": "인생은 현실이다.",
+        "en": "Life is real.",
+        "ja": "人生は現実だ。",
+        "zh": "人生就是现实。"
+      },
+      "subtext": {
+        "ko": "꿈에서 깨어나.",
+        "en": "Wake up.",
+        "ja": "夢から覚めて。",
+        "zh": "从梦中醒来。"
+      }
+    },
+    {
+      "id": "A027",
+      "tags": [
+        "work"
+      ],
+      "text": {
+        "ko": "문제는 문제다.",
+        "en": "A problem is a problem.",
+        "ja": "問題は問題だ。",
+        "zh": "问题就是问题。"
+      },
+      "subtext": {
+        "ko": "직시해야 풀려.",
+        "en": "Face it to fix it.",
+        "ja": "直視すれば解ける。",
+        "zh": "直面才能解决。"
+      }
+    },
+    {
+      "id": "A028",
+      "tags": [
+        "decision"
+      ],
+      "text": {
+        "ko": "두 개 중 하나는 진짜다.",
+        "en": "One of two is real.",
+        "ja": "二つに一つは本物。",
+        "zh": "二选一是真的。"
+      },
+      "subtext": {
+        "ko": "가짜를 버려.",
+        "en": "Discard the fake.",
+        "ja": "偽物を捨てろ。",
+        "zh": "丢掉假的。"
+      }
+    },
+    {
+      "id": "A029",
+      "tags": [
+        "go"
+      ],
+      "text": {
+        "ko": "이제 시작이다.",
+        "en": "It's just the beginning.",
+        "ja": "今からが始まり。",
+        "zh": "现在才开始。"
+      },
+      "subtext": {
+        "ko": "끝이 아니야.",
+        "en": "Not the end.",
+        "ja": "終わりじゃない。",
+        "zh": "不是结束。"
+      }
+    },
+    {
+      "id": "A030",
+      "tags": [
+        "selfcare"
+      ],
+      "text": {
+        "ko": "운동하고 다시 생각해라.",
+        "en": "Exercise, then rethink.",
+        "ja": "運動して考え直せ。",
+        "zh": "运动后再想。"
+      },
+      "subtext": {
+        "ko": "몸이 풀려야 머리도 풀려.",
+        "en": "Body first, mind second.",
+        "ja": "体がほぐれれば頭も。",
+        "zh": "身体松了头脑也松。"
+      }
+    },
+    {
+      "id": "A031",
+      "tags": [
+        "decision"
+      ],
+      "text": {
+        "ko": "답은 정해져있다.",
+        "en": "The answer is set.",
+        "ja": "答えは決まっている。",
+        "zh": "答案已定。"
+      },
+      "subtext": {
+        "ko": "너도 알잖아.",
+        "en": "You know it.",
+        "ja": "君も知ってるはず。",
+        "zh": "你也知道。"
+      }
+    },
+    {
+      "id": "A032",
+      "tags": [
+        "wait"
+      ],
+      "text": {
+        "ko": "기다려라.",
+        "en": "Wait.",
+        "ja": "待て。",
+        "zh": "等待。"
+      },
+      "subtext": {
+        "ko": "때가 온다.",
+        "en": "The time will come.",
+        "ja": "時が来る。",
+        "zh": "时机将至。"
+      }
+    },
+    {
+      "id": "A033",
+      "tags": [
+        "no"
+      ],
+      "text": {
+        "ko": "안될 때는 포기해라.",
+        "en": "Give up if it won't work.",
+        "ja": "ダメな時は諦めろ。",
+        "zh": "不行就放弃。"
+      },
+      "subtext": {
+        "ko": "포기도 용기다.",
+        "en": "Giving up takes courage.",
+        "ja": "諦めも勇気。",
+        "zh": "放弃也是勇气。"
+      }
+    },
+    {
+      "id": "A034",
+      "tags": [
+        "calm"
+      ],
+      "text": {
+        "ko": "미련은 미련이다.",
+        "en": "Regret is just regret.",
+        "ja": "未練は未練。",
+        "zh": "留恋只是留恋。"
+      },
+      "subtext": {
+        "ko": "털어버려.",
+        "en": "Shake it off.",
+        "ja": "振り払え。",
+        "zh": "甩掉它。"
+      }
+    },
+    {
+      "id": "A035",
+      "tags": [
+        "calm"
+      ],
+      "text": {
+        "ko": "때로는 약이다.",
+        "en": "Sometimes it's medicine.",
+        "ja": "時には薬になる。",
+        "zh": "有时是良药。"
+      },
+      "subtext": {
+        "ko": "쓴 만큼 좋아져.",
+        "en": "Bitter but good.",
+        "ja": "苦い分良くなる。",
+        "zh": "苦口良药。"
+      }
+    },
+    {
+      "id": "A036",
+      "tags": [
+        "selfcare"
+      ],
+      "text": {
+        "ko": "가끔은 생각하지 마라.",
+        "en": "Stop thinking sometimes.",
+        "ja": "たまには考えるな。",
+        "zh": "有时别想太多。"
+      },
+      "subtext": {
+        "ko": "머리를 비워.",
+        "en": "Empty your mind.",
+        "ja": "頭を空っぽに。",
+        "zh": "放空大脑。"
+      }
+    },
+    {
+      "id": "A037",
+      "tags": [
+        "decision"
+      ],
+      "text": {
+        "ko": "이성을 믿어라.",
+        "en": "Trust your reason.",
+        "ja": "理性を信じろ。",
+        "zh": "相信理智。"
+      },
+      "subtext": {
+        "ko": "감정은 속하니까.",
+        "en": "Feelings deceive.",
+        "ja": "感情は騙すから。",
+        "zh": "感情会骗人。"
+      }
+    },
+    {
+      "id": "A038",
+      "tags": [
+        "relationship"
+      ],
+      "text": {
+        "ko": "가끔은 감성적으로.",
+        "en": "Act on emotion mostly.",
+        "ja": "たまには感情的に。",
+        "zh": "有时感性行事。"
+      },
+      "subtext": {
+        "ko": "마음 가는 대로.",
+        "en": "Follow your heart.",
+        "ja": "心のままに。",
+        "zh": "随心而动。"
+      }
+    },
+    {
+      "id": "A039",
+      "tags": [
+        "go"
+      ],
+      "text": {
+        "ko": "모험을 걸어봐.",
+        "en": "Risk it.",
+        "ja": "冒険してみよう。",
+        "zh": "冒险一试。"
+      },
+      "subtext": {
+        "ko": "잃을 건 없다.",
+        "en": "Nothing to lose.",
+        "ja": "失うものはない。",
+        "zh": "没什么可失去的。"
+      }
+    },
+    {
+      "id": "A040",
+      "tags": [
+        "relationship"
+      ],
+      "text": {
+        "ko": "친구에게 물어봐.",
+        "en": "Ask a friend.",
+        "ja": "友達に聞いてみて。",
+        "zh": "问问朋友。"
+      },
+      "subtext": {
+        "ko": "객관적인 눈으로.",
+        "en": "For an objective view.",
+        "ja": "客観的な目で。",
+        "zh": "用客观的眼光。"
+      }
+    },
+    {
+      "id": "A041",
+      "tags": [
+        "wait"
+      ],
+      "text": {
+        "ko": "더 자세히 봐.",
+        "en": "Look closer.",
+        "ja": "もっと詳しく見て。",
+        "zh": "仔细看看。"
+      },
+      "subtext": {
+        "ko": "숨겨진 게 있어.",
+        "en": "There's something hidden.",
+        "ja": "隠されたものがある。",
+        "zh": "有隐藏的东西。"
+      }
+    },
+    {
+      "id": "A042",
+      "tags": [
+        "no"
+      ],
+      "text": {
+        "ko": "함정이야.",
+        "en": "It's a trap.",
+        "ja": "それは罠だ。",
+        "zh": "这是陷阱。"
+      },
+      "subtext": {
+        "ko": "조심해.",
+        "en": "Be careful.",
+        "ja": "気をつけて。",
+        "zh": "小心。"
+      }
+    },
+    {
+      "id": "A043",
+      "tags": [
+        "go"
+      ],
+      "text": {
+        "ko": "축하할 일이야.",
+        "en": "Celebrate.",
+        "ja": "祝うべきことだ。",
+        "zh": "值得庆祝。"
+      },
+      "subtext": {
+        "ko": "즐겨.",
+        "en": "Enjoy it.",
+        "ja": "楽しんで。",
+        "zh": "享受吧。"
+      }
+    },
+    {
+      "id": "A044",
+      "tags": [
+        "decision"
+      ],
+      "text": {
+        "ko": "방향을 바꿔.",
+        "en": "Change direction.",
+        "ja": "方向を変えて。",
+        "zh": "改变方向。"
+      },
+      "subtext": {
+        "ko": "다른 길이 있어.",
+        "en": "There is another way.",
+        "ja": "別の道がある。",
+        "zh": "还有别的路。"
+      }
+    },
+    {
+      "id": "A045",
+      "tags": [
+        "wait"
+      ],
+      "text": {
+        "ko": "침묵해.",
+        "en": "Keep silent.",
+        "ja": "沈黙を守れ。",
+        "zh": "保持沉默。"
+      },
+      "subtext": {
+        "ko": "말이 많으면 손해.",
+        "en": "Talking less pays more.",
+        "ja": "多弁は損。",
+        "zh": "多言必失。"
+      }
+    },
+    {
+      "id": "A046",
+      "tags": [
+        "go"
+      ],
+      "text": {
+        "ko": "목소리를 높여.",
+        "en": "Speak up.",
+        "ja": "声を大にして。",
+        "zh": "大声说出来。"
+      },
+      "subtext": {
+        "ko": "주장해야 알아줘.",
+        "en": "Claim it to get it.",
+        "ja": "主張しないと伝わらない。",
+        "zh": "不说没人知道。"
+      }
+    },
+    {
+      "id": "A047",
+      "tags": [
+        "save"
+      ],
+      "text": {
+        "ko": "돈을 아껴.",
+        "en": "Save money.",
+        "ja": "お金を節約して。",
+        "zh": "省点钱。"
+      },
+      "subtext": {
+        "ko": "나중에 필요해.",
+        "en": "You'll need it later.",
+        "ja": "後で必要になる。",
+        "zh": "以后用得着。"
+      }
+    },
+    {
+      "id": "A048",
+      "tags": [
+        "go"
+      ],
+      "text": {
+        "ko": "사도 돼.",
+        "en": "Buy it.",
+        "ja": "買ってもいい。",
+        "zh": "买吧。"
+      },
+      "subtext": {
+        "ko": "너를 위한 투자.",
+        "en": "Investment in you.",
+        "ja": "自分への投資。",
+        "zh": "为了自己的投资。"
+      }
+    },
+    {
+      "id": "A049",
+      "tags": [
+        "go"
+      ],
+      "text": {
+        "ko": "여행을 떠나.",
+        "en": "Travel.",
+        "ja": "旅に出よう。",
+        "zh": "去旅行吧。"
+      },
+      "subtext": {
+        "ko": "새로운 시각.",
+        "en": "New perspective.",
+        "ja": "新しい視点。",
+        "zh": "新的视角。"
+      }
+    },
+    {
+      "id": "A050",
+      "tags": [
+        "wait"
+      ],
+      "text": {
+        "ko": "집에 있어.",
+        "en": "Stay home.",
+        "ja": "家にいて。",
+        "zh": "待在家里。"
+      },
+      "subtext": {
+        "ko": "충전이 필요해.",
+        "en": "You need recharge.",
+        "ja": "充電が必要。",
+        "zh": "需要充电。"
+      }
+    },
+    {
+      "id": "A051",
+      "tags": [
+        "go"
+      ],
+      "text": {
+        "ko": "지금 바로.",
+        "en": "Right now.",
+        "ja": "今すぐ。",
+        "zh": "就在现在。"
+      },
+      "subtext": {
+        "ko": "미루지 마.",
+        "en": "Don't delay.",
+        "ja": "先延ばしにするな。",
+        "zh": "不要拖延。"
+      }
+    },
+    {
+      "id": "A052",
+      "tags": [
+        "no"
+      ],
+      "text": {
+        "ko": "아니야.",
+        "en": "No.",
+        "ja": "違う。",
+        "zh": "不对。"
+      },
+      "subtext": {
+        "ko": "직감을 믿어.",
+        "en": "Trust your gut.",
+        "ja": "直感を信じて。",
+        "zh": "相信直觉。"
+      }
+    }
+  ]
+}

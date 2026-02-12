@@ -1,0 +1,43 @@
+﻿Resolving dependencies...
+flutter : Note: intl is p
+inned to version 0.19.0 b
+y flutter_localizations f
+rom the flutter SDK.
+위치 줄:1 문자:1
++ flutter pub get 2>&1 | 
+Out-File -Encoding utf8 p
+ub_get_log_utf8.txt
++ ~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo       
+       : NotSpecified:   
+  (Note: intl is p...h   
+ e flutter SDK.:Strin    
+g) [], RemoteExcepti    o
+n
+    + FullyQualifiedErro 
+   rId : NativeCommandE  
+  rror
+ 
+See https://dart.dev/go/s
+dk-version-pinning for de
+tails.
+
+
+Because magic_answer_book
+ depends on flutter_local
+izations from sdk which d
+epends on intl 0.19.0, in
+tl 0.19.0 is required.
+So, because magic_answer_
+book depends on intl ^0.2
+0.2, version solving fail
+ed.
+
+
+You can try the following
+ suggestion to make the p
+ubspec resolve:
+* Consider downgrading yo
+ur constraint on intl: fl
+utter pub add intl:^0.19.
+0
