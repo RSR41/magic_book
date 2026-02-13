@@ -37,6 +37,9 @@ dependencies:
   audioplayers: ^6.0.0
   in_app_purchase: ^3.2.0
 
+  # Ads
+  google_mobile_ads: ^5.2.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

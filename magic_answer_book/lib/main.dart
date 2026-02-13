@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'l10n/app_localizations.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 
-import 'theme/app_theme.dart';
-import 'services/answers_service.dart';
-import 'services/storage_service.dart';
+import 'l10n/app_localizations.dart';
 import 'providers/providers.dart';
-import 'screens/intro_screen.dart';
 import 'screens/home_screen.dart';
+import 'screens/intro_screen.dart';
 import 'screens/saved_screen.dart';
 import 'screens/settings_screen.dart';
+import 'services/ads_service.dart';
+import 'services/answers_service.dart';
+import 'services/storage_service.dart';
+import 'theme/app_theme.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -34,11 +36,15 @@ void main() async {
   final answersService = AnswersService();
   await answersService.loadAnswers();
 
+  final adsService = AdsService();
+  await adsService.initialize();
+
   runApp(
     ProviderScope(
       overrides: [
         storageServiceProvider.overrideWithValue(storageService),
         answersServiceProvider.overrideWithValue(answersService),
+        adsServiceProvider.overrideWithValue(adsService),
       ],
       child: const MagicAnswerBookApp(),
     ),
@@ -117,6 +123,8 @@ class MainTabScreen extends ConsumerStatefulWidget {
 
 class _MainTabScreenState extends ConsumerState<MainTabScreen> {
   int _currentIndex = 0;
+  BannerAd? _bannerAd;
+  ProviderSubscription<bool>? _isAdFreeSubscription;
 
   final List<Widget> _screens = const [
     HomeScreen(),
@@ -125,49 +133,104 @@ class _MainTabScreenState extends ConsumerState<MainTabScreen> {
   ];
 
   @override
+  void initState() {
+    super.initState();
+    _loadBannerAdIfNeeded(ref.read(isAdFreeProvider));
+
+    _isAdFreeSubscription = ref.listenManual<bool>(isAdFreeProvider, (previous, next) {
+      if (next) {
+        _disposeBanner();
+      } else {
+        _loadBannerAdIfNeeded(false);
+      }
+    });
+  }
+
+  Future<void> _loadBannerAdIfNeeded(bool isAdFree) async {
+    if (isAdFree || _bannerAd != null) return;
+
+    final adsService = ref.read(adsServiceProvider);
+    final ad = await adsService.loadBannerAd(isAdFree: isAdFree);
+    if (!mounted || ad == null) return;
+
+    setState(() {
+      _bannerAd = ad;
+    });
+  }
+
+  void _disposeBanner() {
+    _bannerAd?.dispose();
+    _bannerAd = null;
+    if (mounted) {
+      setState(() {});
+    }
+  }
+
+  @override
+  void dispose() {
+    _isAdFreeSubscription?.close();
+    _disposeBanner();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     final l = AppLocalizations.of(context)!;
+    final isAdFree = ref.watch(isAdFreeProvider);
+
     return Scaffold(
       body: IndexedStack(
         index: _currentIndex,
         children: _screens,
       ),
-      bottomNavigationBar: Container(
-        decoration: BoxDecoration(
-          color: AppTheme.midBlue,
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withOpacity(0.3),
-              blurRadius: 10,
-              offset: const Offset(0, -2),
+      bottomNavigationBar: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          if (!isAdFree && _bannerAd != null)
+            Container(
+              width: _bannerAd!.size.width.toDouble(),
+              height: _bannerAd!.size.height.toDouble(),
+              color: AppTheme.midBlue,
+              child: AdWidget(ad: _bannerAd!),
             ),
-          ],
-        ),
-        child: SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 8),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                _buildNavItem(
-                  assetPath: 'assets/images/icon_home.png',
-                  label: l.home,
-                  index: 0,
-                ),
-                _buildNavItem(
-                  assetPath: 'assets/images/icon_history.png',
-                  label: l.history,
-                  index: 1,
-                ),
-                _buildNavItem(
-                  assetPath: 'assets/images/icon_settings.png',
-                  label: l.settings,
-                  index: 2,
+          Container(
+            decoration: BoxDecoration(
+              color: AppTheme.midBlue,
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withOpacity(0.3),
+                  blurRadius: 10,
+                  offset: const Offset(0, -2),
                 ),
               ],
             ),
+            child: SafeArea(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(vertical: 8),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    _buildNavItem(
+                      assetPath: 'assets/images/icon_home.png',
+                      label: l.home,
+                      index: 0,
+                    ),
+                    _buildNavItem(
+                      assetPath: 'assets/images/icon_history.png',
+                      label: l.history,
+                      index: 1,
+                    ),
+                    _buildNavItem(
+                      assetPath: 'assets/images/icon_settings.png',
+                      label: l.settings,
+                      index: 2,
+                    ),
+                  ],
+                ),
+              ),
+            ),
           ),
-        ),
+        ],
       ),
     );
   }
@@ -199,8 +262,6 @@ class _MainTabScreenState extends ConsumerState<MainTabScreen> {
                 assetPath,
                 width: 28,
                 height: 28,
-                // If icons are mono-color and need tinting, uncomment:
-                // color: isSelected ? AppTheme.accentPurple : AppTheme.dimGray,
               ),
             ),
             const SizedBox(height: 4),

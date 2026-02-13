@@ -182,8 +182,24 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
     setState(() {
       _showResult = false;
     });
+
     ref.read(tryAgainCountProvider.notifier).state++;
-    Future.delayed(const Duration(milliseconds: 300), () {
+    final tryAgainCount = ref.read(tryAgainCountProvider);
+
+    Future.delayed(const Duration(milliseconds: 300), () async {
+      if (!mounted) return;
+
+      final isAdFree = ref.read(isAdFreeProvider);
+      if (isAdFree) {
+        _triggerAnswer();
+        return;
+      }
+
+      await ref.read(adsServiceProvider).showInterstitialIfEligible(
+            tryAgainCount: tryAgainCount,
+            isAdFree: false,
+          );
+
       if (mounted) _triggerAnswer();
     });
   }
