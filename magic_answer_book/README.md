@@ -59,6 +59,11 @@ For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
 
+## Release Operations
+
+- iOS 릴리즈 노트: `docs/release_notes_ios.md`
+- Android 릴리즈 노트: `docs/release_notes_android.md`
+- 내부 테스트/롤백 절차: `docs/internal_test_and_rollback.md`
 ## Test Automation
 
 To keep regressions from reaching release builds, run tests through the shared script:
