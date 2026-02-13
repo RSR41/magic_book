@@ -3,12 +3,18 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../providers/providers.dart';
 import '../theme/app_theme.dart';
 import '../l10n/app_localizations.dart';
+import '../services/iap_service.dart';
 
-class SettingsScreen extends ConsumerWidget {
+class SettingsScreen extends ConsumerStatefulWidget {
   const SettingsScreen({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<SettingsScreen> createState() => _SettingsScreenState();
+}
+
+class _SettingsScreenState extends ConsumerState<SettingsScreen> {
+  @override
+  Widget build(BuildContext context) {
     final vibration = ref.watch(vibrationProvider);
     final shakeEnabled = ref.watch(shakeEnabledProvider);
     final soundEnabled = ref.watch(soundEnabledProvider);
@@ -83,7 +89,7 @@ class SettingsScreen extends ConsumerWidget {
               icon: Icons.restore,
               title: l.restorePurchases,
               subtitle: l.restorePurchasesSub,
-              onTap: () => _restorePurchases(context, l),
+              onTap: () => _restorePurchases(context, ref, l),
             ),
 
             const SizedBox(height: 24),
@@ -361,11 +367,35 @@ class SettingsScreen extends ConsumerWidget {
             child: Text(l.cancel),
           ),
           ElevatedButton(
-            onPressed: () {
+            onPressed: () async {
               Navigator.pop(ctx);
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(content: Text(l.testMode)),
-              );
+
+              final iapService = ref.read(iapServiceProvider);
+              final storageService = ref.read(storageServiceProvider);
+              final messenger = ScaffoldMessenger.of(context);
+
+              final result = await iapService.purchaseAdRemoval();
+              if (!context.mounted) return;
+
+              if (result.isSuccess) {
+                storageService.isAdFree = true;
+                ref.read(isAdFreeProvider.notifier).state = true;
+                messenger.showSnackBar(
+                  SnackBar(content: Text(l.purchaseSuccess)),
+                );
+                return;
+              }
+
+              final message = switch (result.status) {
+                IapActionStatus.cancelled => l.purchaseCancelled,
+                IapActionStatus.unavailable => l.iapUnavailable,
+                IapActionStatus.productNotFound => l.purchaseFailed,
+                IapActionStatus.failed =>
+                  result.isNetworkError ? l.networkError : l.purchaseFailed,
+                IapActionStatus.success => l.purchaseSuccess,
+              };
+
+              messenger.showSnackBar(SnackBar(content: Text(message)));
             },
             child: Text(l.purchaseButton),
           ),
@@ -374,9 +404,32 @@ class SettingsScreen extends ConsumerWidget {
     );
   }
 
-  void _restorePurchases(BuildContext context, AppLocalizations l) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text(l.testModeRestore)),
-    );
+  Future<void> _restorePurchases(
+      BuildContext context, WidgetRef ref, AppLocalizations l) async {
+    final iapService = ref.read(iapServiceProvider);
+    final storageService = ref.read(storageServiceProvider);
+
+    final messenger = ScaffoldMessenger.of(context);
+    final result = await iapService.restorePurchases();
+
+    if (!context.mounted) return;
+
+    if (result.isSuccess) {
+      storageService.isAdFree = true;
+      ref.read(isAdFreeProvider.notifier).state = true;
+      messenger.showSnackBar(SnackBar(content: Text(l.restoreSuccess)));
+      return;
+    }
+
+    final message = switch (result.status) {
+      IapActionStatus.cancelled => l.purchaseCancelled,
+      IapActionStatus.unavailable => l.iapUnavailable,
+      IapActionStatus.productNotFound => l.restoreFailed,
+      IapActionStatus.failed =>
+        result.isNetworkError ? l.networkError : l.restoreFailed,
+      IapActionStatus.success => l.restoreSuccess,
+    };
+
+    messenger.showSnackBar(SnackBar(content: Text(message)));
   }
 }
