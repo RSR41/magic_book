@@ -2,6 +2,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:sensors_plus/sensors_plus.dart';
 import 'dart:async';
 import 'package:audioplayers/audioplayers.dart';
@@ -38,6 +39,12 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
   @override
   void initState() {
     super.initState();
+
+    Future.microtask(() {
+      ref.read(adsServiceProvider).initialize(
+            isAdFree: ref.read(isAdFreeProvider),
+          );
+    });
 
     _initBgm();
 
@@ -179,11 +186,19 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
     });
   }
 
-  void _onTryAgain() {
+  Future<void> _onTryAgain() async {
     setState(() {
       _showResult = false;
     });
     ref.read(tryAgainCountProvider.notifier).state++;
+    final tryAgainCount = ref.read(tryAgainCountProvider);
+    final isAdFree = ref.read(isAdFreeProvider);
+
+    await ref.read(adsServiceProvider).showInterstitialIfEligible(
+          tryAgainCount: tryAgainCount,
+          isAdFree: isAdFree,
+        );
+
     Future.delayed(const Duration(milliseconds: 300), () {
       if (mounted) _triggerAnswer();
     });
@@ -200,7 +215,17 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
 
   @override
   Widget build(BuildContext context) {
+    ref.listen<bool>(isAdFreeProvider, (previous, next) {
+      final adsService = ref.read(adsServiceProvider);
+      adsService.updateAdFreeStatus(next);
+      if (!next) {
+        adsService.initialize(isAdFree: false);
+      }
+    });
+
     final l = AppLocalizations.of(context)!;
+    final isAdFree = ref.watch(isAdFreeProvider);
+    final adsService = ref.watch(adsServiceProvider);
 
     return Stack(
       children: [
@@ -276,6 +301,18 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
           ResultScreen(
             onTryAgain: _onTryAgain,
             onDismiss: _onResultDismiss,
+          ),
+        if (!isAdFree && adsService.hasBannerAd)
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: SafeArea(
+              top: false,
+              child: SizedBox(
+                width: adsService.bannerAd!.size.width.toDouble(),
+                height: adsService.bannerAd!.size.height.toDouble(),
+                child: AdWidget(ad: adsService.bannerAd!),
+              ),
+            ),
           ),
       ],
     );
