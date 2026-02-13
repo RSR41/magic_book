@@ -151,6 +151,21 @@ class AppLocalizationsEn extends AppLocalizations {
   String get saveSuccess => 'Saved!';
 
   @override
+  String get purchaseSuccess => 'Purchase completed. Ads are now removed.';
+
+  @override
+  String get restoreSuccess => 'Restore completed. Ads are now removed.';
+
+  @override
+  String get purchaseFailed => 'Purchase failed. Please try again.';
+
+  @override
+  String get restoreFailed => 'No purchase could be restored.';
+
+  @override
+  String get iapUnavailable => 'In-app purchases are currently unavailable.';
+
+  @override
   String get purchaseCancelled => 'Purchase was cancelled.';
 
   @override

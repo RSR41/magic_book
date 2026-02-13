@@ -34,9 +34,9 @@
   "cautionText": "This app is for entertainment purposes only.\nFor important decisions, please consult a professional.\nNo guarantees of efficacy or predictions.",
   "licenses": "Open Source Licenses",
   "privacyPolicy": "Privacy Policy",
-  "privacyPolicyText": "This app does not collect any personal information.\nAll data is stored locally on your device.\nThe app works entirely offline.",
+  "privacyPolicyText": "This app does not require sign-up, and question/answer data is stored locally on your device.\nWhen ads are shown, the ad provider (e.g., AdMob) may process device identifiers such as the advertising ID.\nFor ad-removal purchases, the in-app purchase provider may process data required for payment verification.",
   "termsOfService": "Terms of Service",
-  "termsOfServiceText": "Answers provided by this app are for entertainment purposes only.\nThe user assumes all responsibility for decisions made based on answers.\nPlease consult professionals for medical, legal, or financial matters.",
+  "termsOfServiceText": "Answers provided by this app are for entertainment and reference only.\nFor medical, legal, or financial decisions, please consult a qualified professional.\nUsers are responsible for decisions and outcomes based on app answers.",
   "version": "Version",
   "noSavedAnswers": "No saved answers yet",
   "noSavedAnswersSub": "Tap Save on a result card to keep it",
@@ -46,6 +46,11 @@
   "delete": "Delete",
   "saveFailed": "Failed to save.",
   "saveSuccess": "Saved!",
+  "purchaseSuccess": "Purchase completed. Ads are now removed.",
+  "restoreSuccess": "Restore completed. Ads are now removed.",
+  "purchaseFailed": "Purchase failed. Please try again.",
+  "restoreFailed": "No purchase could be restored.",
+  "iapUnavailable": "In-app purchases are currently unavailable.",
   "purchaseCancelled": "Purchase was cancelled.",
   "networkError": "Please check your network connection.",
   "testMode": "Test mode: payments available after store registration.",
@@ -56,9 +61,15 @@
   "shareFormat": "Q: {question}\nA: {answer} — {subtext}\n\n— Magic Answer Book",
   "@shareFormat": {
     "placeholders": {
-      "question": {"type": "String"},
-      "answer": {"type": "String"},
-      "subtext": {"type": "String"}
+      "question": {
+        "type": "String"
+      },
+      "answer": {
+        "type": "String"
+      },
+      "subtext": {
+        "type": "String"
+      }
     }
   },
   "homeInstruction1": "1. Think deeply about your question or worry.",

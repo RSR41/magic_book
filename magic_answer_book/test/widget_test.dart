@@ -1,30 +1,65 @@
-// This is a basic Flutter widget test.
-//
-// To perform an interaction with a widget in your test, use the WidgetTester
-// utility in the flutter_test package. For example, you can send tap and scroll
-// gestures. You can also use WidgetTester to find child widgets in the widget
-// tree, read text, and verify that the values of widget properties are correct.
-
-import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-
-import 'package:magic_answer_book/main.dart';
+import 'package:magic_answer_book/models/answer.dart';
+import 'package:magic_answer_book/services/ads_service.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(const MagicAnswerBookApp());
+  group('AdsService.shouldShowInterstitial', () {
+    test('isAdFree=true이면 시도 횟수와 무관하게 항상 false를 반환한다', () {
+      final service = AdsService();
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
+      for (var count = 0; count <= 30; count++) {
+        expect(service.shouldShowInterstitial(count, true), isFalse);
+      }
+    });
 
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
+    test('isAdFree=false일 때 노출 규칙(최소 시도 횟수/5회 주기)을 따른다', () {
+      final service = AdsService();
 
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+      expect(service.shouldShowInterstitial(3, false), isFalse);
+      expect(service.shouldShowInterstitial(4, false), isFalse);
+      expect(service.shouldShowInterstitial(5, false), isTrue);
+      expect(service.shouldShowInterstitial(6, false), isFalse);
+      expect(service.shouldShowInterstitial(10, false), isTrue);
+    test('returns false for ad-free users', () {
+      final service = AdsService();
+      expect(service.shouldShowInterstitial(5, true), isFalse);
+    });
+
+    test('follows first-tries and modulo policy', () {
+      final service = AdsService();
+
+      expect(service.shouldShowInterstitial(1, false), isFalse);
+      expect(service.shouldShowInterstitial(3, false), isFalse);
+      expect(service.shouldShowInterstitial(4, false), isFalse);
+      expect(service.shouldShowInterstitial(5, false), isTrue);
+      expect(service.shouldShowInterstitial(10, false), isTrue);
+    });
+
+    test('enforces minimum interval after showing an ad', () {
+      final service = AdsService();
+
+      expect(service.shouldShowInterstitial(5, false), isTrue);
+      service.recordAdShown();
+      expect(service.shouldShowInterstitial(10, false), isFalse);
+    });
+  });
+
+  group('Answer localization fallback', () {
+    test('falls back to ko then en when locale is missing', () {
+      final answer = Answer(
+        id: 'A1',
+        tags: const ['go'],
+        text: const {
+          'ko': '한국어 답변',
+          'en': 'english answer',
+        },
+        subtext: const {
+          'en': 'english subtext',
+        },
+      );
+
+      expect(answer.getLocalizedText('ja'), '한국어 답변');
+      expect(answer.getLocalizedSubtext('ja'), 'english subtext');
+    });
   });
 }

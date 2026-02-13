@@ -147,6 +147,21 @@ class AppLocalizationsZh extends AppLocalizations {
   String get saveSuccess => '已保存！';
 
   @override
+  String get purchaseSuccess => '购买完成，广告已移除。';
+
+  @override
+  String get restoreSuccess => '恢复完成，广告已移除。';
+
+  @override
+  String get purchaseFailed => '购买失败，请重试。';
+
+  @override
+  String get restoreFailed => '未找到可恢复的购买记录。';
+
+  @override
+  String get iapUnavailable => '当前无法使用应用内购买。';
+
+  @override
   String get purchaseCancelled => '购买已取消。';
 
   @override
