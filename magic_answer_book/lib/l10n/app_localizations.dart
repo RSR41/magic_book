@@ -378,6 +378,36 @@ abstract class AppLocalizations {
   /// **'저장되었습니다!'**
   String get saveSuccess;
 
+  /// No description provided for @purchaseSuccess.
+  ///
+  /// In ko, this message translates to:
+  /// **'구매가 완료되어 광고가 제거되었습니다.'**
+  String get purchaseSuccess;
+
+  /// No description provided for @restoreSuccess.
+  ///
+  /// In ko, this message translates to:
+  /// **'복원이 완료되어 광고가 제거되었습니다.'**
+  String get restoreSuccess;
+
+  /// No description provided for @purchaseFailed.
+  ///
+  /// In ko, this message translates to:
+  /// **'구매에 실패했습니다. 다시 시도해 주세요.'**
+  String get purchaseFailed;
+
+  /// No description provided for @restoreFailed.
+  ///
+  /// In ko, this message translates to:
+  /// **'복원할 구매 내역을 찾지 못했습니다.'**
+  String get restoreFailed;
+
+  /// No description provided for @iapUnavailable.
+  ///
+  /// In ko, this message translates to:
+  /// **'인앱 구매를 현재 사용할 수 없습니다.'**
+  String get iapUnavailable;
+
   /// No description provided for @purchaseCancelled.
   ///
   /// In ko, this message translates to:
