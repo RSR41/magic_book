@@ -3,8 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:audioplayers/audioplayers.dart';
 import '../providers/providers.dart';
 import '../theme/app_theme.dart';
+import '../widgets/waiting_overlay.dart';
 import '../l10n/app_localizations.dart';
 
 class ResultScreen extends ConsumerStatefulWidget {
@@ -23,29 +25,52 @@ class ResultScreen extends ConsumerStatefulWidget {
 
 class _ResultScreenState extends ConsumerState<ResultScreen>
     with SingleTickerProviderStateMixin {
-  late AnimationController _controller;
-  late Animation<double> _fadeIn;
+  late AnimationController _fadeController;
+  late Animation<double> _fadeAnimation;
   late Animation<double> _scaleUp;
+  final AudioPlayer _audioPlayer = AudioPlayer(); // For one-shot SFX
+
+  void _playSound(String type) async {
+    if (!ref.read(soundEnabledProvider)) return;
+
+    String? assetPath;
+    switch (type) {
+      case 'save':
+        assetPath = 'sounds/sfx_save.wav';
+        break;
+      case 'error':
+        assetPath = 'sounds/sfx_error.wav';
+        break;
+    }
+
+    if (assetPath != null) {
+      try {
+        await _audioPlayer.play(AssetSource(assetPath));
+      } catch (e) {
+        debugPrint('Error playing sound ($type): $e');
+      }
+    }
+  }
 
   @override
   void initState() {
     super.initState();
-    _controller = AnimationController(
+    _fadeController = AnimationController(
       duration: const Duration(milliseconds: 600),
       vsync: this,
     );
-    _fadeIn = Tween<double>(begin: 0, end: 1).animate(
-      CurvedAnimation(parent: _controller, curve: Curves.easeOut),
+    _fadeAnimation = Tween<double>(begin: 0, end: 1).animate(
+      CurvedAnimation(parent: _fadeController, curve: Curves.easeOut),
     );
     _scaleUp = Tween<double>(begin: 0.8, end: 1.0).animate(
-      CurvedAnimation(parent: _controller, curve: Curves.elasticOut),
+      CurvedAnimation(parent: _fadeController, curve: Curves.elasticOut),
     );
-    _controller.forward();
+    _fadeController.forward();
   }
 
   @override
   void dispose() {
-    _controller.dispose();
+    _fadeController.dispose();
     super.dispose();
   }
 
@@ -55,21 +80,32 @@ class _ResultScreenState extends ConsumerState<ResultScreen>
     if (answer == null) return;
 
     final l = AppLocalizations.of(context)!;
-    final success = await ref
-        .read(savedAnswersProvider.notifier)
-        .saveAnswer(answer, question);
+    try {
+      await ref
+          .read(savedAnswersProvider.notifier)
+          .saveAnswer(answer, question);
 
-    if (mounted) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text(
-            success ? l.saveSuccess : l.saveFailed,
-            style: GoogleFonts.cinzelDecorative(),
+      if (mounted) {
+        _playSound('save'); // Success sound
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(l.saveSuccess), // Reverted to saveSuccess
+            backgroundColor: AppTheme.accentPurple,
+            behavior: SnackBarBehavior.floating,
           ),
-          backgroundColor: AppTheme.accentPurple.withOpacity(0.9),
-          duration: const Duration(seconds: 2),
-        ),
-      );
+        );
+      }
+    } catch (e) {
+      if (mounted) {
+        _playSound('error'); // Error sound
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(l.saveFailed), // Reverted to saveFailed
+            backgroundColor: Colors.red,
+            behavior: SnackBarBehavior.floating,
+          ),
+        );
+      }
     }
   }
 
@@ -103,7 +139,7 @@ class _ResultScreenState extends ConsumerState<ResultScreen>
       color: const Color(0xFF2E1A47),
       height: 1.3, // Slightly tighter line height
       shadows: [
-         Shadow(
+        Shadow(
           color: Colors.white.withOpacity(0.8),
           blurRadius: 10,
           offset: const Offset(0, 0),
@@ -122,12 +158,13 @@ class _ResultScreenState extends ConsumerState<ResultScreen>
     );
 
     return AnimatedBuilder(
-      animation: _controller,
+      animation: _fadeController,
       builder: (context, child) {
         return Opacity(
-          opacity: _fadeIn.value,
+          opacity: _fadeAnimation.value,
           child: Scaffold(
-            backgroundColor: Colors.transparent,
+            backgroundColor:
+                AppTheme.deepBlue, // Make opaque to hide previous screen
             body: Stack(
               children: [
                 // 1. Background Image (Magic Book)
@@ -172,9 +209,7 @@ class _ResultScreenState extends ConsumerState<ResultScreen>
                           ),
                         ),
 
-                        const Spacer(
-                            flex:
-                                5), // Reduced from 7 to move text UP
+                        const Spacer(flex: 5), // Reduced from 7 to move text UP
 
                         // Answer Text Area
                         Padding(
@@ -198,7 +233,8 @@ class _ResultScreenState extends ConsumerState<ResultScreen>
                           ),
                         ),
 
-                        const Spacer(flex: 8), // Increased from 6 to balance the move
+                        const Spacer(
+                            flex: 8), // Increased from 6 to balance the move
 
                         // Action Buttons (Moved up)
                         Padding(

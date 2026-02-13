@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:sensors_plus/sensors_plus.dart';
 import 'dart:async';
+import 'package:audioplayers/audioplayers.dart';
 import '../providers/providers.dart';
 import '../theme/app_theme.dart';
 import '../widgets/waiting_overlay.dart';
@@ -29,6 +30,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
   // Star animation
   late AnimationController _starController;
   final List<_Star> _stars = [];
+  final AudioPlayer _audioPlayer = AudioPlayer(); // Audio Player instance
 
   static const double _shakeThreshold = 2.7;
   DateTime _lastShakeTime = DateTime.now();
@@ -36,6 +38,8 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
   @override
   void initState() {
     super.initState();
+
+    _initBgm();
 
     _pulseController = AnimationController(
       duration: const Duration(milliseconds: 2000),
@@ -67,6 +71,18 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
     _initShakeDetection();
   }
 
+  void _initBgm() async {
+    try {
+      await _bgmPlayer.setReleaseMode(ReleaseMode.loop);
+      await _bgmPlayer.setPlayerMode(PlayerMode.mediaPlayer);
+      if (ref.read(soundEnabledProvider)) {
+        await _bgmPlayer.play(AssetSource('sounds/bgm.wav'));
+      }
+    } catch (e) {
+      debugPrint('Error initializing BGM: $e');
+    }
+  }
+
   void _initShakeDetection() {
     _accelerometerSubscription = userAccelerometerEventStream().listen(
       (UserAccelerometerEvent event) {
@@ -81,6 +97,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
           final now = DateTime.now();
           if (now.difference(_lastShakeTime).inMilliseconds > 1000) {
             _lastShakeTime = now;
+            _playSound('button');
             _triggerAnswer();
           }
         }
@@ -98,7 +115,11 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
     });
 
     if (ref.read(vibrationProvider)) {
-      HapticFeedback.mediumImpact();
+      HapticFeedback.heavyImpact(); // Stronger vibration
+    }
+
+    if (ref.read(soundEnabledProvider)) {
+      _playSound('waiting');
     }
 
     final answersService = ref.read(answersServiceProvider);
@@ -110,7 +131,42 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
     storage.totalAnswersCount = storage.totalAnswersCount + 1;
   }
 
+  Future<void> _playSound(String type) async {
+    if (!ref.read(soundEnabledProvider)) return;
+
+    String? assetPath;
+    switch (type) {
+      case 'button':
+        assetPath = 'sounds/sfx_button.wav';
+        break;
+      case 'waiting':
+        assetPath = 'sounds/sfx_waiting.wav';
+        break;
+      case 'result':
+        assetPath = 'sounds/sfx_result.wav';
+        break;
+    }
+
+    if (assetPath != null) {
+      try {
+        final player = AudioPlayer();
+        await player.play(AssetSource(assetPath));
+        // Auto dispose is handled by the player after completion usually,
+        // but for short SFX creating a new instance is safer to avoid overlap issues.
+        player.onPlayerComplete.listen((event) {
+          player.dispose();
+        });
+      } catch (e) {
+        debugPrint('Error playing sound ($type): $e');
+      }
+    }
+  }
+
+  // Background Music Player
+  final AudioPlayer _bgmPlayer = AudioPlayer();
+
   void _onAnimationComplete() {
+    _playSound('result');
     setState(() {
       _isAnimating = false;
       _showResult = true;
@@ -138,6 +194,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
     _accelerometerSubscription?.cancel();
     _pulseController.dispose();
     _starController.dispose();
+    _audioPlayer.dispose();
     super.dispose();
   }
 
@@ -254,7 +311,12 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
         return Transform.scale(
           scale: _pulseAnimation.value,
           child: GestureDetector(
-            onTap: _isAnimating ? null : _triggerAnswer,
+            onTap: _isAnimating
+                ? null
+                : () {
+                    _playSound('button');
+                    _triggerAnswer();
+                  },
             child: Container(
               width: 180,
               height: 180,
