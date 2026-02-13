@@ -71,6 +71,7 @@ class _ResultScreenState extends ConsumerState<ResultScreen>
   @override
   void dispose() {
     _fadeController.dispose();
+    _audioPlayer.dispose();
     super.dispose();
   }
 
@@ -80,32 +81,30 @@ class _ResultScreenState extends ConsumerState<ResultScreen>
     if (answer == null) return;
 
     final l = AppLocalizations.of(context)!;
-    try {
-      await ref
-          .read(savedAnswersProvider.notifier)
-          .saveAnswer(answer, question);
+    final isSaved = await ref
+        .read(savedAnswersProvider.notifier)
+        .saveAnswer(answer, question);
 
-      if (mounted) {
-        _playSound('save'); // Success sound
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text(l.saveSuccess), // Reverted to saveSuccess
-            backgroundColor: AppTheme.accentPurple,
-            behavior: SnackBarBehavior.floating,
-          ),
-        );
-      }
-    } catch (e) {
-      if (mounted) {
-        _playSound('error'); // Error sound
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text(l.saveFailed), // Reverted to saveFailed
-            backgroundColor: Colors.red,
-            behavior: SnackBarBehavior.floating,
-          ),
-        );
-      }
+    if (!mounted) return;
+
+    if (isSaved) {
+      _playSound('save');
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(l.saveSuccess),
+          backgroundColor: AppTheme.accentPurple,
+          behavior: SnackBarBehavior.floating,
+        ),
+      );
+    } else {
+      _playSound('error');
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(l.saveFailed),
+          backgroundColor: Colors.red,
+          behavior: SnackBarBehavior.floating,
+        ),
+      );
     }
   }
 

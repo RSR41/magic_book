@@ -8,6 +8,10 @@ import '../services/iap_service.dart';
 class SettingsScreen extends ConsumerStatefulWidget {
   const SettingsScreen({super.key});
 
+  static const removeAdsTileKey = Key('settings_remove_ads_tile');
+  static const removeAdsPurchasedIconKey = Key('settings_remove_ads_purchased_icon');
+  static const purchaseConfirmButtonKey = Key('settings_purchase_confirm_button');
+
   @override
   ConsumerState<SettingsScreen> createState() => _SettingsScreenState();
 }
@@ -74,12 +78,15 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
             // ─── Purchase ───
             _buildSectionTitle(l.purchase),
             _buildListTile(
+              key: removeAdsTileKey,
               icon: Icons.block,
               title: l.removeAds,
               subtitle: isAdFree ? l.removeAdsComplete : l.removeAdsPrice,
               trailing: isAdFree
                   ? const Icon(Icons.check_circle,
-                      color: Colors.green, size: 22)
+                      key: removeAdsPurchasedIconKey,
+                      color: Colors.green,
+                      size: 22)
                   : const Icon(Icons.arrow_forward_ios,
                       size: 16, color: AppTheme.dimGray),
               onTap:
@@ -208,6 +215,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
   }
 
   Widget _buildListTile({
+    Key? key,
     required IconData icon,
     required String title,
     String? subtitle,
@@ -215,6 +223,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
     VoidCallback? onTap,
   }) {
     return Container(
+      key: key,
       margin: const EdgeInsets.only(bottom: 8),
       decoration: BoxDecoration(
         color: AppTheme.cardDark.withOpacity(0.6),
@@ -222,6 +231,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
         border: Border.all(color: AppTheme.accentPurple.withOpacity(0.1)),
       ),
       child: ListTile(
+        enabled: onTap != null,
         leading: Container(
           padding: const EdgeInsets.all(8),
           decoration: BoxDecoration(
@@ -396,6 +406,30 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
               };
 
               messenger.showSnackBar(SnackBar(content: Text(message)));
+            key: purchaseConfirmButtonKey,
+            onPressed: () async {
+              Navigator.pop(ctx);
+              final success =
+                  await ref.read(iapServiceProvider).purchaseAdRemoval();
+              if (success) {
+                ref.read(isAdFreeProvider.notifier).state = true;
+                ref.read(storageServiceProvider).isAdFree = true;
+              }
+
+              if (!context.mounted) return;
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(content: Text(success ? l.removeAdsComplete : l.testMode)),
+              );
+            onPressed: () async {
+              Navigator.pop(ctx);
+              final iapService = ref.read(iapServiceProvider);
+              final result = await iapService.purchaseAdRemoval();
+
+              if (!context.mounted) {
+                return;
+              }
+
+              _handleIapResult(context, ref, l, result, isRestore: false);
             },
             child: Text(l.purchaseButton),
           ),
@@ -431,5 +465,53 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
     };
 
     messenger.showSnackBar(SnackBar(content: Text(message)));
+    final restored = await ref.read(iapServiceProvider).restorePurchases();
+    if (restored) {
+      ref.read(isAdFreeProvider.notifier).state = true;
+      ref.read(storageServiceProvider).isAdFree = true;
+    }
+
+    if (!context.mounted) return;
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text(restored ? l.removeAdsComplete : l.testModeRestore)),
+    final iapService = ref.read(iapServiceProvider);
+    final result = await iapService.restorePurchases();
+
+    if (!context.mounted) {
+      return;
+    }
+
+    _handleIapResult(context, ref, l, result, isRestore: true);
+  }
+
+  void _handleIapResult(BuildContext context, WidgetRef ref, AppLocalizations l,
+      IapResult result,
+      {required bool isRestore}) {
+    String message;
+
+    switch (result.status) {
+      case IapResultStatus.success:
+      case IapResultStatus.restored:
+        ref.read(storageServiceProvider).isAdFree = true;
+        ref.read(isAdFreeProvider.notifier).state = true;
+        message = l.removeAdsComplete;
+        break;
+      case IapResultStatus.canceled:
+        message = l.purchaseCancelled;
+        break;
+      case IapResultStatus.networkError:
+        message = l.networkError;
+        break;
+      case IapResultStatus.unavailable:
+        message = isRestore ? l.testModeRestore : l.testMode;
+        break;
+      case IapResultStatus.failed:
+        message = isRestore ? l.testModeRestore : l.testMode;
+        break;
+    }
+
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text(message)),
+    );
   }
 }
