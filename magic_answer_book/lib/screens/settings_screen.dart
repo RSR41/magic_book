@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../providers/providers.dart';
 import '../theme/app_theme.dart';
 import '../l10n/app_localizations.dart';
+import '../services/iap_service.dart';
 
 class SettingsScreen extends ConsumerWidget {
   const SettingsScreen({super.key});
@@ -83,7 +84,7 @@ class SettingsScreen extends ConsumerWidget {
               icon: Icons.restore,
               title: l.restorePurchases,
               subtitle: l.restorePurchasesSub,
-              onTap: () => _restorePurchases(context, l),
+              onTap: () => _restorePurchases(context, ref, l),
             ),
 
             const SizedBox(height: 24),
@@ -361,11 +362,16 @@ class SettingsScreen extends ConsumerWidget {
             child: Text(l.cancel),
           ),
           ElevatedButton(
-            onPressed: () {
+            onPressed: () async {
               Navigator.pop(ctx);
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(content: Text(l.testMode)),
-              );
+              final iapService = ref.read(iapServiceProvider);
+              final result = await iapService.purchaseAdRemoval();
+
+              if (!context.mounted) {
+                return;
+              }
+
+              _handleIapResult(context, ref, l, result, isRestore: false);
             },
             child: Text(l.purchaseButton),
           ),
@@ -374,9 +380,46 @@ class SettingsScreen extends ConsumerWidget {
     );
   }
 
-  void _restorePurchases(BuildContext context, AppLocalizations l) {
+  Future<void> _restorePurchases(
+      BuildContext context, WidgetRef ref, AppLocalizations l) async {
+    final iapService = ref.read(iapServiceProvider);
+    final result = await iapService.restorePurchases();
+
+    if (!context.mounted) {
+      return;
+    }
+
+    _handleIapResult(context, ref, l, result, isRestore: true);
+  }
+
+  void _handleIapResult(BuildContext context, WidgetRef ref, AppLocalizations l,
+      IapResult result,
+      {required bool isRestore}) {
+    String message;
+
+    switch (result.status) {
+      case IapResultStatus.success:
+      case IapResultStatus.restored:
+        ref.read(storageServiceProvider).isAdFree = true;
+        ref.read(isAdFreeProvider.notifier).state = true;
+        message = l.removeAdsComplete;
+        break;
+      case IapResultStatus.canceled:
+        message = l.purchaseCancelled;
+        break;
+      case IapResultStatus.networkError:
+        message = l.networkError;
+        break;
+      case IapResultStatus.unavailable:
+        message = isRestore ? l.testModeRestore : l.testMode;
+        break;
+      case IapResultStatus.failed:
+        message = isRestore ? l.testModeRestore : l.testMode;
+        break;
+    }
+
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text(l.testModeRestore)),
+      SnackBar(content: Text(message)),
     );
   }
 }
