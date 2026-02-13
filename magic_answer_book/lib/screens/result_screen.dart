@@ -98,29 +98,24 @@ class _ResultScreenState extends ConsumerState<ResultScreen>
 
     // Magical Text Style
     final answerStyle = GoogleFonts.cinzelDecorative(
-      fontSize: 32,
+      fontSize: 28, // Reduced from 32
       fontWeight: FontWeight.w900,
-      color: const Color(0xFF2E1A47), // Deep magical purple/ink
-      height: 1.4,
+      color: const Color(0xFF2E1A47),
+      height: 1.3, // Slightly tighter line height
       shadows: [
-        Shadow(
+         Shadow(
           color: Colors.white.withOpacity(0.8),
-          blurRadius: 15,
-          offset: const Offset(0, 0),
-        ),
-        Shadow(
-          color: AppTheme.accentCyan.withOpacity(0.4),
-          blurRadius: 30,
+          blurRadius: 10,
           offset: const Offset(0, 0),
         ),
       ],
     );
 
     final subtextStyle = GoogleFonts.cinzelDecorative(
-      fontSize: 18,
+      fontSize: 15, // Reduced from 18
       fontWeight: FontWeight.w700,
-      color: const Color(0xFF4A3B69), // Lighter purple/ink
-      height: 1.5,
+      color: const Color(0xFF4A3B69),
+      height: 1.3,
       shadows: [
         Shadow(color: Colors.white.withOpacity(0.5), blurRadius: 2),
       ],
@@ -179,7 +174,7 @@ class _ResultScreenState extends ConsumerState<ResultScreen>
 
                         const Spacer(
                             flex:
-                                7), // Push down to book page area (approx 35-40% down)
+                                5), // Reduced from 7 to move text UP
 
                         // Answer Text Area
                         Padding(
@@ -193,7 +188,7 @@ class _ResultScreenState extends ConsumerState<ResultScreen>
                                 textAlign: TextAlign.center,
                                 style: answerStyle,
                               ),
-                              const SizedBox(height: 16),
+                              const SizedBox(height: 10), // Reduced from 16
                               Text(
                                 answer.getLocalizedSubtext(locale),
                                 textAlign: TextAlign.center,
@@ -203,7 +198,7 @@ class _ResultScreenState extends ConsumerState<ResultScreen>
                           ),
                         ),
 
-                        const Spacer(flex: 6),
+                        const Spacer(flex: 8), // Increased from 6 to balance the move
 
                         // Action Buttons (Moved up)
                         Padding(

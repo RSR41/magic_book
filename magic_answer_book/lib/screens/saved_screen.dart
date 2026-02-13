@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:share_plus/share_plus.dart';
+import 'package:google_fonts/google_fonts.dart';
 import '../providers/providers.dart';
 import '../theme/app_theme.dart';
 import '../l10n/app_localizations.dart';
@@ -216,19 +217,11 @@ class SavedScreen extends ConsumerWidget {
                           fontWeight: FontWeight.w500),
                       textAlign: TextAlign.center),
                 ),
-              Container(
-                padding: const EdgeInsets.all(12),
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: AppTheme.accentPurple.withOpacity(0.15),
-                ),
-                child: const Icon(Icons.auto_awesome,
-                    color: AppTheme.accentPurple, size: 24),
-              ),
+              // Star icon removed as requested
               const SizedBox(height: 20),
               Text(
                 saved.getLocalizedText(locale),
-                style: const TextStyle(
+                style: GoogleFonts.cinzelDecorative( // Changed to Cinzel Decorative
                     fontSize: 22,
                     fontWeight: FontWeight.w800,
                     color: AppTheme.starWhite,
@@ -287,7 +280,8 @@ class SavedScreen extends ConsumerWidget {
                     foregroundColor: AppTheme.dimGray,
                     padding: const EdgeInsets.symmetric(vertical: 12),
                   ),
-                  child: Text(l.close, style: const TextStyle(fontSize: 15)),
+                  child: Text(l.close,
+                      style: GoogleFonts.cinzelDecorative(fontSize: 15)),
                 ),
               ),
             ],
@@ -358,11 +352,11 @@ class _DetailActionButton extends StatelessWidget {
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Icon(icon, color: color, size: 20),
-            const SizedBox(width: 8),
             Text(label,
-                style: TextStyle(
-                    fontSize: 14, color: color, fontWeight: FontWeight.w600)),
+                style: GoogleFonts.cinzelDecorative( // Magical rune-like font
+                    fontSize: 15,
+                    color: color,
+                    fontWeight: FontWeight.bold)),
           ],
         ),
       ),
