@@ -34,9 +34,9 @@
   "cautionText": "본 앱은 엔터테인먼트/오락 목적입니다.\n의료·법률·투자 등 중요한 판단은 전문가 상담을 권장합니다.\n효능이나 예언을 보장하지 않습니다.",
   "licenses": "오픈소스 라이선스",
   "privacyPolicy": "개인정보 처리방침",
-  "privacyPolicyText": "본 앱은 개인 정보를 수집하지 않습니다.\n모든 데이터는 기기에 로컬로 저장됩니다.\n네트워크 연결 없이 오프라인으로 동작합니다.",
+  "privacyPolicyText": "본 앱은 회원가입을 요구하지 않으며, 질문/답변 데이터는 기기에 로컬 저장됩니다.\n광고가 표시될 때 광고 제공사(예: AdMob)가 광고 ID 등 기기 식별자를 처리할 수 있습니다.\n광고 제거 구매 시 인앱결제 제공사가 결제 검증에 필요한 정보를 처리할 수 있습니다.",
   "termsOfService": "이용약관",
-  "termsOfServiceText": "본 앱의 답변은 오락/참고 목적으로 제공됩니다.\n답변에 대한 법적 책임은 사용자에게 있습니다.\n의료·법률·투자 등 전문적 판단은 전문가 상담을 이용해 주세요.",
+  "termsOfServiceText": "본 앱의 답변은 오락/참고 목적으로 제공됩니다.\n의료·법률·투자 등 전문적 판단은 반드시 전문가 상담을 이용해 주세요.\n답변을 근거로 한 결정과 결과의 책임은 사용자에게 있습니다.",
   "version": "버전",
   "noSavedAnswers": "아직 저장한 답변이 없어요",
   "noSavedAnswersSub": "답변 카드에서 저장 버튼을 눌러보세요",
@@ -56,9 +56,15 @@
   "shareFormat": "Q: {question}\nA: {answer} — {subtext}\n\n— 마법의 고민해결책",
   "@shareFormat": {
     "placeholders": {
-      "question": {"type": "String"},
-      "answer": {"type": "String"},
-      "subtext": {"type": "String"}
+      "question": {
+        "type": "String"
+      },
+      "answer": {
+        "type": "String"
+      },
+      "subtext": {
+        "type": "String"
+      }
     }
   },
   "homeInstruction1": "1. 고민이나 질문을 떠올려보세요.",

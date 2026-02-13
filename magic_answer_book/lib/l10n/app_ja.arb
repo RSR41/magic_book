@@ -34,9 +34,9 @@
   "cautionText": "本アプリはエンターテイメント目的です。\n重要な判断は専門家にご相談ください。\n効能や予言を保証するものではありません。",
   "licenses": "オープンソースライセンス",
   "privacyPolicy": "プライバシーポリシー",
-  "privacyPolicyText": "本アプリは個人情報を収集しません。\nすべてのデータは端末内に保存されます。\nオフラインで動作します。",
+  "privacyPolicyText": "本アプリは会員登録を必要とせず、質問・回答データは端末内に保存されます。\n広告表示時には、広告配信事業者（例: AdMob）が広告ID等の端末識別子を処理する場合があります。\n広告削除のアプリ内課金では、決済検証に必要な情報を課金事業者が処理する場合があります。",
   "termsOfService": "利用規約",
-  "termsOfServiceText": "回答は娯楽目的で提供されます。\n決定に対する責任は利用者にあります。",
+  "termsOfServiceText": "回答は娯楽・参考目的で提供されます。\n医療・法律・投資などの重要な判断は、必ず専門家にご相談ください。\n回答に基づく意思決定とその結果の責任は利用者にあります。",
   "version": "バージョン",
   "noSavedAnswers": "保存された回答がありません",
   "noSavedAnswersSub": "回答を保存してみましょう",
@@ -56,9 +56,15 @@
   "shareFormat": "Q: {question}\nA: {answer} — {subtext}\n\n— 魔法の解決策",
   "@shareFormat": {
     "placeholders": {
-      "question": {"type": "String"},
-      "answer": {"type": "String"},
-      "subtext": {"type": "String"}
+      "question": {
+        "type": "String"
+      },
+      "answer": {
+        "type": "String"
+      },
+      "subtext": {
+        "type": "String"
+      }
     }
   },
   "homeInstruction1": "1. 解決したい悩みや質問を思い浮かべます。",
