@@ -150,6 +150,21 @@ class AppLocalizationsKo extends AppLocalizations {
   String get saveSuccess => '저장되었습니다!';
 
   @override
+  String get purchaseSuccess => '구매가 완료되어 광고가 제거되었습니다.';
+
+  @override
+  String get restoreSuccess => '복원이 완료되어 광고가 제거되었습니다.';
+
+  @override
+  String get purchaseFailed => '구매에 실패했습니다. 다시 시도해 주세요.';
+
+  @override
+  String get restoreFailed => '복원할 구매 내역을 찾지 못했습니다.';
+
+  @override
+  String get iapUnavailable => '인앱 구매를 현재 사용할 수 없습니다.';
+
+  @override
   String get purchaseCancelled => '구매가 취소되었습니다.';
 
   @override

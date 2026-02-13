@@ -27,6 +27,9 @@ dependencies:
   # Share
   share_plus: ^10.1.4
 
+  # In-app purchase
+  in_app_purchase: ^3.2.0
+
   # i18n
   intl: ^0.20.2
 
@@ -35,6 +38,10 @@ dependencies:
 
   # Audio
   audioplayers: ^6.0.0
+  in_app_purchase: ^3.2.0
+
+  # Ads
+  google_mobile_ads: ^5.2.0
 
   # Ads
   google_mobile_ads: ^5.2.0
