@@ -7,6 +7,10 @@ import '../l10n/app_localizations.dart';
 class SettingsScreen extends ConsumerWidget {
   const SettingsScreen({super.key});
 
+  static const removeAdsTileKey = Key('settings_remove_ads_tile');
+  static const removeAdsPurchasedIconKey = Key('settings_remove_ads_purchased_icon');
+  static const purchaseConfirmButtonKey = Key('settings_purchase_confirm_button');
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final vibration = ref.watch(vibrationProvider);
@@ -68,12 +72,15 @@ class SettingsScreen extends ConsumerWidget {
             // ─── Purchase ───
             _buildSectionTitle(l.purchase),
             _buildListTile(
+              key: removeAdsTileKey,
               icon: Icons.block,
               title: l.removeAds,
               subtitle: isAdFree ? l.removeAdsComplete : l.removeAdsPrice,
               trailing: isAdFree
                   ? const Icon(Icons.check_circle,
-                      color: Colors.green, size: 22)
+                      key: removeAdsPurchasedIconKey,
+                      color: Colors.green,
+                      size: 22)
                   : const Icon(Icons.arrow_forward_ios,
                       size: 16, color: AppTheme.dimGray),
               onTap:
@@ -83,7 +90,7 @@ class SettingsScreen extends ConsumerWidget {
               icon: Icons.restore,
               title: l.restorePurchases,
               subtitle: l.restorePurchasesSub,
-              onTap: () => _restorePurchases(context, l),
+              onTap: () => _restorePurchases(context, ref, l),
             ),
 
             const SizedBox(height: 24),
@@ -202,6 +209,7 @@ class SettingsScreen extends ConsumerWidget {
   }
 
   Widget _buildListTile({
+    Key? key,
     required IconData icon,
     required String title,
     String? subtitle,
@@ -209,6 +217,7 @@ class SettingsScreen extends ConsumerWidget {
     VoidCallback? onTap,
   }) {
     return Container(
+      key: key,
       margin: const EdgeInsets.only(bottom: 8),
       decoration: BoxDecoration(
         color: AppTheme.cardDark.withOpacity(0.6),
@@ -216,6 +225,7 @@ class SettingsScreen extends ConsumerWidget {
         border: Border.all(color: AppTheme.accentPurple.withOpacity(0.1)),
       ),
       child: ListTile(
+        enabled: onTap != null,
         leading: Container(
           padding: const EdgeInsets.all(8),
           decoration: BoxDecoration(
@@ -361,10 +371,19 @@ class SettingsScreen extends ConsumerWidget {
             child: Text(l.cancel),
           ),
           ElevatedButton(
-            onPressed: () {
+            key: purchaseConfirmButtonKey,
+            onPressed: () async {
               Navigator.pop(ctx);
+              final success =
+                  await ref.read(iapServiceProvider).purchaseAdRemoval();
+              if (success) {
+                ref.read(isAdFreeProvider.notifier).state = true;
+                ref.read(storageServiceProvider).isAdFree = true;
+              }
+
+              if (!context.mounted) return;
               ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(content: Text(l.testMode)),
+                SnackBar(content: Text(success ? l.removeAdsComplete : l.testMode)),
               );
             },
             child: Text(l.purchaseButton),
@@ -374,9 +393,17 @@ class SettingsScreen extends ConsumerWidget {
     );
   }
 
-  void _restorePurchases(BuildContext context, AppLocalizations l) {
+  Future<void> _restorePurchases(
+      BuildContext context, WidgetRef ref, AppLocalizations l) async {
+    final restored = await ref.read(iapServiceProvider).restorePurchases();
+    if (restored) {
+      ref.read(isAdFreeProvider.notifier).state = true;
+      ref.read(storageServiceProvider).isAdFree = true;
+    }
+
+    if (!context.mounted) return;
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text(l.testModeRestore)),
+      SnackBar(content: Text(restored ? l.removeAdsComplete : l.testModeRestore)),
     );
   }
 }

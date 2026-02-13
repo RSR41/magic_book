@@ -1,36 +1,61 @@
-/// Stub IAP service for MVP
-/// Real implementation requires App Store Connect / Google Play Console setup
+abstract class IapGateway {
+  Future<bool> purchaseAdRemoval(String productId);
+  Future<bool> restorePurchases();
+}
+
+class StubIapGateway implements IapGateway {
+  @override
+  Future<bool> purchaseAdRemoval(String productId) async => false;
+
+  @override
+  Future<bool> restorePurchases() async => false;
+}
+
+/// IAP service with test-friendly gateway abstraction.
 class IapService {
+  IapService({
+    IapGateway? gateway,
+    bool initialAdFree = false,
+    void Function(bool isAdFree)? onAdFreeChanged,
+  })  : _gateway = gateway ?? StubIapGateway(),
+        _isAdFree = initialAdFree,
+        _onAdFreeChanged = onAdFreeChanged;
+
   static const String productId = 'remove_ads_forever_4990';
+
+  final IapGateway _gateway;
+  final void Function(bool isAdFree)? _onAdFreeChanged;
+
   bool _isAvailable = false;
+  bool _isAdFree;
 
   bool get isAvailable => _isAvailable;
+  bool get isAdFree => _isAdFree;
 
   Future<void> initialize() async {
-    // In production:
-    // final available = await InAppPurchase.instance.isAvailable();
-    // _isAvailable = available;
-    // Listen to purchase stream
-    _isAvailable = false; // Stub: IAP not available in dev
+    _isAvailable = true;
   }
 
   Future<bool> purchaseAdRemoval() async {
-    // Stub implementation
-    // In production:
-    // final response = await InAppPurchase.instance.queryProductDetails({productId});
-    // final product = response.productDetails.first;
-    // final purchaseParam = PurchaseParam(productDetails: product);
-    // return await InAppPurchase.instance.buyNonConsumable(purchaseParam: purchaseParam);
-    return false;
+    final purchased = await _gateway.purchaseAdRemoval(productId);
+    if (purchased) {
+      _setAdFree(true);
+    }
+    return purchased;
   }
 
-  Future<void> restorePurchases() async {
-    // Stub implementation
-    // In production:
-    // await InAppPurchase.instance.restorePurchases();
+  Future<bool> restorePurchases() async {
+    final restored = await _gateway.restorePurchases();
+    if (restored) {
+      _setAdFree(true);
+    }
+    return restored;
   }
 
-  void dispose() {
-    // Clean up subscription streams
+  void _setAdFree(bool value) {
+    _isAdFree = value;
+    _onAdFreeChanged?.call(value);
   }
+
+  void dispose() {}
 }
