@@ -3,12 +3,22 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../providers/providers.dart';
 import '../theme/app_theme.dart';
 import '../l10n/app_localizations.dart';
+import '../services/iap_service.dart';
 
-class SettingsScreen extends ConsumerWidget {
+class SettingsScreen extends ConsumerStatefulWidget {
   const SettingsScreen({super.key});
 
+  static const removeAdsTileKey = Key('settings_remove_ads_tile');
+  static const removeAdsPurchasedIconKey = Key('settings_remove_ads_purchased_icon');
+  static const purchaseConfirmButtonKey = Key('settings_purchase_confirm_button');
+
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<SettingsScreen> createState() => _SettingsScreenState();
+}
+
+class _SettingsScreenState extends ConsumerState<SettingsScreen> {
+  @override
+  Widget build(BuildContext context) {
     final vibration = ref.watch(vibrationProvider);
     final shakeEnabled = ref.watch(shakeEnabledProvider);
     final soundEnabled = ref.watch(soundEnabledProvider);
@@ -68,12 +78,15 @@ class SettingsScreen extends ConsumerWidget {
             // ─── Purchase ───
             _buildSectionTitle(l.purchase),
             _buildListTile(
+              key: removeAdsTileKey,
               icon: Icons.block,
               title: l.removeAds,
               subtitle: isAdFree ? l.removeAdsComplete : l.removeAdsPrice,
               trailing: isAdFree
                   ? const Icon(Icons.check_circle,
-                      color: Colors.green, size: 22)
+                      key: removeAdsPurchasedIconKey,
+                      color: Colors.green,
+                      size: 22)
                   : const Icon(Icons.arrow_forward_ios,
                       size: 16, color: AppTheme.dimGray),
               onTap:
@@ -83,7 +96,7 @@ class SettingsScreen extends ConsumerWidget {
               icon: Icons.restore,
               title: l.restorePurchases,
               subtitle: l.restorePurchasesSub,
-              onTap: () => _restorePurchases(context, l),
+              onTap: () => _restorePurchases(context, ref, l),
             ),
 
             const SizedBox(height: 24),
@@ -202,6 +215,7 @@ class SettingsScreen extends ConsumerWidget {
   }
 
   Widget _buildListTile({
+    Key? key,
     required IconData icon,
     required String title,
     String? subtitle,
@@ -209,6 +223,7 @@ class SettingsScreen extends ConsumerWidget {
     VoidCallback? onTap,
   }) {
     return Container(
+      key: key,
       margin: const EdgeInsets.only(bottom: 8),
       decoration: BoxDecoration(
         color: AppTheme.cardDark.withOpacity(0.6),
@@ -216,6 +231,7 @@ class SettingsScreen extends ConsumerWidget {
         border: Border.all(color: AppTheme.accentPurple.withOpacity(0.1)),
       ),
       child: ListTile(
+        enabled: onTap != null,
         leading: Container(
           padding: const EdgeInsets.all(8),
           decoration: BoxDecoration(
@@ -361,11 +377,59 @@ class SettingsScreen extends ConsumerWidget {
             child: Text(l.cancel),
           ),
           ElevatedButton(
-            onPressed: () {
+            onPressed: () async {
               Navigator.pop(ctx);
+
+              final iapService = ref.read(iapServiceProvider);
+              final storageService = ref.read(storageServiceProvider);
+              final messenger = ScaffoldMessenger.of(context);
+
+              final result = await iapService.purchaseAdRemoval();
+              if (!context.mounted) return;
+
+              if (result.isSuccess) {
+                storageService.isAdFree = true;
+                ref.read(isAdFreeProvider.notifier).state = true;
+                messenger.showSnackBar(
+                  SnackBar(content: Text(l.purchaseSuccess)),
+                );
+                return;
+              }
+
+              final message = switch (result.status) {
+                IapActionStatus.cancelled => l.purchaseCancelled,
+                IapActionStatus.unavailable => l.iapUnavailable,
+                IapActionStatus.productNotFound => l.purchaseFailed,
+                IapActionStatus.failed =>
+                  result.isNetworkError ? l.networkError : l.purchaseFailed,
+                IapActionStatus.success => l.purchaseSuccess,
+              };
+
+              messenger.showSnackBar(SnackBar(content: Text(message)));
+            key: purchaseConfirmButtonKey,
+            onPressed: () async {
+              Navigator.pop(ctx);
+              final success =
+                  await ref.read(iapServiceProvider).purchaseAdRemoval();
+              if (success) {
+                ref.read(isAdFreeProvider.notifier).state = true;
+                ref.read(storageServiceProvider).isAdFree = true;
+              }
+
+              if (!context.mounted) return;
               ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(content: Text(l.testMode)),
+                SnackBar(content: Text(success ? l.removeAdsComplete : l.testMode)),
               );
+            onPressed: () async {
+              Navigator.pop(ctx);
+              final iapService = ref.read(iapServiceProvider);
+              final result = await iapService.purchaseAdRemoval();
+
+              if (!context.mounted) {
+                return;
+              }
+
+              _handleIapResult(context, ref, l, result, isRestore: false);
             },
             child: Text(l.purchaseButton),
           ),
@@ -374,9 +438,80 @@ class SettingsScreen extends ConsumerWidget {
     );
   }
 
-  void _restorePurchases(BuildContext context, AppLocalizations l) {
+  Future<void> _restorePurchases(
+      BuildContext context, WidgetRef ref, AppLocalizations l) async {
+    final iapService = ref.read(iapServiceProvider);
+    final storageService = ref.read(storageServiceProvider);
+
+    final messenger = ScaffoldMessenger.of(context);
+    final result = await iapService.restorePurchases();
+
+    if (!context.mounted) return;
+
+    if (result.isSuccess) {
+      storageService.isAdFree = true;
+      ref.read(isAdFreeProvider.notifier).state = true;
+      messenger.showSnackBar(SnackBar(content: Text(l.restoreSuccess)));
+      return;
+    }
+
+    final message = switch (result.status) {
+      IapActionStatus.cancelled => l.purchaseCancelled,
+      IapActionStatus.unavailable => l.iapUnavailable,
+      IapActionStatus.productNotFound => l.restoreFailed,
+      IapActionStatus.failed =>
+        result.isNetworkError ? l.networkError : l.restoreFailed,
+      IapActionStatus.success => l.restoreSuccess,
+    };
+
+    messenger.showSnackBar(SnackBar(content: Text(message)));
+    final restored = await ref.read(iapServiceProvider).restorePurchases();
+    if (restored) {
+      ref.read(isAdFreeProvider.notifier).state = true;
+      ref.read(storageServiceProvider).isAdFree = true;
+    }
+
+    if (!context.mounted) return;
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text(l.testModeRestore)),
+      SnackBar(content: Text(restored ? l.removeAdsComplete : l.testModeRestore)),
+    final iapService = ref.read(iapServiceProvider);
+    final result = await iapService.restorePurchases();
+
+    if (!context.mounted) {
+      return;
+    }
+
+    _handleIapResult(context, ref, l, result, isRestore: true);
+  }
+
+  void _handleIapResult(BuildContext context, WidgetRef ref, AppLocalizations l,
+      IapResult result,
+      {required bool isRestore}) {
+    String message;
+
+    switch (result.status) {
+      case IapResultStatus.success:
+      case IapResultStatus.restored:
+        ref.read(storageServiceProvider).isAdFree = true;
+        ref.read(isAdFreeProvider.notifier).state = true;
+        message = l.removeAdsComplete;
+        break;
+      case IapResultStatus.canceled:
+        message = l.purchaseCancelled;
+        break;
+      case IapResultStatus.networkError:
+        message = l.networkError;
+        break;
+      case IapResultStatus.unavailable:
+        message = isRestore ? l.testModeRestore : l.testMode;
+        break;
+      case IapResultStatus.failed:
+        message = isRestore ? l.testModeRestore : l.testMode;
+        break;
+    }
+
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text(message)),
     );
   }
 }

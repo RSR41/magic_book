@@ -34,9 +34,9 @@
   "cautionText": "本应用仅供娱乐。\n重要决定请咨询专家。\n不保证功效或预言准确性。",
   "licenses": "开源许可证",
   "privacyPolicy": "隐私政策",
-  "privacyPolicyText": "本应用不收集个人信息。\n所有数据仅保存在本地。\n可离线使用。",
+  "privacyPolicyText": "本应用无需注册，问题/回答数据仅保存在设备本地。\n展示广告时，广告服务商（如 AdMob）可能会处理广告标识符等设备标识信息。\n购买去广告时，应用内购服务商可能会处理支付校验所需的信息。",
   "termsOfService": "服务条款",
-  "termsOfServiceText": "回答仅供娱乐参考。\n用户需对基于回答做出的决定负责。",
+  "termsOfServiceText": "回答仅用于娱乐与参考。\n涉及医疗、法律、投资等重要决定时，请务必咨询专业人士。\n用户需自行承担基于回答作出决定及其结果的责任。",
   "version": "版本",
   "noSavedAnswers": "还没有保存的答案",
   "noSavedAnswersSub": "试着保存一个答案吧",
@@ -46,6 +46,11 @@
   "delete": "删除",
   "saveFailed": "保存失败。",
   "saveSuccess": "已保存！",
+  "purchaseSuccess": "购买完成，广告已移除。",
+  "restoreSuccess": "恢复完成，广告已移除。",
+  "purchaseFailed": "购买失败，请重试。",
+  "restoreFailed": "未找到可恢复的购买记录。",
+  "iapUnavailable": "当前无法使用应用内购买。",
   "purchaseCancelled": "购买已取消。",
   "networkError": "请检查网络连接。",
   "testMode": "测试模式：上架后可用。",
@@ -56,9 +61,15 @@
   "shareFormat": "Q: {question}\nA: {answer} — {subtext}\n\n— 魔法解答书",
   "@shareFormat": {
     "placeholders": {
-      "question": {"type": "String"},
-      "answer": {"type": "String"},
-      "subtext": {"type": "String"}
+      "question": {
+        "type": "String"
+      },
+      "answer": {
+        "type": "String"
+      },
+      "subtext": {
+        "type": "String"
+      }
     }
   },
   "homeInstruction1": "1. 此时心中想着你的烦恼或问题。",

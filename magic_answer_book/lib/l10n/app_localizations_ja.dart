@@ -149,6 +149,21 @@ class AppLocalizationsJa extends AppLocalizations {
   String get saveSuccess => '保存しました！';
 
   @override
+  String get purchaseSuccess => '購入が完了し、広告が削除されました。';
+
+  @override
+  String get restoreSuccess => '復元が完了し、広告が削除されました。';
+
+  @override
+  String get purchaseFailed => '購入に失敗しました。再試行してください。';
+
+  @override
+  String get restoreFailed => '復元できる購入が見つかりませんでした。';
+
+  @override
+  String get iapUnavailable => '現在、アプリ内課金を利用できません。';
+
+  @override
   String get purchaseCancelled => '購入がキャンセルされました。';
 
   @override
