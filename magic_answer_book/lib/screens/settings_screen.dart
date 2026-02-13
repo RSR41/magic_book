@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../providers/providers.dart';
 import '../theme/app_theme.dart';
 import '../l10n/app_localizations.dart';
+import '../services/iap_service.dart';
 
 class SettingsScreen extends ConsumerWidget {
   const SettingsScreen({super.key});
@@ -385,6 +386,16 @@ class SettingsScreen extends ConsumerWidget {
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(content: Text(success ? l.removeAdsComplete : l.testMode)),
               );
+            onPressed: () async {
+              Navigator.pop(ctx);
+              final iapService = ref.read(iapServiceProvider);
+              final result = await iapService.purchaseAdRemoval();
+
+              if (!context.mounted) {
+                return;
+              }
+
+              _handleIapResult(context, ref, l, result, isRestore: false);
             },
             child: Text(l.purchaseButton),
           ),
@@ -404,6 +415,44 @@ class SettingsScreen extends ConsumerWidget {
     if (!context.mounted) return;
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(content: Text(restored ? l.removeAdsComplete : l.testModeRestore)),
+    final iapService = ref.read(iapServiceProvider);
+    final result = await iapService.restorePurchases();
+
+    if (!context.mounted) {
+      return;
+    }
+
+    _handleIapResult(context, ref, l, result, isRestore: true);
+  }
+
+  void _handleIapResult(BuildContext context, WidgetRef ref, AppLocalizations l,
+      IapResult result,
+      {required bool isRestore}) {
+    String message;
+
+    switch (result.status) {
+      case IapResultStatus.success:
+      case IapResultStatus.restored:
+        ref.read(storageServiceProvider).isAdFree = true;
+        ref.read(isAdFreeProvider.notifier).state = true;
+        message = l.removeAdsComplete;
+        break;
+      case IapResultStatus.canceled:
+        message = l.purchaseCancelled;
+        break;
+      case IapResultStatus.networkError:
+        message = l.networkError;
+        break;
+      case IapResultStatus.unavailable:
+        message = isRestore ? l.testModeRestore : l.testMode;
+        break;
+      case IapResultStatus.failed:
+        message = isRestore ? l.testModeRestore : l.testMode;
+        break;
+    }
+
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text(message)),
     );
   }
 }
