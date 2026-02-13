@@ -30,7 +30,6 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
   // Star animation
   late AnimationController _starController;
   final List<_Star> _stars = [];
-  final AudioPlayer _audioPlayer = AudioPlayer(); // Audio Player instance
 
   static const double _shakeThreshold = 2.7;
   DateTime _lastShakeTime = DateTime.now();
@@ -194,7 +193,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
     _accelerometerSubscription?.cancel();
     _pulseController.dispose();
     _starController.dispose();
-    _audioPlayer.dispose();
+    _bgmPlayer.dispose();
     super.dispose();
   }
 
