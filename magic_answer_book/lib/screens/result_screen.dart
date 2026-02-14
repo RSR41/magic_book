@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:audioplayers/audioplayers.dart';
+
 import '../providers/providers.dart';
 import '../theme/app_theme.dart';
 import '../widgets/waiting_overlay.dart';
@@ -28,30 +28,6 @@ class _ResultScreenState extends ConsumerState<ResultScreen>
   late AnimationController _fadeController;
   late Animation<double> _fadeAnimation;
   late Animation<double> _scaleUp;
-  final AudioPlayer _audioPlayer = AudioPlayer(); // For one-shot SFX
-
-  void _playSound(String type) async {
-    if (!ref.read(soundEnabledProvider)) return;
-
-    String? assetPath;
-    switch (type) {
-      case 'save':
-        assetPath = 'sounds/sfx_save.wav';
-        break;
-      case 'error':
-        assetPath = 'sounds/sfx_error.wav';
-        break;
-    }
-
-    if (assetPath != null) {
-      try {
-        await _audioPlayer.play(AssetSource(assetPath));
-      } catch (e) {
-        debugPrint('Error playing sound ($type): $e');
-      }
-    }
-  }
-
   @override
   void initState() {
     super.initState();
@@ -71,7 +47,6 @@ class _ResultScreenState extends ConsumerState<ResultScreen>
   @override
   void dispose() {
     _fadeController.dispose();
-    _audioPlayer.dispose();
     super.dispose();
   }
 
@@ -88,7 +63,7 @@ class _ResultScreenState extends ConsumerState<ResultScreen>
     if (!mounted) return;
 
     if (isSaved) {
-      _playSound('save');
+      ref.read(soundServiceProvider).playSfx('sfx_save.wav');
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(l.saveSuccess),
@@ -97,7 +72,7 @@ class _ResultScreenState extends ConsumerState<ResultScreen>
         ),
       );
     } else {
-      _playSound('error');
+      ref.read(soundServiceProvider).playSfx('sfx_error.wav');
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(l.saveFailed),

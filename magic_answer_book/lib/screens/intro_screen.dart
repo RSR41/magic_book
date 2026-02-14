@@ -1,19 +1,22 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../theme/app_theme.dart';
 import '../l10n/app_localizations.dart';
+import '../providers/providers.dart';
 
-class IntroScreen extends StatefulWidget {
+class IntroScreen extends ConsumerStatefulWidget {
   final VoidCallback onStart;
 
   const IntroScreen({super.key, required this.onStart});
 
   @override
-  State<IntroScreen> createState() => _IntroScreenState();
+  ConsumerState<IntroScreen> createState() => _IntroScreenState();
 }
 
-class _IntroScreenState extends State<IntroScreen>
+class _IntroScreenState extends ConsumerState<IntroScreen>
     with TickerProviderStateMixin {
+  // ... (animations) ...
   late AnimationController _starController;
   late AnimationController _titleController;
   late AnimationController _buttonController;
@@ -27,7 +30,7 @@ class _IntroScreenState extends State<IntroScreen>
   @override
   void initState() {
     super.initState();
-
+    // ... (init logic same) ...
     final random = Random();
     for (int i = 0; i < 80; i++) {
       _stars.add(_Star(
@@ -194,7 +197,12 @@ class _IntroScreenState extends State<IntroScreen>
                               child: Material(
                                 color: Colors.transparent,
                                 child: InkWell(
-                                  onTap: widget.onStart,
+                                  onTap: () {
+                                    ref
+                                        .read(soundServiceProvider)
+                                        .playSfx('sfx_button.wav');
+                                    widget.onStart();
+                                  },
                                   borderRadius: BorderRadius.circular(20),
                                   child: Padding(
                                     padding: const EdgeInsets.symmetric(

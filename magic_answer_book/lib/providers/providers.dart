@@ -5,6 +5,7 @@ import '../services/ads_service.dart';
 import '../services/iap_service.dart';
 import '../models/answer.dart';
 import '../models/saved_answer.dart';
+import '../services/sound_service.dart';
 
 // ─── Service Providers ───
 final answersServiceProvider = Provider<AnswersService>((ref) {
@@ -23,6 +24,21 @@ final adsServiceProvider = Provider<AdsService>((ref) {
 
 final iapServiceProvider = Provider<IapService>((ref) {
   final service = IapService();
+  ref.onDispose(service.dispose);
+  return service;
+});
+
+final soundServiceProvider = Provider<SoundService>((ref) {
+  final service = SoundService();
+  // Initialize with current setting
+  final enabled = ref.read(storageServiceProvider).sound;
+  service.setSoundEnabled(enabled);
+
+  // Listen for changes
+  ref.listen(soundEnabledProvider, (_, next) {
+    service.setSoundEnabled(next);
+  });
+
   ref.onDispose(service.dispose);
   return service;
 });
