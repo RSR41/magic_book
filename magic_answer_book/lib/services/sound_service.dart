@@ -17,8 +17,8 @@ class SoundService {
       _bgmPlayer.stop();
       _sfxPlayer.stop();
     } else {
-      // Resume BGM if needed?
-      // For now, we rely on screens to request BGM playback
+      // Resume BGM if it was supposed to be playing
+      playBgm('bgm.wav');
     }
   }
 

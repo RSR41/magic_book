@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../providers/providers.dart';
+import '../services/sound_service.dart';
 import '../theme/app_theme.dart';
 import '../l10n/app_localizations.dart';
 
@@ -120,6 +121,9 @@ class SavedScreen extends ConsumerWidget {
           ),
           onDismissed: (direction) {
             ref
+                .read(soundServiceProvider)
+                .playSfx('sfx_button.wav'); // Deletion sound
+            ref
                 .read(savedAnswersProvider.notifier)
                 .deleteAnswer(saved.answerId);
           },
@@ -221,7 +225,8 @@ class SavedScreen extends ConsumerWidget {
               const SizedBox(height: 20),
               Text(
                 saved.getLocalizedText(locale),
-                style: GoogleFonts.cinzelDecorative( // Changed to Cinzel Decorative
+                style: GoogleFonts.cinzelDecorative(
+                    // Changed to Cinzel Decorative
                     fontSize: 22,
                     fontWeight: FontWeight.w800,
                     color: AppTheme.starWhite,
@@ -248,6 +253,7 @@ class SavedScreen extends ConsumerWidget {
                     color: Colors.red.shade300,
                     onTap: () {
                       Navigator.pop(dialogContext);
+                      ref.read(soundServiceProvider).playSfx('sfx_button.wav');
                       ref
                           .read(savedAnswersProvider.notifier)
                           .deleteAnswer(saved.answerId);
@@ -307,6 +313,7 @@ class SavedScreen extends ConsumerWidget {
               onPressed: () => Navigator.pop(ctx), child: Text(l.cancel)),
           TextButton(
             onPressed: () {
+              ref.read(soundServiceProvider).playSfx('sfx_button.wav');
               ref.read(savedAnswersProvider.notifier).deleteAll();
               Navigator.pop(ctx);
             },
@@ -353,7 +360,8 @@ class _DetailActionButton extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             Text(label,
-                style: GoogleFonts.cinzelDecorative( // Magical rune-like font
+                style: GoogleFonts.cinzelDecorative(
+                    // Magical rune-like font
                     fontSize: 15,
                     color: color,
                     fontWeight: FontWeight.bold)),

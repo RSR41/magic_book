@@ -42,6 +42,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
               subtitle: l.vibrationSub,
               value: vibration,
               onChanged: (v) {
+                ref.read(soundServiceProvider).playSfx('sfx_button.wav');
                 ref.read(vibrationProvider.notifier).state = v;
                 ref.read(storageServiceProvider).vibration = v;
               },
@@ -52,6 +53,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
               subtitle: l.shakeDetectionSub,
               value: shakeEnabled,
               onChanged: (v) {
+                ref.read(soundServiceProvider).playSfx('sfx_button.wav');
                 ref.read(shakeEnabledProvider.notifier).state = v;
                 ref.read(storageServiceProvider).shake = v;
               },
@@ -62,6 +64,8 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
               subtitle: l.soundSub,
               value: soundEnabled,
               onChanged: (v) {
+                // Play sound regardless of state change to confirm interaction
+                ref.read(soundServiceProvider).playSfx('sfx_button.wav');
                 ref.read(soundEnabledProvider.notifier).state = v;
                 ref.read(storageServiceProvider).sound = v;
               },
@@ -163,7 +167,8 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
       builder: (ctx) => AlertDialog(
         backgroundColor: AppTheme.cardDark,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-        title: Text(l.removeAds, style: const TextStyle(color: AppTheme.starWhite)),
+        title: Text(l.removeAds,
+            style: const TextStyle(color: AppTheme.starWhite)),
         content: Text(
           l.purchaseDialogContent,
           style: const TextStyle(color: AppTheme.dimGray),
@@ -177,14 +182,17 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
             key: SettingsScreen.purchaseConfirmButtonKey,
             onPressed: () async {
               Navigator.pop(ctx);
-              final success = await ref.read(iapServiceProvider).purchaseAdRemoval();
+              final success =
+                  await ref.read(iapServiceProvider).purchaseAdRemoval();
               if (success) {
                 ref.read(storageServiceProvider).isAdFree = true;
                 ref.read(isAdFreeProvider.notifier).state = true;
               }
               if (!context.mounted) return;
               ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(content: Text(success ? l.purchaseSuccess : l.purchaseFailed)),
+                SnackBar(
+                    content:
+                        Text(success ? l.purchaseSuccess : l.purchaseFailed)),
               );
             },
             child: Text(l.purchaseButton),
@@ -316,7 +324,8 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
             : null,
         trailing: trailing ??
             (onTap != null
-                ? const Icon(Icons.arrow_forward_ios, size: 16, color: AppTheme.dimGray)
+                ? const Icon(Icons.arrow_forward_ios,
+                    size: 16, color: AppTheme.dimGray)
                 : null),
         onTap: onTap,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
@@ -395,7 +404,8 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
             color: AppTheme.accentPurple.withOpacity(0.12),
             borderRadius: BorderRadius.circular(10),
           ),
-          child: const Icon(Icons.language, color: AppTheme.accentPurple, size: 20),
+          child: const Icon(Icons.language,
+              color: AppTheme.accentPurple, size: 20),
         ),
         title: Text(
           l.language,
