@@ -15,8 +15,10 @@ final storageServiceProvider = Provider<StorageService>((ref) {
   return StorageService();
 });
 
-final adsServiceProvider = Provider<AdsService>((ref) {
-  return AdsService();
+final adsServiceProvider = ChangeNotifierProvider<AdsService>((ref) {
+  final adsService = AdsService();
+  ref.onDispose(adsService.dispose);
+  return adsService;
 });
 
 final iapServiceProvider = Provider<IapService>((ref) {
