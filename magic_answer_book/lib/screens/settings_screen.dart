@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+import '../l10n/app_localizations.dart';
 import '../providers/providers.dart';
 import '../theme/app_theme.dart';
-import '../l10n/app_localizations.dart';
-import '../services/iap_service.dart';
 
 class SettingsScreen extends ConsumerStatefulWidget {
   const SettingsScreen({super.key});
 
   static const removeAdsTileKey = Key('settings_remove_ads_tile');
-  static const removeAdsPurchasedIconKey = Key('settings_remove_ads_purchased_icon');
-  static const purchaseConfirmButtonKey = Key('settings_purchase_confirm_button');
+  static const removeAdsPurchasedIconKey =
+      Key('settings_remove_ads_purchased_icon');
+  static const purchaseConfirmButtonKey =
+      Key('settings_purchase_confirm_button');
 
   @override
   ConsumerState<SettingsScreen> createState() => _SettingsScreenState();
@@ -33,8 +35,6 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
           children: [
             const SizedBox(height: 16),
-
-            // ─── General ───
             _buildSectionTitle(l.general),
             _buildSwitchTile(
               icon: Icons.vibration,
@@ -66,29 +66,28 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                 ref.read(storageServiceProvider).sound = v;
               },
             ),
-
             const SizedBox(height: 24),
-
-            // ─── Language ───
             _buildSectionTitle(l.language),
             _buildLanguageTile(context, ref, language, l),
-
             const SizedBox(height: 24),
-
-            // ─── Purchase ───
             _buildSectionTitle(l.purchase),
             _buildListTile(
-              key: removeAdsTileKey,
+              key: SettingsScreen.removeAdsTileKey,
               icon: Icons.block,
               title: l.removeAds,
               subtitle: isAdFree ? l.removeAdsComplete : l.removeAdsPrice,
               trailing: isAdFree
-                  ? const Icon(Icons.check_circle,
-                      key: removeAdsPurchasedIconKey,
+                  ? Icon(
+                      Icons.check_circle,
+                      key: SettingsScreen.removeAdsPurchasedIconKey,
                       color: Colors.green,
-                      size: 22)
-                  : const Icon(Icons.arrow_forward_ios,
-                      size: 16, color: AppTheme.dimGray),
+                      size: 22,
+                    )
+                  : const Icon(
+                      Icons.arrow_forward_ios,
+                      size: 16,
+                      color: AppTheme.dimGray,
+                    ),
               onTap:
                   isAdFree ? null : () => _showPurchaseDialog(context, ref, l),
             ),
@@ -98,10 +97,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
               subtitle: l.restorePurchasesSub,
               onTap: () => _restorePurchases(context, ref, l),
             ),
-
             const SizedBox(height: 24),
-
-            // ─── Info ───
             _buildSectionTitle(l.info),
             _buildExpandableTile(
               icon: Icons.warning_amber_rounded,
@@ -118,8 +114,6 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
               title: l.termsOfService,
               content: l.termsOfServiceText,
             ),
-
-            // Version + License (small, unobtrusive)
             const SizedBox(height: 16),
             Center(
               child: Column(
@@ -152,11 +146,67 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                 ],
               ),
             ),
-
             const SizedBox(height: 40),
           ],
         ),
       ),
+    );
+  }
+
+  void _showPurchaseDialog(
+    BuildContext context,
+    WidgetRef ref,
+    AppLocalizations l,
+  ) {
+    showDialog(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        backgroundColor: AppTheme.cardDark,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+        title: Text(l.removeAds, style: const TextStyle(color: AppTheme.starWhite)),
+        content: Text(
+          l.purchaseDialogContent,
+          style: const TextStyle(color: AppTheme.dimGray),
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(ctx),
+            child: Text(l.cancel),
+          ),
+          ElevatedButton(
+            key: SettingsScreen.purchaseConfirmButtonKey,
+            onPressed: () async {
+              Navigator.pop(ctx);
+              final success = await ref.read(iapServiceProvider).purchaseAdRemoval();
+              if (success) {
+                ref.read(storageServiceProvider).isAdFree = true;
+                ref.read(isAdFreeProvider.notifier).state = true;
+              }
+              if (!context.mounted) return;
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(content: Text(success ? l.purchaseSuccess : l.purchaseFailed)),
+              );
+            },
+            child: Text(l.purchaseButton),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Future<void> _restorePurchases(
+    BuildContext context,
+    WidgetRef ref,
+    AppLocalizations l,
+  ) async {
+    final restored = await ref.read(iapServiceProvider).restorePurchases();
+    if (restored) {
+      ref.read(storageServiceProvider).isAdFree = true;
+      ref.read(isAdFreeProvider.notifier).state = true;
+    }
+    if (!context.mounted) return;
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text(restored ? l.restoreSuccess : l.restoreFailed)),
     );
   }
 
@@ -198,15 +248,22 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
           ),
           child: Icon(icon, color: AppTheme.accentPurple, size: 20),
         ),
-        title: Text(title,
-            style: const TextStyle(
-                color: AppTheme.starWhite,
-                fontSize: 15,
-                fontWeight: FontWeight.w600)),
+        title: Text(
+          title,
+          style: const TextStyle(
+            color: AppTheme.starWhite,
+            fontSize: 15,
+            fontWeight: FontWeight.w600,
+          ),
+        ),
         subtitle: subtitle != null
-            ? Text(subtitle,
+            ? Text(
+                subtitle,
                 style: TextStyle(
-                    color: AppTheme.dimGray.withOpacity(0.7), fontSize: 12))
+                  color: AppTheme.dimGray.withOpacity(0.7),
+                  fontSize: 12,
+                ),
+              )
             : null,
         value: value,
         onChanged: onChanged,
@@ -240,20 +297,26 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
           ),
           child: Icon(icon, color: AppTheme.accentPurple, size: 20),
         ),
-        title: Text(title,
-            style: const TextStyle(
-                color: AppTheme.starWhite,
-                fontSize: 15,
-                fontWeight: FontWeight.w600)),
+        title: Text(
+          title,
+          style: const TextStyle(
+            color: AppTheme.starWhite,
+            fontSize: 15,
+            fontWeight: FontWeight.w600,
+          ),
+        ),
         subtitle: subtitle != null
-            ? Text(subtitle,
+            ? Text(
+                subtitle,
                 style: TextStyle(
-                    color: AppTheme.dimGray.withOpacity(0.7), fontSize: 12))
+                  color: AppTheme.dimGray.withOpacity(0.7),
+                  fontSize: 12,
+                ),
+              )
             : null,
         trailing: trailing ??
             (onTap != null
-                ? const Icon(Icons.arrow_forward_ios,
-                    size: 16, color: AppTheme.dimGray)
+                ? const Icon(Icons.arrow_forward_ios, size: 16, color: AppTheme.dimGray)
                 : null),
         onTap: onTap,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
@@ -284,21 +347,27 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
             ),
             child: Icon(icon, color: Colors.amber.shade400, size: 20),
           ),
-          title: Text(title,
-              style: const TextStyle(
-                  color: AppTheme.starWhite,
-                  fontSize: 15,
-                  fontWeight: FontWeight.w600)),
+          title: Text(
+            title,
+            style: const TextStyle(
+              color: AppTheme.starWhite,
+              fontSize: 15,
+              fontWeight: FontWeight.w600,
+            ),
+          ),
           iconColor: AppTheme.dimGray,
           collapsedIconColor: AppTheme.dimGray,
           children: [
             Padding(
               padding: const EdgeInsets.only(left: 16, right: 16, bottom: 16),
-              child: Text(content,
-                  style: TextStyle(
-                      color: AppTheme.dimGray.withOpacity(0.8),
-                      fontSize: 13,
-                      height: 1.6)),
+              child: Text(
+                content,
+                style: TextStyle(
+                  color: AppTheme.dimGray.withOpacity(0.8),
+                  fontSize: 13,
+                  height: 1.6,
+                ),
+              ),
             ),
           ],
         ),
@@ -306,8 +375,12 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
     );
   }
 
-  Widget _buildLanguageTile(BuildContext context, WidgetRef ref,
-      String currentLang, AppLocalizations l) {
+  Widget _buildLanguageTile(
+    BuildContext context,
+    WidgetRef ref,
+    String currentLang,
+    AppLocalizations l,
+  ) {
     return Container(
       margin: const EdgeInsets.only(bottom: 8),
       decoration: BoxDecoration(
@@ -322,14 +395,16 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
             color: AppTheme.accentPurple.withOpacity(0.12),
             borderRadius: BorderRadius.circular(10),
           ),
-          child: const Icon(Icons.language,
-              color: AppTheme.accentPurple, size: 20),
+          child: const Icon(Icons.language, color: AppTheme.accentPurple, size: 20),
         ),
-        title: Text(l.language,
-            style: const TextStyle(
-                color: AppTheme.starWhite,
-                fontSize: 15,
-                fontWeight: FontWeight.w600)),
+        title: Text(
+          l.language,
+          style: const TextStyle(
+            color: AppTheme.starWhite,
+            fontSize: 15,
+            fontWeight: FontWeight.w600,
+          ),
+        ),
         trailing: Container(
           padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
           decoration: BoxDecoration(
@@ -357,161 +432,6 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
         ),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
       ),
-    );
-  }
-
-  void _showPurchaseDialog(
-      BuildContext context, WidgetRef ref, AppLocalizations l) {
-    showDialog(
-      context: context,
-      builder: (ctx) => AlertDialog(
-        backgroundColor: AppTheme.cardDark,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-        title: Text(l.removeAds,
-            style: const TextStyle(color: AppTheme.starWhite)),
-        content: Text(l.purchaseDialogContent,
-            style: const TextStyle(color: AppTheme.dimGray)),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(ctx),
-            child: Text(l.cancel),
-          ),
-          ElevatedButton(
-            onPressed: () async {
-              Navigator.pop(ctx);
-
-              final iapService = ref.read(iapServiceProvider);
-              final storageService = ref.read(storageServiceProvider);
-              final messenger = ScaffoldMessenger.of(context);
-
-              final result = await iapService.purchaseAdRemoval();
-              if (!context.mounted) return;
-
-              if (result.isSuccess) {
-                storageService.isAdFree = true;
-                ref.read(isAdFreeProvider.notifier).state = true;
-                messenger.showSnackBar(
-                  SnackBar(content: Text(l.purchaseSuccess)),
-                );
-                return;
-              }
-
-              final message = switch (result.status) {
-                IapActionStatus.cancelled => l.purchaseCancelled,
-                IapActionStatus.unavailable => l.iapUnavailable,
-                IapActionStatus.productNotFound => l.purchaseFailed,
-                IapActionStatus.failed =>
-                  result.isNetworkError ? l.networkError : l.purchaseFailed,
-                IapActionStatus.success => l.purchaseSuccess,
-              };
-
-              messenger.showSnackBar(SnackBar(content: Text(message)));
-            key: purchaseConfirmButtonKey,
-            onPressed: () async {
-              Navigator.pop(ctx);
-              final success =
-                  await ref.read(iapServiceProvider).purchaseAdRemoval();
-              if (success) {
-                ref.read(isAdFreeProvider.notifier).state = true;
-                ref.read(storageServiceProvider).isAdFree = true;
-              }
-
-              if (!context.mounted) return;
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(content: Text(success ? l.removeAdsComplete : l.testMode)),
-              );
-            onPressed: () async {
-              Navigator.pop(ctx);
-              final iapService = ref.read(iapServiceProvider);
-              final result = await iapService.purchaseAdRemoval();
-
-              if (!context.mounted) {
-                return;
-              }
-
-              _handleIapResult(context, ref, l, result, isRestore: false);
-            },
-            child: Text(l.purchaseButton),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Future<void> _restorePurchases(
-      BuildContext context, WidgetRef ref, AppLocalizations l) async {
-    final iapService = ref.read(iapServiceProvider);
-    final storageService = ref.read(storageServiceProvider);
-
-    final messenger = ScaffoldMessenger.of(context);
-    final result = await iapService.restorePurchases();
-
-    if (!context.mounted) return;
-
-    if (result.isSuccess) {
-      storageService.isAdFree = true;
-      ref.read(isAdFreeProvider.notifier).state = true;
-      messenger.showSnackBar(SnackBar(content: Text(l.restoreSuccess)));
-      return;
-    }
-
-    final message = switch (result.status) {
-      IapActionStatus.cancelled => l.purchaseCancelled,
-      IapActionStatus.unavailable => l.iapUnavailable,
-      IapActionStatus.productNotFound => l.restoreFailed,
-      IapActionStatus.failed =>
-        result.isNetworkError ? l.networkError : l.restoreFailed,
-      IapActionStatus.success => l.restoreSuccess,
-    };
-
-    messenger.showSnackBar(SnackBar(content: Text(message)));
-    final restored = await ref.read(iapServiceProvider).restorePurchases();
-    if (restored) {
-      ref.read(isAdFreeProvider.notifier).state = true;
-      ref.read(storageServiceProvider).isAdFree = true;
-    }
-
-    if (!context.mounted) return;
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text(restored ? l.removeAdsComplete : l.testModeRestore)),
-    final iapService = ref.read(iapServiceProvider);
-    final result = await iapService.restorePurchases();
-
-    if (!context.mounted) {
-      return;
-    }
-
-    _handleIapResult(context, ref, l, result, isRestore: true);
-  }
-
-  void _handleIapResult(BuildContext context, WidgetRef ref, AppLocalizations l,
-      IapResult result,
-      {required bool isRestore}) {
-    String message;
-
-    switch (result.status) {
-      case IapResultStatus.success:
-      case IapResultStatus.restored:
-        ref.read(storageServiceProvider).isAdFree = true;
-        ref.read(isAdFreeProvider.notifier).state = true;
-        message = l.removeAdsComplete;
-        break;
-      case IapResultStatus.canceled:
-        message = l.purchaseCancelled;
-        break;
-      case IapResultStatus.networkError:
-        message = l.networkError;
-        break;
-      case IapResultStatus.unavailable:
-        message = isRestore ? l.testModeRestore : l.testMode;
-        break;
-      case IapResultStatus.failed:
-        message = isRestore ? l.testModeRestore : l.testMode;
-        break;
-    }
-
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text(message)),
     );
   }
 }

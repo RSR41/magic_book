@@ -38,13 +38,6 @@ dependencies:
 
   # Audio
   audioplayers: ^6.0.0
-  in_app_purchase: ^3.2.0
-
-  # Ads
-  google_mobile_ads: ^5.2.0
-
-  # Ads
-  google_mobile_ads: ^5.2.0
 
   # Ads
   google_mobile_ads: ^5.2.0
@@ -53,6 +46,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_launcher_icons: "^0.13.1"
+  flutter_lints: ^3.0.0
 
 flutter_launcher_icons:
   android: "launcher_icon"
@@ -67,8 +61,6 @@ flutter_launcher_icons:
     image_path: "assets/images/app_icon.png"
     background_color: "#1E1E2C"
     theme_color: "#1E1E2C"
-
-  flutter_lints: ^3.0.0
 
 flutter:
   generate: true

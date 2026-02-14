@@ -23,6 +23,12 @@ if (flutterVersionName == null) {
     flutterVersionName = "1.0"
 }
 
+def admobAppId = localProperties.getProperty("admob.appId")
+if (admobAppId == null || admobAppId.trim().isEmpty()) {
+    // Test app ID fallback so local debug does not crash.
+    // Replace with production App ID before store submission.
+    admobAppId = "ca-app-pub-3940256099942544~3347511713"
+}
 
 def keystoreProperties = new Properties()
 def keystorePropertiesFile = rootProject.file("key.properties")
@@ -43,14 +49,12 @@ android {
     }
 
     defaultConfig {
-        // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
         applicationId = "com.magicanswerbook.magic_answer_book"
-        // You can update the following values to match your application needs.
-        // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-gradle-build-configuration.
         minSdk = flutter.minSdkVersion
         targetSdk = flutter.targetSdkVersion
         versionCode = flutterVersionCode.toInteger()
         versionName = flutterVersionName
+        manifestPlaceholders = [ADMOB_APP_ID: admobAppId]
     }
 
     signingConfigs {
@@ -59,16 +63,13 @@ android {
             keyPassword = keystoreProperties['keyPassword']
             storeFile = keystoreProperties['storeFile'] ? file(keystoreProperties['storeFile']) : null
             storePassword = keystoreProperties['storePassword']
-            keyAlias keystoreProperties["keyAlias"]
-            keyPassword keystoreProperties["keyPassword"]
-            storeFile keystoreProperties["storeFile"] ? file(keystoreProperties["storeFile"]) : null
-            storePassword keystoreProperties["storePassword"]
         }
     }
 
     buildTypes {
         release {
-            signingConfig = signingConfigs.release
+            // If key.properties is missing, this falls back to debug signing.
+            signingConfig = signingConfigs.release.storeFile != null ? signingConfigs.release : signingConfigs.debug
         }
     }
 

@@ -111,13 +111,15 @@ class AppLocalizationsZh extends AppLocalizations {
   String get privacyPolicy => '隐私政策';
 
   @override
-  String get privacyPolicyText => '本应用不收集个人信息。\n所有数据仅保存在本地。\n可离线使用。';
+  String get privacyPolicyText =>
+      '本应用无需注册，问题/回答数据仅保存在设备本地。\n展示广告时，广告服务商（如 AdMob）可能会处理广告标识符等设备标识信息。\n购买去广告时，应用内购服务商可能会处理支付校验所需的信息。';
 
   @override
   String get termsOfService => '服务条款';
 
   @override
-  String get termsOfServiceText => '回答仅供娱乐参考。\n用户需对基于回答做出的决定负责。';
+  String get termsOfServiceText =>
+      '回答仅用于娱乐与参考。\n涉及医疗、法律、投资等重要决定时，请务必咨询专业人士。\n用户需自行承担基于回答作出决定及其结果的责任。';
 
   @override
   String get version => '版本';

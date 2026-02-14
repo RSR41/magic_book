@@ -1,2 +1,5 @@
 #include? "Pods/Target Support Files/Pods-Runner/Pods-Runner.release.xcconfig"
 #include "Generated.xcconfig"
+
+// Replace with production App ID before App Store submission.
+GAD_APPLICATION_ID=ca-app-pub-REPLACE_ME~REPLACE_ME

@@ -50,3 +50,50 @@
 
 - [ ] 상품 ID 문자열 오탈자(대소문자/언더스코어 포함) 없음
 - [ ] 콘솔에서 상품 생성만 하고 "활성화/검토 제출" 단계를 누락하지 않음
+
+## 5) 광고(AdMob) 운영값 반영 체크
+
+- [ ] Android App ID: `android/local.properties`에 운영값 추가
+  - `admob.appId=ca-app-pub-xxxxxxxxxxxxxxxx~yyyyyyyyyy`
+- [ ] iOS App ID: `ios/Flutter/Release.xcconfig`의 아래 값을 운영값으로 교체
+  - `GAD_APPLICATION_ID=ca-app-pub-xxxxxxxxxxxxxxxx~yyyyyyyyyy`
+- [ ] 광고 단위 ID는 빌드 시 `--dart-define`로 주입
+  - `ANDROID_BANNER_AD_UNIT_ID`
+  - `IOS_BANNER_AD_UNIT_ID`
+  - `ANDROID_INTERSTITIAL_AD_UNIT_ID`
+  - `IOS_INTERSTITIAL_AD_UNIT_ID`
+- [ ] 테스트용 App ID(`ca-app-pub-3940256099942544~...`)가 릴리즈 빌드에 남아있지 않음
+
+## 6) Android 서명키/릴리즈 준비 체크
+
+- [ ] `android/app/upload-keystore.jks` 백업 완료(별도 안전한 저장소)
+- [ ] `android/key.properties` 값 확인
+  - `storeFile=app/upload-keystore.jks`
+  - `keyAlias=upload`
+- [ ] `key.properties`는 외부 유출 금지(사내 비밀관리/패스워드 매니저 보관)
+
+## 7) 실제 실행 점검 (Windows CMD 권장)
+
+프로젝트 루트(`C:\Users\qkrtj\magic\magic_answer_book`)에서:
+
+```bat
+flutter clean
+flutter pub get
+flutter run -d chrome
+```
+
+Android 릴리즈 검증:
+
+```bat
+flutter build appbundle --release ^
+  --dart-define=ANDROID_BANNER_AD_UNIT_ID=ca-app-pub-xxxxxxxxxxxxxxxx/xxxxxxxxxx ^
+  --dart-define=ANDROID_INTERSTITIAL_AD_UNIT_ID=ca-app-pub-xxxxxxxxxxxxxxxx/xxxxxxxxxx
+```
+
+iOS 릴리즈(맥에서 실행):
+
+```bash
+flutter build ipa --release \
+  --dart-define=IOS_BANNER_AD_UNIT_ID=ca-app-pub-xxxxxxxxxxxxxxxx/xxxxxxxxxx \
+  --dart-define=IOS_INTERSTITIAL_AD_UNIT_ID=ca-app-pub-xxxxxxxxxxxxxxxx/xxxxxxxxxx
+```

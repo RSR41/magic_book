@@ -113,13 +113,14 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get privacyPolicyText =>
-      '本アプリは個人情報を収集しません。\nすべてのデータは端末内に保存されます。\nオフラインで動作します。';
+      '本アプリは会員登録を必要とせず、質問・回答データは端末内に保存されます。\n広告表示時には、広告配信事業者（例: AdMob）が広告ID等の端末識別子を処理する場合があります。\n広告削除のアプリ内課金では、決済検証に必要な情報を課金事業者が処理する場合があります。';
 
   @override
   String get termsOfService => '利用規約';
 
   @override
-  String get termsOfServiceText => '回答は娯楽目的で提供されます。\n決定に対する責任は利用者にあります。';
+  String get termsOfServiceText =>
+      '回答は娯楽・参考目的で提供されます。\n医療・法律・投資などの重要な判断は、必ず専門家にご相談ください。\n回答に基づく意思決定とその結果の責任は利用者にあります。';
 
   @override
   String get version => 'バージョン';

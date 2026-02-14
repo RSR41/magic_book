@@ -15,14 +15,16 @@ final storageServiceProvider = Provider<StorageService>((ref) {
   return StorageService();
 });
 
-final adsServiceProvider = ChangeNotifierProvider<AdsService>((ref) {
+final adsServiceProvider = Provider<AdsService>((ref) {
   final adsService = AdsService();
   ref.onDispose(adsService.dispose);
   return adsService;
 });
 
 final iapServiceProvider = Provider<IapService>((ref) {
-  return IapService();
+  final service = IapService();
+  ref.onDispose(service.dispose);
+  return service;
 });
 
 // ─── Settings Providers ───

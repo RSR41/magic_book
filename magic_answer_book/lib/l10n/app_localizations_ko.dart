@@ -113,14 +113,14 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get privacyPolicyText =>
-      '본 앱은 개인 정보를 수집하지 않습니다.\n모든 데이터는 기기에 로컬로 저장됩니다.\n네트워크 연결 없이 오프라인으로 동작합니다.';
+      '본 앱은 회원가입을 요구하지 않으며, 질문/답변 데이터는 기기에 로컬 저장됩니다.\n광고가 표시될 때 광고 제공사(예: AdMob)가 광고 ID 등 기기 식별자를 처리할 수 있습니다.\n광고 제거 구매 시 인앱결제 제공사가 결제 검증에 필요한 정보를 처리할 수 있습니다.';
 
   @override
   String get termsOfService => '이용약관';
 
   @override
   String get termsOfServiceText =>
-      '본 앱의 답변은 오락/참고 목적으로 제공됩니다.\n답변에 대한 법적 책임은 사용자에게 있습니다.\n의료·법률·투자 등 전문적 판단은 전문가 상담을 이용해 주세요.';
+      '본 앱의 답변은 오락/참고 목적으로 제공됩니다.\n의료·법률·투자 등 전문적 판단은 반드시 전문가 상담을 이용해 주세요.\n답변을 근거로 한 결정과 결과의 책임은 사용자에게 있습니다.';
 
   @override
   String get version => '버전';

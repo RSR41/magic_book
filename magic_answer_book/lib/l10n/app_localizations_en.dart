@@ -114,14 +114,14 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get privacyPolicyText =>
-      'This app does not collect any personal information.\nAll data is stored locally on your device.\nThe app works entirely offline.';
+      'This app does not require sign-up, and question/answer data is stored locally on your device.\nWhen ads are shown, the ad provider (e.g., AdMob) may process device identifiers such as the advertising ID.\nFor ad-removal purchases, the in-app purchase provider may process data required for payment verification.';
 
   @override
   String get termsOfService => 'Terms of Service';
 
   @override
   String get termsOfServiceText =>
-      'Answers provided by this app are for entertainment purposes only.\nThe user assumes all responsibility for decisions made based on answers.\nPlease consult professionals for medical, legal, or financial matters.';
+      'Answers provided by this app are for entertainment and reference only.\nFor medical, legal, or financial decisions, please consult a qualified professional.\nUsers are responsible for decisions and outcomes based on app answers.';
 
   @override
   String get version => 'Version';

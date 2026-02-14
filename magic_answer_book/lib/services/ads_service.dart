@@ -15,17 +15,23 @@ class AdsService {
 
   String get bannerAdUnitId {
     if (kIsWeb) return '';
-    if (Platform.isAndroid) return 'ca-app-pub-xxxxxxxxxxxxxxxx/banner_android';
-    if (Platform.isIOS) return 'ca-app-pub-xxxxxxxxxxxxxxxx/banner_ios';
+    if (Platform.isAndroid) {
+      return const String.fromEnvironment('ANDROID_BANNER_AD_UNIT_ID');
+    }
+    if (Platform.isIOS) {
+      return const String.fromEnvironment('IOS_BANNER_AD_UNIT_ID');
+    }
     return '';
   }
 
   String get interstitialAdUnitId {
     if (kIsWeb) return '';
     if (Platform.isAndroid) {
-      return 'ca-app-pub-xxxxxxxxxxxxxxxx/interstitial_android';
+      return const String.fromEnvironment('ANDROID_INTERSTITIAL_AD_UNIT_ID');
     }
-    if (Platform.isIOS) return 'ca-app-pub-xxxxxxxxxxxxxxxx/interstitial_ios';
+    if (Platform.isIOS) {
+      return const String.fromEnvironment('IOS_INTERSTITIAL_AD_UNIT_ID');
+    }
     return '';
   }
 
