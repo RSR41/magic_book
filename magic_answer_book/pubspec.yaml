@@ -46,6 +46,9 @@ dependencies:
   # Ads
   google_mobile_ads: ^5.2.0
 
+  # Ads
+  google_mobile_ads: ^5.2.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
