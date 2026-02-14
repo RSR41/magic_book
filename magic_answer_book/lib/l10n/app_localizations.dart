@@ -435,7 +435,7 @@ abstract class AppLocalizations {
   /// No description provided for @purchaseDialogContent.
   ///
   /// In ko, this message translates to:
-  /// **'₩4,990 (영구)\n\n모든 광고를 영구적으로 제거합니다.\n\n※ 현재 테스트 모드입니다.'**
+  /// **'₩4,990 (영구)\n\n모든 광고를 영구적으로 제거합니다.'**
   String get purchaseDialogContent;
 
   /// No description provided for @purchaseButton.

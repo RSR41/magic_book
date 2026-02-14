@@ -181,7 +181,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get purchaseDialogContent =>
-      '\$4.99 (Lifetime)\n\nRemove all ads permanently.\n\n※ Currently in test mode.';
+      '\$4.99 (Lifetime)\n\nRemove all ads permanently.';
 
   @override
   String get purchaseButton => 'Purchase';

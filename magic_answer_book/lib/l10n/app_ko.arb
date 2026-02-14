@@ -55,7 +55,7 @@
   "networkError": "네트워크를 확인해 주세요.",
   "testMode": "테스트 모드: 실제 결제는 스토어 등록 후 가능합니다.",
   "testModeRestore": "테스트 모드: 구매 복원은 스토어 등록 후 가능합니다.",
-  "purchaseDialogContent": "₩4,990 (영구)\n\n모든 광고를 영구적으로 제거합니다.\n\n※ 현재 테스트 모드입니다.",
+  "purchaseDialogContent": "₩4,990 (영구)\n\n모든 광고를 영구적으로 제거합니다.",
   "purchaseButton": "구매하기",
   "searchingAnswer": "답을 찾고 있어요...",
   "shareFormat": "Q: {question}\nA: {answer} — {subtext}\n\n— 마법의 고민해결책",

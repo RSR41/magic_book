@@ -55,7 +55,7 @@
   "networkError": "Please check your network connection.",
   "testMode": "Test mode: payments available after store registration.",
   "testModeRestore": "Test mode: restore available after store registration.",
-  "purchaseDialogContent": "$4.99 (Lifetime)\n\nRemove all ads permanently.\n\n※ Currently in test mode.",
+  "purchaseDialogContent": "$4.99 (Lifetime)\n\nRemove all ads permanently.",
   "purchaseButton": "Purchase",
   "searchingAnswer": "Finding your answer...",
   "shareFormat": "Q: {question}\nA: {answer} — {subtext}\n\n— Magic Answer Book",

@@ -55,7 +55,7 @@
   "networkError": "请检查网络连接。",
   "testMode": "测试模式：上架后可用。",
   "testModeRestore": "测试模式：上架后可用恢复功能。",
-  "purchaseDialogContent": "¥30.00 (永久)\n\n永久移除所有广告。\n\n※ 当前为测试模式。",
+  "purchaseDialogContent": "¥30.00 (永久)\n\n永久移除所有广告。",
   "purchaseButton": "购买",
   "searchingAnswer": "正在寻找答案...",
   "shareFormat": "Q: {question}\nA: {answer} — {subtext}\n\n— 魔法解答书",

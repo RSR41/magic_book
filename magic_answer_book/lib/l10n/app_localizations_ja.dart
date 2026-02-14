@@ -178,7 +178,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get purchaseDialogContent =>
-      '¥490 (永久)\n\n広告を永久に削除します。\n\n※ 現在テストモードです。';
+      '¥490 (永久)\n\n広告を永久に削除します。';
 
   @override
   String get purchaseButton => '購入する';

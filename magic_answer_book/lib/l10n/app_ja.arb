@@ -55,7 +55,7 @@
   "networkError": "ネットワークを確認してください。",
   "testMode": "テストモード: ストア登録後に利用可能です。",
   "testModeRestore": "テストモード: 復元はストア登録後に利用可能です。",
-  "purchaseDialogContent": "¥490 (永久)\n\n広告を永久に削除します。\n\n※ 現在テストモードです。",
+  "purchaseDialogContent": "¥490 (永久)\n\n広告を永久に削除します。",
   "purchaseButton": "購入する",
   "searchingAnswer": "答えを探しています...",
   "shareFormat": "Q: {question}\nA: {answer} — {subtext}\n\n— 魔法の解決策",

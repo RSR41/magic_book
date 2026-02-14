@@ -178,7 +178,7 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get purchaseDialogContent =>
-      '₩4,990 (영구)\n\n모든 광고를 영구적으로 제거합니다.\n\n※ 현재 테스트 모드입니다.';
+      '₩4,990 (영구)\n\n모든 광고를 영구적으로 제거합니다.';
 
   @override
   String get purchaseButton => '구매하기';

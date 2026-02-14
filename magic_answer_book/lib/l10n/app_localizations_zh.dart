@@ -176,7 +176,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get testModeRestore => '测试模式：上架后可用恢复功能。';
 
   @override
-  String get purchaseDialogContent => '¥30.00 (永久)\n\n永久移除所有广告。\n\n※ 当前为测试模式。';
+  String get purchaseDialogContent => '¥30.00 (永久)\n\n永久移除所有广告。';
 
   @override
   String get purchaseButton => '购买';
